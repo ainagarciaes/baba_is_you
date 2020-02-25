@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/tbe.dir/Game.cpp.o CMakeFiles/tbe.dir/Scene.cpp.o CMakeFiles/tbe.dir/Shader.cpp.o CMakeFiles/tbe.dir/ShaderProgram.cpp.o CMakeFiles/tbe.dir/Texture.cpp.o CMakeFiles/tbe.dir/TileMap.cpp.o CMakeFiles/tbe.dir/main.cpp.o  -o tbe /usr/local/lib/libSOIL.a -lGL -lGLU -lglut -lGLEW 

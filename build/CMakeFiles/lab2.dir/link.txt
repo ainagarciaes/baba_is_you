@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/lab2.dir/Game.cpp.o CMakeFiles/lab2.dir/Scene.cpp.o CMakeFiles/lab2.dir/Shader.cpp.o CMakeFiles/lab2.dir/ShaderProgram.cpp.o CMakeFiles/lab2.dir/Texture.cpp.o CMakeFiles/lab2.dir/TileMap.cpp.o CMakeFiles/lab2.dir/main.cpp.o  -o lab2 -lGL -lGLU -lglut -lGLEW 
