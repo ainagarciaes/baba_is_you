@@ -4,14 +4,11 @@
 #include <vector>
 #include "TileMap.h"
 
-
 using namespace std;
-
 
 TileMap *TileMap::createTileMap(const string &levelFile, const glm::vec2 &minCoords, ShaderProgram &program)
 {
 	TileMap *map = new TileMap(levelFile, minCoords, program);
-	
 	return map;
 }
 
@@ -80,21 +77,20 @@ bool TileMap::loadLevel(const string &levelFile)
 	map = new int[mapSize.x * mapSize.y];
 	for(int j=0; j<mapSize.y; j++)
 	{
+		getline(fin, line);
+    	std::string buf;                 // Have a buffer string
+    	std::stringstream ss(line);       // Insert the string into a stream
+
+    	std::vector<std::string> tokens; // Create vector to hold our words
+
+    	while (ss >> buf)
+        tokens.push_back(buf);
 		for(int i=0; i<mapSize.x; i++)
 		{
-			fin.get(tile);
-			if(tile == ' ')
-				map[j*mapSize.x+i] = 0;
-			else
-				map[j*mapSize.x+i] = tile - int('0');
+			map[j*mapSize.x+i] = std::stoi(tokens[i]);
 		}
-		fin.get(tile);
-#ifndef _WIN32
-		fin.get(tile);
-#endif
 	}
 	fin.close();
-	
 	return true;
 }
 
@@ -110,30 +106,40 @@ void TileMap::prepareArrays(const glm::vec2 &minCoords, ShaderProgram &program)
 		for(int i=0; i<mapSize.x; i++)
 		{
 			tile = map[j * mapSize.x + i];
-			if(tile != 0)
-			{
-				// Non-empty tile
-				nTiles++;
-				posTile = glm::vec2(minCoords.x + i * tileSize, minCoords.y + j * tileSize);
-				texCoordTile[0] = glm::vec2(float((tile-1)%2) / tilesheetSize.x, float((tile-1)/2) / tilesheetSize.y);
-				texCoordTile[1] = texCoordTile[0] + tileTexSize;
-				//texCoordTile[0] += halfTexel;
-				texCoordTile[1] -= halfTexel;
-				// First triangle
-				vertices.push_back(posTile.x); vertices.push_back(posTile.y);
-				vertices.push_back(texCoordTile[0].x); vertices.push_back(texCoordTile[0].y);
-				vertices.push_back(posTile.x + blockSize); vertices.push_back(posTile.y);
-				vertices.push_back(texCoordTile[1].x); vertices.push_back(texCoordTile[0].y);
-				vertices.push_back(posTile.x + blockSize); vertices.push_back(posTile.y + blockSize);
-				vertices.push_back(texCoordTile[1].x); vertices.push_back(texCoordTile[1].y);
-				// Second triangle
-				vertices.push_back(posTile.x); vertices.push_back(posTile.y);
-				vertices.push_back(texCoordTile[0].x); vertices.push_back(texCoordTile[0].y);
-				vertices.push_back(posTile.x + blockSize); vertices.push_back(posTile.y + blockSize);
-				vertices.push_back(texCoordTile[1].x); vertices.push_back(texCoordTile[1].y);
-				vertices.push_back(posTile.x); vertices.push_back(posTile.y + blockSize);
-				vertices.push_back(texCoordTile[0].x); vertices.push_back(texCoordTile[1].y);
-			}
+
+			// Non-empty tile
+			nTiles++;
+			posTile = glm::vec2(minCoords.x + i * tileSize, minCoords.y + j * tileSize);
+
+			// calculate tile Xoffset from tileID
+			float initialX;
+			int aux;
+			aux = (tile)%tilesheetSize.x;
+			initialX = aux*1.0f/tilesheetSize.x;
+
+			// calculate tile Yoffset from tileID
+			float initialY;
+			aux = (tile)/tilesheetSize.x;
+			initialY = aux*1.0f / tilesheetSize.y;
+
+			texCoordTile[0] = glm::vec2(initialX, initialY);
+			texCoordTile[1] = texCoordTile[0] + tileTexSize;
+			//texCoordTile[0] += halfTexel;
+			texCoordTile[1] -= halfTexel;
+			// First triangle
+			vertices.push_back(posTile.x); vertices.push_back(posTile.y);
+			vertices.push_back(texCoordTile[0].x); vertices.push_back(texCoordTile[0].y);
+			vertices.push_back(posTile.x + blockSize); vertices.push_back(posTile.y);
+			vertices.push_back(texCoordTile[1].x); vertices.push_back(texCoordTile[0].y);
+			vertices.push_back(posTile.x + blockSize); vertices.push_back(posTile.y + blockSize);
+			vertices.push_back(texCoordTile[1].x); vertices.push_back(texCoordTile[1].y);
+			// Second triangle
+			vertices.push_back(posTile.x); vertices.push_back(posTile.y);
+			vertices.push_back(texCoordTile[0].x); vertices.push_back(texCoordTile[0].y);
+			vertices.push_back(posTile.x + blockSize); vertices.push_back(posTile.y + blockSize);
+			vertices.push_back(texCoordTile[1].x); vertices.push_back(texCoordTile[1].y);
+			vertices.push_back(posTile.x); vertices.push_back(posTile.y + blockSize);
+			vertices.push_back(texCoordTile[0].x); vertices.push_back(texCoordTile[1].y);
 		}
 	}
 
@@ -145,6 +151,7 @@ void TileMap::prepareArrays(const glm::vec2 &minCoords, ShaderProgram &program)
 	posLocation = program.bindVertexAttribute("position", 2, 4*sizeof(float), 0);
 	texCoordLocation = program.bindVertexAttribute("texCoord", 2, 4*sizeof(float), (void *)(2*sizeof(float)));
 }
+
 
 
 
