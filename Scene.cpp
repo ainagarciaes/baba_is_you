@@ -20,7 +20,6 @@ void Scene::init()
 {
 	initShaders();
 	map = TileMap::createTileMap("../levels/level01.txt", glm::vec2(32, 16), texProgram);
-	std::cout << "1" << std::endl;
 	projection = glm::ortho(0.f, float(CAMERA_WIDTH - 1), float(CAMERA_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;
 }
@@ -47,6 +46,7 @@ void Scene::initShaders()
 	Shader vShader, fShader;
 
 	vShader.initFromFile(VERTEX_SHADER, "../shaders/texture.vert");
+
 	if(!vShader.isCompiled())
 	{
 		cout << "Vertex Shader Error" << endl;
@@ -67,6 +67,7 @@ void Scene::initShaders()
 		cout << "Shader Linking Error" << endl;
 		cout << "" << texProgram.log() << endl << endl;
 	}
+		std::cout << "1" << std::endl;
 	texProgram.bindFragmentOutput("outColor");
 	vShader.free();
 	fShader.free();

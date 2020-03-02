@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/auri/Documents/UNI/VJ/01-TBE/01-TBE
+CMAKE_SOURCE_DIR = /home/auri/Documents/UNI/VJ/baba_is_you
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/build
+CMAKE_BINARY_DIR = /home/auri/Documents/UNI/VJ/baba_is_you/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/tbe.dir/depend.make
@@ -59,101 +59,129 @@ include CMakeFiles/tbe.dir/flags.make
 
 CMakeFiles/tbe.dir/Game.cpp.o: CMakeFiles/tbe.dir/flags.make
 CMakeFiles/tbe.dir/Game.cpp.o: ../Game.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/auri/Documents/UNI/VJ/01-TBE/01-TBE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/tbe.dir/Game.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tbe.dir/Game.cpp.o -c /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/Game.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/tbe.dir/Game.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tbe.dir/Game.cpp.o -c /home/auri/Documents/UNI/VJ/baba_is_you/Game.cpp
 
 CMakeFiles/tbe.dir/Game.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tbe.dir/Game.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/Game.cpp > CMakeFiles/tbe.dir/Game.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/auri/Documents/UNI/VJ/baba_is_you/Game.cpp > CMakeFiles/tbe.dir/Game.cpp.i
 
 CMakeFiles/tbe.dir/Game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tbe.dir/Game.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/Game.cpp -o CMakeFiles/tbe.dir/Game.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/auri/Documents/UNI/VJ/baba_is_you/Game.cpp -o CMakeFiles/tbe.dir/Game.cpp.s
+
+CMakeFiles/tbe.dir/Player.cpp.o: CMakeFiles/tbe.dir/flags.make
+CMakeFiles/tbe.dir/Player.cpp.o: ../Player.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tbe.dir/Player.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tbe.dir/Player.cpp.o -c /home/auri/Documents/UNI/VJ/baba_is_you/Player.cpp
+
+CMakeFiles/tbe.dir/Player.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tbe.dir/Player.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/auri/Documents/UNI/VJ/baba_is_you/Player.cpp > CMakeFiles/tbe.dir/Player.cpp.i
+
+CMakeFiles/tbe.dir/Player.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tbe.dir/Player.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/auri/Documents/UNI/VJ/baba_is_you/Player.cpp -o CMakeFiles/tbe.dir/Player.cpp.s
 
 CMakeFiles/tbe.dir/Scene.cpp.o: CMakeFiles/tbe.dir/flags.make
 CMakeFiles/tbe.dir/Scene.cpp.o: ../Scene.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/auri/Documents/UNI/VJ/01-TBE/01-TBE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tbe.dir/Scene.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tbe.dir/Scene.cpp.o -c /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/Scene.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/tbe.dir/Scene.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tbe.dir/Scene.cpp.o -c /home/auri/Documents/UNI/VJ/baba_is_you/Scene.cpp
 
 CMakeFiles/tbe.dir/Scene.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tbe.dir/Scene.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/Scene.cpp > CMakeFiles/tbe.dir/Scene.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/auri/Documents/UNI/VJ/baba_is_you/Scene.cpp > CMakeFiles/tbe.dir/Scene.cpp.i
 
 CMakeFiles/tbe.dir/Scene.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tbe.dir/Scene.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/Scene.cpp -o CMakeFiles/tbe.dir/Scene.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/auri/Documents/UNI/VJ/baba_is_you/Scene.cpp -o CMakeFiles/tbe.dir/Scene.cpp.s
 
 CMakeFiles/tbe.dir/Shader.cpp.o: CMakeFiles/tbe.dir/flags.make
 CMakeFiles/tbe.dir/Shader.cpp.o: ../Shader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/auri/Documents/UNI/VJ/01-TBE/01-TBE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/tbe.dir/Shader.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tbe.dir/Shader.cpp.o -c /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/Shader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/tbe.dir/Shader.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tbe.dir/Shader.cpp.o -c /home/auri/Documents/UNI/VJ/baba_is_you/Shader.cpp
 
 CMakeFiles/tbe.dir/Shader.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tbe.dir/Shader.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/Shader.cpp > CMakeFiles/tbe.dir/Shader.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/auri/Documents/UNI/VJ/baba_is_you/Shader.cpp > CMakeFiles/tbe.dir/Shader.cpp.i
 
 CMakeFiles/tbe.dir/Shader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tbe.dir/Shader.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/Shader.cpp -o CMakeFiles/tbe.dir/Shader.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/auri/Documents/UNI/VJ/baba_is_you/Shader.cpp -o CMakeFiles/tbe.dir/Shader.cpp.s
 
 CMakeFiles/tbe.dir/ShaderProgram.cpp.o: CMakeFiles/tbe.dir/flags.make
 CMakeFiles/tbe.dir/ShaderProgram.cpp.o: ../ShaderProgram.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/auri/Documents/UNI/VJ/01-TBE/01-TBE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/tbe.dir/ShaderProgram.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tbe.dir/ShaderProgram.cpp.o -c /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/ShaderProgram.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/tbe.dir/ShaderProgram.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tbe.dir/ShaderProgram.cpp.o -c /home/auri/Documents/UNI/VJ/baba_is_you/ShaderProgram.cpp
 
 CMakeFiles/tbe.dir/ShaderProgram.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tbe.dir/ShaderProgram.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/ShaderProgram.cpp > CMakeFiles/tbe.dir/ShaderProgram.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/auri/Documents/UNI/VJ/baba_is_you/ShaderProgram.cpp > CMakeFiles/tbe.dir/ShaderProgram.cpp.i
 
 CMakeFiles/tbe.dir/ShaderProgram.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tbe.dir/ShaderProgram.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/ShaderProgram.cpp -o CMakeFiles/tbe.dir/ShaderProgram.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/auri/Documents/UNI/VJ/baba_is_you/ShaderProgram.cpp -o CMakeFiles/tbe.dir/ShaderProgram.cpp.s
+
+CMakeFiles/tbe.dir/Sprite.cpp.o: CMakeFiles/tbe.dir/flags.make
+CMakeFiles/tbe.dir/Sprite.cpp.o: ../Sprite.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/tbe.dir/Sprite.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tbe.dir/Sprite.cpp.o -c /home/auri/Documents/UNI/VJ/baba_is_you/Sprite.cpp
+
+CMakeFiles/tbe.dir/Sprite.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tbe.dir/Sprite.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/auri/Documents/UNI/VJ/baba_is_you/Sprite.cpp > CMakeFiles/tbe.dir/Sprite.cpp.i
+
+CMakeFiles/tbe.dir/Sprite.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tbe.dir/Sprite.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/auri/Documents/UNI/VJ/baba_is_you/Sprite.cpp -o CMakeFiles/tbe.dir/Sprite.cpp.s
 
 CMakeFiles/tbe.dir/Texture.cpp.o: CMakeFiles/tbe.dir/flags.make
 CMakeFiles/tbe.dir/Texture.cpp.o: ../Texture.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/auri/Documents/UNI/VJ/01-TBE/01-TBE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/tbe.dir/Texture.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tbe.dir/Texture.cpp.o -c /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/Texture.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/tbe.dir/Texture.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tbe.dir/Texture.cpp.o -c /home/auri/Documents/UNI/VJ/baba_is_you/Texture.cpp
 
 CMakeFiles/tbe.dir/Texture.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tbe.dir/Texture.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/Texture.cpp > CMakeFiles/tbe.dir/Texture.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/auri/Documents/UNI/VJ/baba_is_you/Texture.cpp > CMakeFiles/tbe.dir/Texture.cpp.i
 
 CMakeFiles/tbe.dir/Texture.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tbe.dir/Texture.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/Texture.cpp -o CMakeFiles/tbe.dir/Texture.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/auri/Documents/UNI/VJ/baba_is_you/Texture.cpp -o CMakeFiles/tbe.dir/Texture.cpp.s
 
 CMakeFiles/tbe.dir/TileMap.cpp.o: CMakeFiles/tbe.dir/flags.make
 CMakeFiles/tbe.dir/TileMap.cpp.o: ../TileMap.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/auri/Documents/UNI/VJ/01-TBE/01-TBE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/tbe.dir/TileMap.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tbe.dir/TileMap.cpp.o -c /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/TileMap.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/tbe.dir/TileMap.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tbe.dir/TileMap.cpp.o -c /home/auri/Documents/UNI/VJ/baba_is_you/TileMap.cpp
 
 CMakeFiles/tbe.dir/TileMap.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tbe.dir/TileMap.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/TileMap.cpp > CMakeFiles/tbe.dir/TileMap.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/auri/Documents/UNI/VJ/baba_is_you/TileMap.cpp > CMakeFiles/tbe.dir/TileMap.cpp.i
 
 CMakeFiles/tbe.dir/TileMap.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tbe.dir/TileMap.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/TileMap.cpp -o CMakeFiles/tbe.dir/TileMap.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/auri/Documents/UNI/VJ/baba_is_you/TileMap.cpp -o CMakeFiles/tbe.dir/TileMap.cpp.s
 
 CMakeFiles/tbe.dir/main.cpp.o: CMakeFiles/tbe.dir/flags.make
 CMakeFiles/tbe.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/auri/Documents/UNI/VJ/01-TBE/01-TBE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/tbe.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tbe.dir/main.cpp.o -c /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/tbe.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tbe.dir/main.cpp.o -c /home/auri/Documents/UNI/VJ/baba_is_you/main.cpp
 
 CMakeFiles/tbe.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tbe.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/main.cpp > CMakeFiles/tbe.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/auri/Documents/UNI/VJ/baba_is_you/main.cpp > CMakeFiles/tbe.dir/main.cpp.i
 
 CMakeFiles/tbe.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tbe.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/main.cpp -o CMakeFiles/tbe.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/auri/Documents/UNI/VJ/baba_is_you/main.cpp -o CMakeFiles/tbe.dir/main.cpp.s
 
 # Object files for target tbe
 tbe_OBJECTS = \
 "CMakeFiles/tbe.dir/Game.cpp.o" \
+"CMakeFiles/tbe.dir/Player.cpp.o" \
 "CMakeFiles/tbe.dir/Scene.cpp.o" \
 "CMakeFiles/tbe.dir/Shader.cpp.o" \
 "CMakeFiles/tbe.dir/ShaderProgram.cpp.o" \
+"CMakeFiles/tbe.dir/Sprite.cpp.o" \
 "CMakeFiles/tbe.dir/Texture.cpp.o" \
 "CMakeFiles/tbe.dir/TileMap.cpp.o" \
 "CMakeFiles/tbe.dir/main.cpp.o"
@@ -162,9 +190,11 @@ tbe_OBJECTS = \
 tbe_EXTERNAL_OBJECTS =
 
 tbe: CMakeFiles/tbe.dir/Game.cpp.o
+tbe: CMakeFiles/tbe.dir/Player.cpp.o
 tbe: CMakeFiles/tbe.dir/Scene.cpp.o
 tbe: CMakeFiles/tbe.dir/Shader.cpp.o
 tbe: CMakeFiles/tbe.dir/ShaderProgram.cpp.o
+tbe: CMakeFiles/tbe.dir/Sprite.cpp.o
 tbe: CMakeFiles/tbe.dir/Texture.cpp.o
 tbe: CMakeFiles/tbe.dir/TileMap.cpp.o
 tbe: CMakeFiles/tbe.dir/main.cpp.o
@@ -175,7 +205,7 @@ tbe: /usr/lib/x86_64-linux-gnu/libGLU.so
 tbe: /usr/lib/x86_64-linux-gnu/libglut.so
 tbe: /usr/lib/x86_64-linux-gnu/libGLEW.so
 tbe: CMakeFiles/tbe.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/auri/Documents/UNI/VJ/01-TBE/01-TBE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable tbe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable tbe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/tbe.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -188,6 +218,6 @@ CMakeFiles/tbe.dir/clean:
 .PHONY : CMakeFiles/tbe.dir/clean
 
 CMakeFiles/tbe.dir/depend:
-	cd /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/auri/Documents/UNI/VJ/01-TBE/01-TBE /home/auri/Documents/UNI/VJ/01-TBE/01-TBE /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/build /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/build /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/build/CMakeFiles/tbe.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/auri/Documents/UNI/VJ/baba_is_you/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/auri/Documents/UNI/VJ/baba_is_you /home/auri/Documents/UNI/VJ/baba_is_you /home/auri/Documents/UNI/VJ/baba_is_you/build /home/auri/Documents/UNI/VJ/baba_is_you/build /home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles/tbe.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/tbe.dir/depend
 

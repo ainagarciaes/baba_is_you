@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/auri/Documents/UNI/VJ/01-TBE/01-TBE
+CMAKE_SOURCE_DIR = /home/auri/Documents/UNI/VJ/baba_is_you
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/build
+CMAKE_BINARY_DIR = /home/auri/Documents/UNI/VJ/baba_is_you/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/build/CMakeFiles /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles /home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/auri/Documents/UNI/VJ/01-TBE/01-TBE/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -149,6 +149,33 @@ Game.s: Game.cpp.s
 Game.cpp.s:
 	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/Game.cpp.s
 .PHONY : Game.cpp.s
+
+Player.o: Player.cpp.o
+
+.PHONY : Player.o
+
+# target to build an object file
+Player.cpp.o:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/Player.cpp.o
+.PHONY : Player.cpp.o
+
+Player.i: Player.cpp.i
+
+.PHONY : Player.i
+
+# target to preprocess a source file
+Player.cpp.i:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/Player.cpp.i
+.PHONY : Player.cpp.i
+
+Player.s: Player.cpp.s
+
+.PHONY : Player.s
+
+# target to generate assembly for a file
+Player.cpp.s:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/Player.cpp.s
+.PHONY : Player.cpp.s
 
 Scene.o: Scene.cpp.o
 
@@ -230,6 +257,33 @@ ShaderProgram.s: ShaderProgram.cpp.s
 ShaderProgram.cpp.s:
 	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/ShaderProgram.cpp.s
 .PHONY : ShaderProgram.cpp.s
+
+Sprite.o: Sprite.cpp.o
+
+.PHONY : Sprite.o
+
+# target to build an object file
+Sprite.cpp.o:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/Sprite.cpp.o
+.PHONY : Sprite.cpp.o
+
+Sprite.i: Sprite.cpp.i
+
+.PHONY : Sprite.i
+
+# target to preprocess a source file
+Sprite.cpp.i:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/Sprite.cpp.i
+.PHONY : Sprite.cpp.i
+
+Sprite.s: Sprite.cpp.s
+
+.PHONY : Sprite.s
+
+# target to generate assembly for a file
+Sprite.cpp.s:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/Sprite.cpp.s
+.PHONY : Sprite.cpp.s
 
 Texture.o: Texture.cpp.o
 
@@ -324,6 +378,9 @@ help:
 	@echo "... Game.o"
 	@echo "... Game.i"
 	@echo "... Game.s"
+	@echo "... Player.o"
+	@echo "... Player.i"
+	@echo "... Player.s"
 	@echo "... Scene.o"
 	@echo "... Scene.i"
 	@echo "... Scene.s"
@@ -333,6 +390,9 @@ help:
 	@echo "... ShaderProgram.o"
 	@echo "... ShaderProgram.i"
 	@echo "... ShaderProgram.s"
+	@echo "... Sprite.o"
+	@echo "... Sprite.i"
+	@echo "... Sprite.s"
 	@echo "... Texture.o"
 	@echo "... Texture.i"
 	@echo "... Texture.s"

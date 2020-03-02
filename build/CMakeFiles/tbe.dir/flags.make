@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/auri/Documents/UNI/VJ/01-TBE/01-TBE/$(GLEW_INCLUDE_DIRS) -I/home/auri/Documents/UNI/VJ/01-TBE/01-TBE/. 
+CXX_INCLUDES = -I/home/auri/Documents/UNI/VJ/baba_is_you/$(GLEW_INCLUDE_DIRS) -I/home/auri/Documents/UNI/VJ/baba_is_you/. 
 
