@@ -5,7 +5,7 @@
 #include <glm/glm.hpp>
 #include "ShaderProgram.h"
 #include "TileMap.h"
-
+#include "Player.h"
 
 #define CAMERA_WIDTH 640
 #define CAMERA_HEIGHT 480
@@ -31,6 +31,7 @@ private:
 
 private:
 	TileMap *map;
+	Player *player;
 	ShaderProgram texProgram;
 	float currentTime;
 	glm::mat4 projection;
