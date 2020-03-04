@@ -10,6 +10,16 @@
 vector
 -
 
+/home/auri/Documents/UNI/VJ/baba_is_you/CreditsScene.h
+glm/glm.hpp
+-
+ShaderProgram.h
+/home/auri/Documents/UNI/VJ/baba_is_you/ShaderProgram.h
+TileMap.h
+/home/auri/Documents/UNI/VJ/baba_is_you/TileMap.h
+Player.h
+/home/auri/Documents/UNI/VJ/baba_is_you/Player.h
+
 /home/auri/Documents/UNI/VJ/baba_is_you/Game.cpp
 GL/glew.h
 -
@@ -23,6 +33,30 @@ iostream
 /home/auri/Documents/UNI/VJ/baba_is_you/Game.h
 MenuScene.h
 /home/auri/Documents/UNI/VJ/baba_is_you/MenuScene.h
+InstructionsScene.h
+/home/auri/Documents/UNI/VJ/baba_is_you/InstructionsScene.h
+CreditsScene.h
+/home/auri/Documents/UNI/VJ/baba_is_you/CreditsScene.h
+LevelScene.h
+/home/auri/Documents/UNI/VJ/baba_is_you/LevelScene.h
+
+/home/auri/Documents/UNI/VJ/baba_is_you/InstructionsScene.h
+glm/glm.hpp
+-
+ShaderProgram.h
+/home/auri/Documents/UNI/VJ/baba_is_you/ShaderProgram.h
+TileMap.h
+/home/auri/Documents/UNI/VJ/baba_is_you/TileMap.h
+Player.h
+/home/auri/Documents/UNI/VJ/baba_is_you/Player.h
+
+/home/auri/Documents/UNI/VJ/baba_is_you/LevelScene.cpp
+iostream
+-
+cmath
+-
+glm/gtc/matrix_transform.hpp
+-
 LevelScene.h
 /home/auri/Documents/UNI/VJ/baba_is_you/LevelScene.h
 

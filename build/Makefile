@@ -123,6 +123,33 @@ tbe/fast:
 	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/build
 .PHONY : tbe/fast
 
+CreditsScene.o: CreditsScene.cpp.o
+
+.PHONY : CreditsScene.o
+
+# target to build an object file
+CreditsScene.cpp.o:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/CreditsScene.cpp.o
+.PHONY : CreditsScene.cpp.o
+
+CreditsScene.i: CreditsScene.cpp.i
+
+.PHONY : CreditsScene.i
+
+# target to preprocess a source file
+CreditsScene.cpp.i:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/CreditsScene.cpp.i
+.PHONY : CreditsScene.cpp.i
+
+CreditsScene.s: CreditsScene.cpp.s
+
+.PHONY : CreditsScene.s
+
+# target to generate assembly for a file
+CreditsScene.cpp.s:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/CreditsScene.cpp.s
+.PHONY : CreditsScene.cpp.s
+
 Game.o: Game.cpp.o
 
 .PHONY : Game.o
@@ -149,6 +176,33 @@ Game.s: Game.cpp.s
 Game.cpp.s:
 	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/Game.cpp.s
 .PHONY : Game.cpp.s
+
+InstructionsScene.o: InstructionsScene.cpp.o
+
+.PHONY : InstructionsScene.o
+
+# target to build an object file
+InstructionsScene.cpp.o:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/InstructionsScene.cpp.o
+.PHONY : InstructionsScene.cpp.o
+
+InstructionsScene.i: InstructionsScene.cpp.i
+
+.PHONY : InstructionsScene.i
+
+# target to preprocess a source file
+InstructionsScene.cpp.i:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/InstructionsScene.cpp.i
+.PHONY : InstructionsScene.cpp.i
+
+InstructionsScene.s: InstructionsScene.cpp.s
+
+.PHONY : InstructionsScene.s
+
+# target to generate assembly for a file
+InstructionsScene.cpp.s:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/InstructionsScene.cpp.s
+.PHONY : InstructionsScene.cpp.s
 
 LevelScene.o: LevelScene.cpp.o
 
@@ -429,9 +483,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... tbe"
 	@echo "... edit_cache"
+	@echo "... CreditsScene.o"
+	@echo "... CreditsScene.i"
+	@echo "... CreditsScene.s"
 	@echo "... Game.o"
 	@echo "... Game.i"
 	@echo "... Game.s"
+	@echo "... InstructionsScene.o"
+	@echo "... InstructionsScene.i"
+	@echo "... InstructionsScene.s"
 	@echo "... LevelScene.o"
 	@echo "... LevelScene.i"
 	@echo "... LevelScene.s"
