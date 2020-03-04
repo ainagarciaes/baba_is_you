@@ -20,16 +20,6 @@ TileMap.h
 Player.h
 /home/auri/Documents/UNI/VJ/baba_is_you/Player.h
 
-/home/auri/Documents/UNI/VJ/baba_is_you/Game.cpp
-GL/glew.h
--
-GL/glut.h
--
-Game.h
-/home/auri/Documents/UNI/VJ/baba_is_you/Game.h
-iostream
--
-
 /home/auri/Documents/UNI/VJ/baba_is_you/Game.h
 MenuScene.h
 /home/auri/Documents/UNI/VJ/baba_is_you/MenuScene.h
@@ -59,6 +49,8 @@ glm/gtc/matrix_transform.hpp
 -
 LevelScene.h
 /home/auri/Documents/UNI/VJ/baba_is_you/LevelScene.h
+Game.h
+/home/auri/Documents/UNI/VJ/baba_is_you/Game.h
 
 /home/auri/Documents/UNI/VJ/baba_is_you/LevelScene.h
 glm/glm.hpp

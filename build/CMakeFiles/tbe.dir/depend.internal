@@ -45,8 +45,12 @@ CMakeFiles/tbe.dir/InstructionsScene.cpp.o
  /home/auri/Documents/UNI/VJ/baba_is_you/TileMap.h
 CMakeFiles/tbe.dir/LevelScene.cpp.o
  /home/auri/Documents/UNI/VJ/baba_is_you/AnimKeyframes.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/CreditsScene.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/Game.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/InstructionsScene.h
  /home/auri/Documents/UNI/VJ/baba_is_you/LevelScene.cpp
  /home/auri/Documents/UNI/VJ/baba_is_you/LevelScene.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/MenuScene.h
  /home/auri/Documents/UNI/VJ/baba_is_you/Player.h
  /home/auri/Documents/UNI/VJ/baba_is_you/Shader.h
  /home/auri/Documents/UNI/VJ/baba_is_you/ShaderProgram.h

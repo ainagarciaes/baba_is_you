@@ -44,8 +44,12 @@ CMakeFiles/tbe.dir/InstructionsScene.cpp.o: ../Texture.h
 CMakeFiles/tbe.dir/InstructionsScene.cpp.o: ../TileMap.h
 
 CMakeFiles/tbe.dir/LevelScene.cpp.o: ../AnimKeyframes.h
+CMakeFiles/tbe.dir/LevelScene.cpp.o: ../CreditsScene.h
+CMakeFiles/tbe.dir/LevelScene.cpp.o: ../Game.h
+CMakeFiles/tbe.dir/LevelScene.cpp.o: ../InstructionsScene.h
 CMakeFiles/tbe.dir/LevelScene.cpp.o: ../LevelScene.cpp
 CMakeFiles/tbe.dir/LevelScene.cpp.o: ../LevelScene.h
+CMakeFiles/tbe.dir/LevelScene.cpp.o: ../MenuScene.h
 CMakeFiles/tbe.dir/LevelScene.cpp.o: ../Player.h
 CMakeFiles/tbe.dir/LevelScene.cpp.o: ../Shader.h
 CMakeFiles/tbe.dir/LevelScene.cpp.o: ../ShaderProgram.h

@@ -2,6 +2,7 @@
 #include <cmath>
 #include <glm/gtc/matrix_transform.hpp>
 #include "LevelScene.h"
+#include "Game.h"
 
 #define SCREEN_X 0
 #define SCREEN_Y 0
@@ -43,6 +44,10 @@ void LevelScene::update(int deltaTime)
 {
 	currentTime += deltaTime;
 	player->update(deltaTime); 
+	if(Game::instance().getKey(8))
+	{	
+		nextScene = 0;
+	} 
 }
 
 void LevelScene::render()

@@ -40,8 +40,12 @@ void MenuScene::init()
 void MenuScene::update(int deltaTime)
 {
 	currentTime += deltaTime;
-	if(Game::instance().getSpecialKey(49))
-	{
+	if(Game::instance().getKey(49))
+	{	
+		nextScene = 3;
+	} else if (Game::instance().getKey(50)){
+		nextScene = 2;
+	} else if (Game::instance().getKey(51)){
 		nextScene = 1;
 	}
 }

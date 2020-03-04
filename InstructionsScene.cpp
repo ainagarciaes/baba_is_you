@@ -41,10 +41,10 @@ void InstructionsScene::init()
 void InstructionsScene::update(int deltaTime)
 {
 	currentTime += deltaTime;
-	if(Game::instance().getSpecialKey(49))
-	{
-		nextScene = 1;
-	}
+	if(Game::instance().getKey(8))
+	{	
+		nextScene = 0;
+	} 
 }
 
 void InstructionsScene::render()

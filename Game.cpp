@@ -109,5 +109,18 @@ void Game::updateScene(int deltaTime){
 }
 
 void Game::nextScene(){
-
+	int nextS;
+	if (sceneID == 0) {
+		nextS = menu.getNextScene();
+	} else if (sceneID == 1){ // credits
+		nextS = creds.getNextScene();
+	} else if (sceneID == 2){ // instructions
+		nextS = instr.getNextScene();
+	} else if (sceneID > 2 && sceneID < 8) {
+		nextS = level.getNextScene();
+	}
+	if (nextS != -1) {
+		sceneID = nextS;
+		initScene();
+	}
 }
