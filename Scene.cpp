@@ -2,7 +2,6 @@
 #include <cmath>
 #include <glm/gtc/matrix_transform.hpp>
 #include "Scene.h"
-#include <iostream>
 
 #define SCREEN_X 32
 #define SCREEN_Y 16
@@ -10,6 +9,8 @@
 #define INIT_PLAYER_X_TILES 4
 #define INIT_PLAYER_Y_TILES 4
 
+#define CAMERA_WIDTH 640
+#define CAMERA_HEIGHT 480
 
 Scene::Scene()
 {
@@ -23,22 +24,25 @@ Scene::~Scene()
 }
 
 
-void Scene::init()
+void Scene::init(int lvl)
 {
+	std::cout<<"INIT normal scene"<<std::endl;
+
 	initShaders();
-	map = TileMap::createTileMap("../levels/level01.txt", glm::vec2(32, 16), texProgram);
+	map = TileMap::createTileMap("../levels/level0"+to_string(lvl)+".txt", glm::vec2(32, 16), texProgram);
 	player = new Player();
 	player->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
 	player->setPosition(glm::vec2(INIT_PLAYER_X_TILES * map->getTileSize(), INIT_PLAYER_Y_TILES * map->getTileSize()));
 	player->setTileMap(map);
 	projection = glm::ortho(0.f, float(CAMERA_WIDTH - 1), float(CAMERA_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;
+	nextScene = -1;
 }
 
 void Scene::update(int deltaTime)
 {
 	currentTime += deltaTime;
-	player->update(deltaTime);
+	player->update(deltaTime); 
 }
 
 void Scene::render()
@@ -85,6 +89,3 @@ void Scene::initShaders()
 	vShader.free();
 	fShader.free();
 }
-
-
-
