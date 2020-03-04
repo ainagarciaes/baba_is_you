@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/tbe.dir/Game.cpp.o"
+  "CMakeFiles/tbe.dir/LevelScene.cpp.o"
+  "CMakeFiles/tbe.dir/MenuScene.cpp.o"
   "CMakeFiles/tbe.dir/Player.cpp.o"
   "CMakeFiles/tbe.dir/Scene.cpp.o"
   "CMakeFiles/tbe.dir/Shader.cpp.o"

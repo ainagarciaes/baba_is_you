@@ -5,6 +5,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/auri/Documents/UNI/VJ/baba_is_you/Game.cpp" "/home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles/tbe.dir/Game.cpp.o"
+  "/home/auri/Documents/UNI/VJ/baba_is_you/LevelScene.cpp" "/home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles/tbe.dir/LevelScene.cpp.o"
+  "/home/auri/Documents/UNI/VJ/baba_is_you/MenuScene.cpp" "/home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles/tbe.dir/MenuScene.cpp.o"
   "/home/auri/Documents/UNI/VJ/baba_is_you/Player.cpp" "/home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles/tbe.dir/Player.cpp.o"
   "/home/auri/Documents/UNI/VJ/baba_is_you/Scene.cpp" "/home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles/tbe.dir/Scene.cpp.o"
   "/home/auri/Documents/UNI/VJ/baba_is_you/Shader.cpp" "/home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles/tbe.dir/Shader.cpp.o"

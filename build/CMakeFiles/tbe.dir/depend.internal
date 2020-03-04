@@ -5,8 +5,31 @@ CMakeFiles/tbe.dir/Game.cpp.o
  /home/auri/Documents/UNI/VJ/baba_is_you/AnimKeyframes.h
  /home/auri/Documents/UNI/VJ/baba_is_you/Game.cpp
  /home/auri/Documents/UNI/VJ/baba_is_you/Game.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/LevelScene.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/MenuScene.h
  /home/auri/Documents/UNI/VJ/baba_is_you/Player.h
- /home/auri/Documents/UNI/VJ/baba_is_you/Scene.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/Shader.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/ShaderProgram.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/Sprite.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/Texture.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/TileMap.h
+CMakeFiles/tbe.dir/LevelScene.cpp.o
+ /home/auri/Documents/UNI/VJ/baba_is_you/AnimKeyframes.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/LevelScene.cpp
+ /home/auri/Documents/UNI/VJ/baba_is_you/LevelScene.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/Player.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/Shader.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/ShaderProgram.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/Sprite.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/Texture.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/TileMap.h
+CMakeFiles/tbe.dir/MenuScene.cpp.o
+ /home/auri/Documents/UNI/VJ/baba_is_you/AnimKeyframes.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/Game.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/LevelScene.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/MenuScene.cpp
+ /home/auri/Documents/UNI/VJ/baba_is_you/MenuScene.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/Player.h
  /home/auri/Documents/UNI/VJ/baba_is_you/Shader.h
  /home/auri/Documents/UNI/VJ/baba_is_you/ShaderProgram.h
  /home/auri/Documents/UNI/VJ/baba_is_you/Sprite.h
@@ -15,9 +38,10 @@ CMakeFiles/tbe.dir/Game.cpp.o
 CMakeFiles/tbe.dir/Player.cpp.o
  /home/auri/Documents/UNI/VJ/baba_is_you/AnimKeyframes.h
  /home/auri/Documents/UNI/VJ/baba_is_you/Game.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/LevelScene.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/MenuScene.h
  /home/auri/Documents/UNI/VJ/baba_is_you/Player.cpp
  /home/auri/Documents/UNI/VJ/baba_is_you/Player.h
- /home/auri/Documents/UNI/VJ/baba_is_you/Scene.h
  /home/auri/Documents/UNI/VJ/baba_is_you/Shader.h
  /home/auri/Documents/UNI/VJ/baba_is_you/ShaderProgram.h
  /home/auri/Documents/UNI/VJ/baba_is_you/Sprite.h
@@ -59,8 +83,9 @@ CMakeFiles/tbe.dir/TileMap.cpp.o
 CMakeFiles/tbe.dir/main.cpp.o
  /home/auri/Documents/UNI/VJ/baba_is_you/AnimKeyframes.h
  /home/auri/Documents/UNI/VJ/baba_is_you/Game.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/LevelScene.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/MenuScene.h
  /home/auri/Documents/UNI/VJ/baba_is_you/Player.h
- /home/auri/Documents/UNI/VJ/baba_is_you/Scene.h
  /home/auri/Documents/UNI/VJ/baba_is_you/Shader.h
  /home/auri/Documents/UNI/VJ/baba_is_you/ShaderProgram.h
  /home/auri/Documents/UNI/VJ/baba_is_you/Sprite.h

@@ -10,31 +10,23 @@
 vector
 -
 
-/home/auri/Documents/UNI/VJ/baba_is_you/Game.h
-Scene.h
-/home/auri/Documents/UNI/VJ/baba_is_you/Scene.h
-
-/home/auri/Documents/UNI/VJ/baba_is_you/Player.cpp
-cmath
--
-iostream
--
+/home/auri/Documents/UNI/VJ/baba_is_you/Game.cpp
 GL/glew.h
 -
 GL/glut.h
 -
-Player.h
-/home/auri/Documents/UNI/VJ/baba_is_you/Player.h
 Game.h
 /home/auri/Documents/UNI/VJ/baba_is_you/Game.h
+iostream
+-
 
-/home/auri/Documents/UNI/VJ/baba_is_you/Player.h
-Sprite.h
-/home/auri/Documents/UNI/VJ/baba_is_you/Sprite.h
-TileMap.h
-/home/auri/Documents/UNI/VJ/baba_is_you/TileMap.h
+/home/auri/Documents/UNI/VJ/baba_is_you/Game.h
+MenuScene.h
+/home/auri/Documents/UNI/VJ/baba_is_you/MenuScene.h
+LevelScene.h
+/home/auri/Documents/UNI/VJ/baba_is_you/LevelScene.h
 
-/home/auri/Documents/UNI/VJ/baba_is_you/Scene.h
+/home/auri/Documents/UNI/VJ/baba_is_you/LevelScene.h
 glm/glm.hpp
 -
 ShaderProgram.h
@@ -43,6 +35,22 @@ TileMap.h
 /home/auri/Documents/UNI/VJ/baba_is_you/TileMap.h
 Player.h
 /home/auri/Documents/UNI/VJ/baba_is_you/Player.h
+
+/home/auri/Documents/UNI/VJ/baba_is_you/MenuScene.h
+glm/glm.hpp
+-
+ShaderProgram.h
+/home/auri/Documents/UNI/VJ/baba_is_you/ShaderProgram.h
+TileMap.h
+/home/auri/Documents/UNI/VJ/baba_is_you/TileMap.h
+Player.h
+/home/auri/Documents/UNI/VJ/baba_is_you/Player.h
+
+/home/auri/Documents/UNI/VJ/baba_is_you/Player.h
+Sprite.h
+/home/auri/Documents/UNI/VJ/baba_is_you/Sprite.h
+TileMap.h
+/home/auri/Documents/UNI/VJ/baba_is_you/TileMap.h
 
 /home/auri/Documents/UNI/VJ/baba_is_you/Shader.h
 string

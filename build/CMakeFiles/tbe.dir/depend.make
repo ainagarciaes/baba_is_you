@@ -4,19 +4,43 @@
 CMakeFiles/tbe.dir/Game.cpp.o: ../AnimKeyframes.h
 CMakeFiles/tbe.dir/Game.cpp.o: ../Game.cpp
 CMakeFiles/tbe.dir/Game.cpp.o: ../Game.h
+CMakeFiles/tbe.dir/Game.cpp.o: ../LevelScene.h
+CMakeFiles/tbe.dir/Game.cpp.o: ../MenuScene.h
 CMakeFiles/tbe.dir/Game.cpp.o: ../Player.h
-CMakeFiles/tbe.dir/Game.cpp.o: ../Scene.h
 CMakeFiles/tbe.dir/Game.cpp.o: ../Shader.h
 CMakeFiles/tbe.dir/Game.cpp.o: ../ShaderProgram.h
 CMakeFiles/tbe.dir/Game.cpp.o: ../Sprite.h
 CMakeFiles/tbe.dir/Game.cpp.o: ../Texture.h
 CMakeFiles/tbe.dir/Game.cpp.o: ../TileMap.h
 
+CMakeFiles/tbe.dir/LevelScene.cpp.o: ../AnimKeyframes.h
+CMakeFiles/tbe.dir/LevelScene.cpp.o: ../LevelScene.cpp
+CMakeFiles/tbe.dir/LevelScene.cpp.o: ../LevelScene.h
+CMakeFiles/tbe.dir/LevelScene.cpp.o: ../Player.h
+CMakeFiles/tbe.dir/LevelScene.cpp.o: ../Shader.h
+CMakeFiles/tbe.dir/LevelScene.cpp.o: ../ShaderProgram.h
+CMakeFiles/tbe.dir/LevelScene.cpp.o: ../Sprite.h
+CMakeFiles/tbe.dir/LevelScene.cpp.o: ../Texture.h
+CMakeFiles/tbe.dir/LevelScene.cpp.o: ../TileMap.h
+
+CMakeFiles/tbe.dir/MenuScene.cpp.o: ../AnimKeyframes.h
+CMakeFiles/tbe.dir/MenuScene.cpp.o: ../Game.h
+CMakeFiles/tbe.dir/MenuScene.cpp.o: ../LevelScene.h
+CMakeFiles/tbe.dir/MenuScene.cpp.o: ../MenuScene.cpp
+CMakeFiles/tbe.dir/MenuScene.cpp.o: ../MenuScene.h
+CMakeFiles/tbe.dir/MenuScene.cpp.o: ../Player.h
+CMakeFiles/tbe.dir/MenuScene.cpp.o: ../Shader.h
+CMakeFiles/tbe.dir/MenuScene.cpp.o: ../ShaderProgram.h
+CMakeFiles/tbe.dir/MenuScene.cpp.o: ../Sprite.h
+CMakeFiles/tbe.dir/MenuScene.cpp.o: ../Texture.h
+CMakeFiles/tbe.dir/MenuScene.cpp.o: ../TileMap.h
+
 CMakeFiles/tbe.dir/Player.cpp.o: ../AnimKeyframes.h
 CMakeFiles/tbe.dir/Player.cpp.o: ../Game.h
+CMakeFiles/tbe.dir/Player.cpp.o: ../LevelScene.h
+CMakeFiles/tbe.dir/Player.cpp.o: ../MenuScene.h
 CMakeFiles/tbe.dir/Player.cpp.o: ../Player.cpp
 CMakeFiles/tbe.dir/Player.cpp.o: ../Player.h
-CMakeFiles/tbe.dir/Player.cpp.o: ../Scene.h
 CMakeFiles/tbe.dir/Player.cpp.o: ../Shader.h
 CMakeFiles/tbe.dir/Player.cpp.o: ../ShaderProgram.h
 CMakeFiles/tbe.dir/Player.cpp.o: ../Sprite.h
@@ -58,8 +82,9 @@ CMakeFiles/tbe.dir/TileMap.cpp.o: ../TileMap.h
 
 CMakeFiles/tbe.dir/main.cpp.o: ../AnimKeyframes.h
 CMakeFiles/tbe.dir/main.cpp.o: ../Game.h
+CMakeFiles/tbe.dir/main.cpp.o: ../LevelScene.h
+CMakeFiles/tbe.dir/main.cpp.o: ../MenuScene.h
 CMakeFiles/tbe.dir/main.cpp.o: ../Player.h
-CMakeFiles/tbe.dir/main.cpp.o: ../Scene.h
 CMakeFiles/tbe.dir/main.cpp.o: ../Shader.h
 CMakeFiles/tbe.dir/main.cpp.o: ../ShaderProgram.h
 CMakeFiles/tbe.dir/main.cpp.o: ../Sprite.h

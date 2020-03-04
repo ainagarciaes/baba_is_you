@@ -150,6 +150,60 @@ Game.cpp.s:
 	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/Game.cpp.s
 .PHONY : Game.cpp.s
 
+LevelScene.o: LevelScene.cpp.o
+
+.PHONY : LevelScene.o
+
+# target to build an object file
+LevelScene.cpp.o:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/LevelScene.cpp.o
+.PHONY : LevelScene.cpp.o
+
+LevelScene.i: LevelScene.cpp.i
+
+.PHONY : LevelScene.i
+
+# target to preprocess a source file
+LevelScene.cpp.i:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/LevelScene.cpp.i
+.PHONY : LevelScene.cpp.i
+
+LevelScene.s: LevelScene.cpp.s
+
+.PHONY : LevelScene.s
+
+# target to generate assembly for a file
+LevelScene.cpp.s:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/LevelScene.cpp.s
+.PHONY : LevelScene.cpp.s
+
+MenuScene.o: MenuScene.cpp.o
+
+.PHONY : MenuScene.o
+
+# target to build an object file
+MenuScene.cpp.o:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/MenuScene.cpp.o
+.PHONY : MenuScene.cpp.o
+
+MenuScene.i: MenuScene.cpp.i
+
+.PHONY : MenuScene.i
+
+# target to preprocess a source file
+MenuScene.cpp.i:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/MenuScene.cpp.i
+.PHONY : MenuScene.cpp.i
+
+MenuScene.s: MenuScene.cpp.s
+
+.PHONY : MenuScene.s
+
+# target to generate assembly for a file
+MenuScene.cpp.s:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/MenuScene.cpp.s
+.PHONY : MenuScene.cpp.s
+
 Player.o: Player.cpp.o
 
 .PHONY : Player.o
@@ -378,6 +432,12 @@ help:
 	@echo "... Game.o"
 	@echo "... Game.i"
 	@echo "... Game.s"
+	@echo "... LevelScene.o"
+	@echo "... LevelScene.i"
+	@echo "... LevelScene.s"
+	@echo "... MenuScene.o"
+	@echo "... MenuScene.i"
+	@echo "... MenuScene.s"
 	@echo "... Player.o"
 	@echo "... Player.i"
 	@echo "... Player.s"
