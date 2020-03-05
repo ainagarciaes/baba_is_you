@@ -15,13 +15,11 @@
 
 InstructionsScene::InstructionsScene()
 {
-	std::cout<<"Creating a instructions scene"<<std::endl;
 	map = NULL;
 }
 
 InstructionsScene::~InstructionsScene()
 {
-	std::cout<<"Deleting a instructions scene"<<std::endl;
 	if(map != NULL)
 		delete map;
 }
@@ -29,8 +27,6 @@ InstructionsScene::~InstructionsScene()
 
 void InstructionsScene::init()
 {
-	std::cout<<"INIT normal scene"<<std::endl;
-
 	initShaders();
 	map = TileMap::createTileMap("../levels/instructions.txt", glm::vec2(32, 16), texProgram);
 	projection = glm::ortho(0.f, float(CAMERA_WIDTH - 1), float(CAMERA_HEIGHT - 1), 0.f);

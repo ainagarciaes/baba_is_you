@@ -5,30 +5,29 @@
 #include "LevelController.h"
 #include "Game.h"
 
-
-enum PlayerAnims
-{
-	STAND_LEFT, STAND_RIGHT, MOVE_LEFT, MOVE_RIGHT
-};
-
-
 void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, int lvl)
 {
+	std::cout << "init level controller" << std::endl;
 	tileMapDispl = tileMapPos;
-	// load lvl file
 }
 
 void LevelController::update(int deltaTime)
 {
-	processQueries();
 	movePlayable(deltaTime);
+	processQueries();
 	updateNextScene();
 }
 
-
 void LevelController::render()
 {
-	sprite->render();
+	// render objects
+	for (int i = 0; i < objects.size(); ++i) {
+		objects[i].render();
+	}
+	// render words
+	for (int i = 0; i < words.size(); ++i) {
+		words[i].render();
+	}
 }
 
 void LevelController::setTileMap(TileMap *tileMap)
@@ -39,75 +38,32 @@ void LevelController::setTileMap(TileMap *tileMap)
 void LevelController::setPosition(const glm::vec2 &pos)
 {
 	posLevelController = pos;
-	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posLevelController.x), float(tileMapDispl.y + posLevelController.y)));
 }
 
 void LevelController::movePlayable(int deltaTime) {
-	sprite->update(deltaTime);
-	if(Game::instance().getSpecialKey(GLUT_KEY_LEFT))
-	{
-		std::cout << "left" << std::endl;
-		if(sprite->animation() != MOVE_LEFT)
-			sprite->changeAnimation(MOVE_LEFT);
-		posLevelController.x -= 2;
-		if(map->collisionMoveLeft(posLevelController, glm::ivec2(32, 32)))
-		{
-			posLevelController.x += 2;
-			sprite->changeAnimation(STAND_LEFT);
-		}
-	}
-	else if(Game::instance().getSpecialKey(GLUT_KEY_RIGHT))
-	{
-		std::cout << "right" << std::endl;
-		if(sprite->animation() != MOVE_RIGHT)
-			sprite->changeAnimation(MOVE_RIGHT);
-		posLevelController.x += 2;
-		if(map->collisionMoveRight(posLevelController, glm::ivec2(32, 32)))
-		{
-			posLevelController.x -= 2;
-			sprite->changeAnimation(STAND_RIGHT);
-		}
-	} 	
-	else if(Game::instance().getSpecialKey(GLUT_KEY_UP))
-	{
-		std::cout << "up" << std::endl;
-		if(sprite->animation() != MOVE_RIGHT)
-			sprite->changeAnimation(MOVE_RIGHT);
-		posLevelController.y -= 2;
-		if(map->collisionMoveUp(posLevelController, glm::ivec2(32, 32)))
-		{
-			posLevelController.y += 2;
-			sprite->changeAnimation(STAND_RIGHT);
-		}
-	}
-	else if(Game::instance().getSpecialKey(GLUT_KEY_DOWN))
-	{
-		std::cout << "down" << std::endl;
-		if(sprite->animation() != MOVE_RIGHT)
-			sprite->changeAnimation(MOVE_RIGHT);
-		posLevelController.y += 2;
-		if(map->collisionMoveDown(posLevelController, glm::ivec2(32, 32)))
-		{
-			posLevelController.y -= 2;
-			sprite->changeAnimation(STAND_RIGHT);
-		}
-	}
-	else
-	{
-		if(sprite->animation() == MOVE_LEFT)
-			sprite->changeAnimation(STAND_LEFT);
-		else if(sprite->animation() == MOVE_RIGHT)
-			sprite->changeAnimation(STAND_RIGHT);
-	}	
-	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posLevelController.x), float(tileMapDispl.y + posLevelController.y)));
+	bool left = Game::instance().getSpecialKey(GLUT_KEY_LEFT);
+	bool right = Game::instance().getSpecialKey(GLUT_KEY_RIGHT);
+	bool up = Game::instance().getSpecialKey(GLUT_KEY_UP);
+	bool down = Game::instance().getSpecialKey(GLUT_KEY_DOWN);
+
+	string name;
+	glm::ivec2 posPlayer;
+	/*
+		We have to iterate the map according to the direction the player wants to move, and then, for each playable element
+		check if it can move to that direction taking into consideration:
+			1. if there is a wall or the map ends
+			2. if there is some blocking element (call to moveRecursive)
+	*/
 }
 
-bool LevelController::moveRecursive(int deltaTime) {
+bool LevelController::moveRecursive(int deltaTime, string direction) {
+	// recursively call moveRecursive if there is an object in the next position facing the direction
+	// if there is a word and the call returns true, the word has to be moved
 	return true;
 }
 
 void LevelController::processQueries() {
-	
+	//process queries in the map and change the required objects
 }
 
 int LevelController::getNextScene() {
@@ -115,5 +71,9 @@ int LevelController::getNextScene() {
 }
 
 void LevelController::updateNextScene() {
+	//check if there is a win condition, if so, set the next scene to whatever it has to
+}
 
+bool LevelController::isPlayable(string name) {
+	return playable[name];
 }

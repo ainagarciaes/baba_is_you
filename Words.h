@@ -20,7 +20,6 @@ public:
 	void setPosition(const glm::vec2 &pos);
 	
 private:
-
 	glm::ivec2 tileMapDispl, posWords;
 	Texture spritesheet;
 	Sprite *sprite;

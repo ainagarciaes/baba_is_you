@@ -14,13 +14,11 @@
 
 CreditsScene::CreditsScene()
 {
-	std::cout<<"Creating a credits scene"<<std::endl;
 	map = NULL;
 }
 
 CreditsScene::~CreditsScene()
 {
-	std::cout<<"Deleting a credits scene"<<std::endl;
 	if(map != NULL)
 		delete map;
 }
@@ -28,8 +26,6 @@ CreditsScene::~CreditsScene()
 
 void CreditsScene::init()
 {
-	std::cout<<"INIT normal scene"<<std::endl;
-
 	initShaders();
 	map = TileMap::createTileMap("../levels/credits.txt", glm::vec2(32, 16), texProgram);
 	projection = glm::ortho(0.f, float(CAMERA_WIDTH - 1), float(CAMERA_HEIGHT - 1), 0.f);

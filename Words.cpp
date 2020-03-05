@@ -44,7 +44,6 @@ void Words::update(int deltaTime)
 	sprite->update(deltaTime);
 	if(Game::instance().getSpecialKey(GLUT_KEY_LEFT))
 	{
-		std::cout << "left" << std::endl;
 		if(sprite->animation() != MOVE_LEFT)
 			sprite->changeAnimation(MOVE_LEFT);
 		posWords.x -= 2;
@@ -56,7 +55,6 @@ void Words::update(int deltaTime)
 	}
 	else if(Game::instance().getSpecialKey(GLUT_KEY_RIGHT))
 	{
-		std::cout << "right" << std::endl;
 		if(sprite->animation() != MOVE_RIGHT)
 			sprite->changeAnimation(MOVE_RIGHT);
 		posWords.x += 2;
@@ -68,7 +66,6 @@ void Words::update(int deltaTime)
 	} 	
 	else if(Game::instance().getSpecialKey(GLUT_KEY_UP))
 	{
-		std::cout << "up" << std::endl;
 		if(sprite->animation() != MOVE_RIGHT)
 			sprite->changeAnimation(MOVE_RIGHT);
 		posWords.y -= 2;
@@ -80,7 +77,6 @@ void Words::update(int deltaTime)
 	}
 	else if(Game::instance().getSpecialKey(GLUT_KEY_DOWN))
 	{
-		std::cout << "down" << std::endl;
 		if(sprite->animation() != MOVE_RIGHT)
 			sprite->changeAnimation(MOVE_RIGHT);
 		posWords.y += 2;

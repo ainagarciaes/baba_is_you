@@ -14,13 +14,11 @@
 
 MenuScene::MenuScene()
 {
-	std::cout<<"Creating a menu scene"<<std::endl;
 	map = NULL;
 }
 
 MenuScene::~MenuScene()
 {
-	std::cout<<"Deleting a menu scene"<<std::endl;
 	if(map != NULL)
 		delete map;
 }
@@ -28,8 +26,6 @@ MenuScene::~MenuScene()
 
 void MenuScene::init()
 {
-	std::cout<<"INIT normal scene"<<std::endl;
-
 	initShaders();
 	map = TileMap::createTileMap("../levels/menu.txt", glm::vec2(32, 16), texProgram);
 	projection = glm::ortho(0.f, float(CAMERA_WIDTH - 1), float(CAMERA_HEIGHT - 1), 0.f);

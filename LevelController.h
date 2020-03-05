@@ -22,8 +22,9 @@ public:
 private:
     void movePlayable(int deltaTime);
 	void processQueries();
-    bool moveRecursive(int deltaTime);
+    bool moveRecursive(int deltaTime, string direction);
 	void updateNextScene();
+	bool isPlayable(string name);
 
 	bool bJumping;
 	glm::ivec2 tileMapDispl, posLevelController;

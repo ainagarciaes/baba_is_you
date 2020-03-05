@@ -6,6 +6,7 @@
 #include "ShaderProgram.h"
 #include "TileMap.h"
 #include "Player.h"
+#include "LevelController.h"
 
 #define CAMERA_WIDTH 640
 #define CAMERA_HEIGHT 480
@@ -36,6 +37,7 @@ private:
 	glm::mat4 projection;
 	int nextScene;
 	int mylevel;
+	LevelController *levelController;
 };
 
 

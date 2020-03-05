@@ -26,14 +26,11 @@ Scene::~Scene()
 
 void Scene::init(int lvl)
 {
-	std::cout<<"INIT normal scene"<<std::endl;
-
 	initShaders();
 	map = TileMap::createTileMap("../levels/level0"+to_string(lvl)+".txt", glm::vec2(32, 16), texProgram);
-	player = new Player();
-	player->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
-	player->setPosition(glm::vec2(INIT_PLAYER_X_TILES * map->getTileSize(), INIT_PLAYER_Y_TILES * map->getTileSize()));
-	player->setTileMap(map);
+	levelController = new LevelController();
+	levelController->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram, lvl);
+	levelController->setTileMap(map);
 	projection = glm::ortho(0.f, float(CAMERA_WIDTH - 1), float(CAMERA_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;
 	nextScene = -1;
@@ -42,7 +39,7 @@ void Scene::init(int lvl)
 void Scene::update(int deltaTime)
 {
 	currentTime += deltaTime;
-	player->update(deltaTime); 
+	levelController->update(deltaTime); 
 }
 
 void Scene::render()
@@ -56,7 +53,7 @@ void Scene::render()
 	texProgram.setUniformMatrix4f("modelview", modelview);
 	texProgram.setUniform2f("texCoordDispl", 0.f, 0.f);
 	map->render();
-	player->render();
+	levelController->render();
 }
 
 void Scene::initShaders()

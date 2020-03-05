@@ -30,10 +30,10 @@ void LevelScene::init(int lvl)
 	std::cout<<"INIT level scene"<<std::endl;
 	initShaders();
 	map = TileMap::createTileMap("../levels/level0"+to_string(lvl-2)+".txt", glm::vec2(32, 16), texProgram);
-	player = new Player();
-	player->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram);
-	player->setPosition(glm::vec2(INIT_PLAYER_X_TILES * map->getTileSize(), INIT_PLAYER_Y_TILES * map->getTileSize()));
-	player->setTileMap(map);
+	levelController = new LevelController();
+	levelController->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram, lvl);
+	levelController->setPosition(glm::vec2(INIT_PLAYER_X_TILES * map->getTileSize(), INIT_PLAYER_Y_TILES * map->getTileSize()));
+	levelController->setTileMap(map);
 	projection = glm::ortho(0.f, float(CAMERA_WIDTH - 1), float(CAMERA_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;
 	nextScene = -1;
@@ -43,7 +43,7 @@ void LevelScene::init(int lvl)
 void LevelScene::update(int deltaTime)
 {
 	currentTime += deltaTime;
-	player->update(deltaTime); 
+	levelController->update(deltaTime); 
 	if(Game::instance().getKey(8))
 	{	
 		nextScene = 0;
@@ -61,7 +61,7 @@ void LevelScene::render()
 	texProgram.setUniformMatrix4f("modelview", modelview);
 	texProgram.setUniform2f("texCoordDispl", 0.f, 0.f);
 	map->render();
-	player->render();
+	levelController->render();
 }
 
 void LevelScene::initShaders()
