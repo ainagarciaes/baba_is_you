@@ -2,19 +2,17 @@
 #include <iostream>
 #include <GL/glew.h>
 #include <GL/glut.h>
-#include "Player.h"
+#include "Words.h"
 #include "Game.h"
 
 
-enum PlayerAnims
+enum WordsAnims
 {
 	STAND_LEFT, STAND_RIGHT, MOVE_LEFT, MOVE_RIGHT
 };
 
-
-void Player::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram)
+void Words::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram)
 {
-	bJumping = false;
 	spritesheet.loadFromFile("../images/bub.png", TEXTURE_PIXEL_FORMAT_RGBA);
 	sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(0.25, 0.25), &spritesheet, &shaderProgram);
 	sprite->setNumberAnimations(4);
@@ -37,11 +35,11 @@ void Player::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram)
 		
 	sprite->changeAnimation(0);
 	tileMapDispl = tileMapPos;
-	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
+	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posWords.x), float(tileMapDispl.y + posWords.y)));
 	
 }
 
-void Player::update(int deltaTime)
+void Words::update(int deltaTime)
 {
 	sprite->update(deltaTime);
 	if(Game::instance().getSpecialKey(GLUT_KEY_LEFT))
@@ -49,10 +47,10 @@ void Player::update(int deltaTime)
 		std::cout << "left" << std::endl;
 		if(sprite->animation() != MOVE_LEFT)
 			sprite->changeAnimation(MOVE_LEFT);
-		posPlayer.x -= 2;
-		if(map->collisionMoveLeft(posPlayer, glm::ivec2(32, 32)))
+		posWords.x -= 2;
+		if(map->collisionMoveLeft(posWords, glm::ivec2(32, 32)))
 		{
-			posPlayer.x += 2;
+			posWords.x += 2;
 			sprite->changeAnimation(STAND_LEFT);
 		}
 	}
@@ -61,10 +59,10 @@ void Player::update(int deltaTime)
 		std::cout << "right" << std::endl;
 		if(sprite->animation() != MOVE_RIGHT)
 			sprite->changeAnimation(MOVE_RIGHT);
-		posPlayer.x += 2;
-		if(map->collisionMoveRight(posPlayer, glm::ivec2(32, 32)))
+		posWords.x += 2;
+		if(map->collisionMoveRight(posWords, glm::ivec2(32, 32)))
 		{
-			posPlayer.x -= 2;
+			posWords.x -= 2;
 			sprite->changeAnimation(STAND_RIGHT);
 		}
 	} 	
@@ -73,10 +71,10 @@ void Player::update(int deltaTime)
 		std::cout << "up" << std::endl;
 		if(sprite->animation() != MOVE_RIGHT)
 			sprite->changeAnimation(MOVE_RIGHT);
-		posPlayer.y -= 2;
-		if(map->collisionMoveUp(posPlayer, glm::ivec2(32, 32)))
+		posWords.y -= 2;
+		if(map->collisionMoveUp(posWords, glm::ivec2(32, 32)))
 		{
-			posPlayer.y += 2;
+			posWords.y += 2;
 			sprite->changeAnimation(STAND_RIGHT);
 		}
 	}
@@ -85,10 +83,10 @@ void Player::update(int deltaTime)
 		std::cout << "down" << std::endl;
 		if(sprite->animation() != MOVE_RIGHT)
 			sprite->changeAnimation(MOVE_RIGHT);
-		posPlayer.y += 2;
-		if(map->collisionMoveDown(posPlayer, glm::ivec2(32, 32)))
+		posWords.y += 2;
+		if(map->collisionMoveDown(posWords, glm::ivec2(32, 32)))
 		{
-			posPlayer.y -= 2;
+			posWords.y -= 2;
 			sprite->changeAnimation(STAND_RIGHT);
 		}
 	}
@@ -99,25 +97,24 @@ void Player::update(int deltaTime)
 		else if(sprite->animation() == MOVE_RIGHT)
 			sprite->changeAnimation(STAND_RIGHT);
 	}
-		
-	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
+	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posWords.x), float(tileMapDispl.y + posWords.y)));
 }
 
 
-void Player::render()
+void Words::render()
 {
 	sprite->render();
 }
 
-void Player::setTileMap(TileMap *tileMap)
+void Words::setTileMap(TileMap *tileMap)
 {
 	map = tileMap;
 }
 
-void Player::setPosition(const glm::vec2 &pos)
+void Words::setPosition(const glm::vec2 &pos)
 {
-	posPlayer = pos;
-	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posPlayer.x), float(tileMapDispl.y + posPlayer.y)));
+	posWords = pos;
+	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posWords.x), float(tileMapDispl.y + posWords.y)));
 }
 
 

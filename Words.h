@@ -1,16 +1,14 @@
-#ifndef _PLAYER_INCLUDE
-#define _PLAYER_INCLUDE
+#ifndef _WORDS_INCLUDE
+#define _WORDS_INCLUDE
 
 
 #include "Sprite.h"
 #include "TileMap.h"
+#include <map>
+#include <string>
 
-
-// Player is basically a Sprite that represents the player. As such it has
-// all properties it needs to track its movement, jumping, and collisions.
-
-
-class Player
+// Words 
+class Words
 {
 
 public:
@@ -22,15 +20,13 @@ public:
 	void setPosition(const glm::vec2 &pos);
 	
 private:
-	bool bJumping;
-	glm::ivec2 tileMapDispl, posPlayer;
-	int jumpAngle, startY;
+
+	glm::ivec2 tileMapDispl, posWords;
 	Texture spritesheet;
 	Sprite *sprite;
 	TileMap *map;
+    // my vars
 };
 
 
-#endif // _PLAYER_INCLUDE
-
-
+#endif // _WORDS_INCLUDE

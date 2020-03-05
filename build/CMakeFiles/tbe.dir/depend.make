@@ -43,6 +43,23 @@ CMakeFiles/tbe.dir/InstructionsScene.cpp.o: ../Sprite.h
 CMakeFiles/tbe.dir/InstructionsScene.cpp.o: ../Texture.h
 CMakeFiles/tbe.dir/InstructionsScene.cpp.o: ../TileMap.h
 
+CMakeFiles/tbe.dir/LevelController.cpp.o: ../AnimKeyframes.h
+CMakeFiles/tbe.dir/LevelController.cpp.o: ../CreditsScene.h
+CMakeFiles/tbe.dir/LevelController.cpp.o: ../Game.h
+CMakeFiles/tbe.dir/LevelController.cpp.o: ../InstructionsScene.h
+CMakeFiles/tbe.dir/LevelController.cpp.o: ../LevelController.cpp
+CMakeFiles/tbe.dir/LevelController.cpp.o: ../LevelController.h
+CMakeFiles/tbe.dir/LevelController.cpp.o: ../LevelScene.h
+CMakeFiles/tbe.dir/LevelController.cpp.o: ../MapObject.h
+CMakeFiles/tbe.dir/LevelController.cpp.o: ../MenuScene.h
+CMakeFiles/tbe.dir/LevelController.cpp.o: ../Player.h
+CMakeFiles/tbe.dir/LevelController.cpp.o: ../Shader.h
+CMakeFiles/tbe.dir/LevelController.cpp.o: ../ShaderProgram.h
+CMakeFiles/tbe.dir/LevelController.cpp.o: ../Sprite.h
+CMakeFiles/tbe.dir/LevelController.cpp.o: ../Texture.h
+CMakeFiles/tbe.dir/LevelController.cpp.o: ../TileMap.h
+CMakeFiles/tbe.dir/LevelController.cpp.o: ../Words.h
+
 CMakeFiles/tbe.dir/LevelScene.cpp.o: ../AnimKeyframes.h
 CMakeFiles/tbe.dir/LevelScene.cpp.o: ../CreditsScene.h
 CMakeFiles/tbe.dir/LevelScene.cpp.o: ../Game.h
@@ -56,6 +73,21 @@ CMakeFiles/tbe.dir/LevelScene.cpp.o: ../ShaderProgram.h
 CMakeFiles/tbe.dir/LevelScene.cpp.o: ../Sprite.h
 CMakeFiles/tbe.dir/LevelScene.cpp.o: ../Texture.h
 CMakeFiles/tbe.dir/LevelScene.cpp.o: ../TileMap.h
+
+CMakeFiles/tbe.dir/MapObject.cpp.o: ../AnimKeyframes.h
+CMakeFiles/tbe.dir/MapObject.cpp.o: ../CreditsScene.h
+CMakeFiles/tbe.dir/MapObject.cpp.o: ../Game.h
+CMakeFiles/tbe.dir/MapObject.cpp.o: ../InstructionsScene.h
+CMakeFiles/tbe.dir/MapObject.cpp.o: ../LevelScene.h
+CMakeFiles/tbe.dir/MapObject.cpp.o: ../MapObject.cpp
+CMakeFiles/tbe.dir/MapObject.cpp.o: ../MapObject.h
+CMakeFiles/tbe.dir/MapObject.cpp.o: ../MenuScene.h
+CMakeFiles/tbe.dir/MapObject.cpp.o: ../Player.h
+CMakeFiles/tbe.dir/MapObject.cpp.o: ../Shader.h
+CMakeFiles/tbe.dir/MapObject.cpp.o: ../ShaderProgram.h
+CMakeFiles/tbe.dir/MapObject.cpp.o: ../Sprite.h
+CMakeFiles/tbe.dir/MapObject.cpp.o: ../Texture.h
+CMakeFiles/tbe.dir/MapObject.cpp.o: ../TileMap.h
 
 CMakeFiles/tbe.dir/MenuScene.cpp.o: ../AnimKeyframes.h
 CMakeFiles/tbe.dir/MenuScene.cpp.o: ../CreditsScene.h
@@ -117,6 +149,21 @@ CMakeFiles/tbe.dir/TileMap.cpp.o: ../ShaderProgram.h
 CMakeFiles/tbe.dir/TileMap.cpp.o: ../Texture.h
 CMakeFiles/tbe.dir/TileMap.cpp.o: ../TileMap.cpp
 CMakeFiles/tbe.dir/TileMap.cpp.o: ../TileMap.h
+
+CMakeFiles/tbe.dir/Words.cpp.o: ../AnimKeyframes.h
+CMakeFiles/tbe.dir/Words.cpp.o: ../CreditsScene.h
+CMakeFiles/tbe.dir/Words.cpp.o: ../Game.h
+CMakeFiles/tbe.dir/Words.cpp.o: ../InstructionsScene.h
+CMakeFiles/tbe.dir/Words.cpp.o: ../LevelScene.h
+CMakeFiles/tbe.dir/Words.cpp.o: ../MenuScene.h
+CMakeFiles/tbe.dir/Words.cpp.o: ../Player.h
+CMakeFiles/tbe.dir/Words.cpp.o: ../Shader.h
+CMakeFiles/tbe.dir/Words.cpp.o: ../ShaderProgram.h
+CMakeFiles/tbe.dir/Words.cpp.o: ../Sprite.h
+CMakeFiles/tbe.dir/Words.cpp.o: ../Texture.h
+CMakeFiles/tbe.dir/Words.cpp.o: ../TileMap.h
+CMakeFiles/tbe.dir/Words.cpp.o: ../Words.cpp
+CMakeFiles/tbe.dir/Words.cpp.o: ../Words.h
 
 CMakeFiles/tbe.dir/main.cpp.o: ../AnimKeyframes.h
 CMakeFiles/tbe.dir/main.cpp.o: ../CreditsScene.h

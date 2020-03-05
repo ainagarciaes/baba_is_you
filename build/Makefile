@@ -204,6 +204,33 @@ InstructionsScene.cpp.s:
 	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/InstructionsScene.cpp.s
 .PHONY : InstructionsScene.cpp.s
 
+LevelController.o: LevelController.cpp.o
+
+.PHONY : LevelController.o
+
+# target to build an object file
+LevelController.cpp.o:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/LevelController.cpp.o
+.PHONY : LevelController.cpp.o
+
+LevelController.i: LevelController.cpp.i
+
+.PHONY : LevelController.i
+
+# target to preprocess a source file
+LevelController.cpp.i:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/LevelController.cpp.i
+.PHONY : LevelController.cpp.i
+
+LevelController.s: LevelController.cpp.s
+
+.PHONY : LevelController.s
+
+# target to generate assembly for a file
+LevelController.cpp.s:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/LevelController.cpp.s
+.PHONY : LevelController.cpp.s
+
 LevelScene.o: LevelScene.cpp.o
 
 .PHONY : LevelScene.o
@@ -230,6 +257,33 @@ LevelScene.s: LevelScene.cpp.s
 LevelScene.cpp.s:
 	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/LevelScene.cpp.s
 .PHONY : LevelScene.cpp.s
+
+MapObject.o: MapObject.cpp.o
+
+.PHONY : MapObject.o
+
+# target to build an object file
+MapObject.cpp.o:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/MapObject.cpp.o
+.PHONY : MapObject.cpp.o
+
+MapObject.i: MapObject.cpp.i
+
+.PHONY : MapObject.i
+
+# target to preprocess a source file
+MapObject.cpp.i:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/MapObject.cpp.i
+.PHONY : MapObject.cpp.i
+
+MapObject.s: MapObject.cpp.s
+
+.PHONY : MapObject.s
+
+# target to generate assembly for a file
+MapObject.cpp.s:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/MapObject.cpp.s
+.PHONY : MapObject.cpp.s
 
 MenuScene.o: MenuScene.cpp.o
 
@@ -447,6 +501,33 @@ TileMap.cpp.s:
 	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/TileMap.cpp.s
 .PHONY : TileMap.cpp.s
 
+Words.o: Words.cpp.o
+
+.PHONY : Words.o
+
+# target to build an object file
+Words.cpp.o:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/Words.cpp.o
+.PHONY : Words.cpp.o
+
+Words.i: Words.cpp.i
+
+.PHONY : Words.i
+
+# target to preprocess a source file
+Words.cpp.i:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/Words.cpp.i
+.PHONY : Words.cpp.i
+
+Words.s: Words.cpp.s
+
+.PHONY : Words.s
+
+# target to generate assembly for a file
+Words.cpp.s:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/Words.cpp.s
+.PHONY : Words.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -492,9 +573,15 @@ help:
 	@echo "... InstructionsScene.o"
 	@echo "... InstructionsScene.i"
 	@echo "... InstructionsScene.s"
+	@echo "... LevelController.o"
+	@echo "... LevelController.i"
+	@echo "... LevelController.s"
 	@echo "... LevelScene.o"
 	@echo "... LevelScene.i"
 	@echo "... LevelScene.s"
+	@echo "... MapObject.o"
+	@echo "... MapObject.i"
+	@echo "... MapObject.s"
 	@echo "... MenuScene.o"
 	@echo "... MenuScene.i"
 	@echo "... MenuScene.s"
@@ -519,6 +606,9 @@ help:
 	@echo "... TileMap.o"
 	@echo "... TileMap.i"
 	@echo "... TileMap.s"
+	@echo "... Words.o"
+	@echo "... Words.i"
+	@echo "... Words.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
