@@ -26,6 +26,8 @@ private:
 	Sprite *sprite;
 	TileMap *map;
     // my vars
+    string objectName;
+    std::map<string, bool> properties;
 };
 
 

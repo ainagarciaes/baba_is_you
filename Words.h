@@ -26,6 +26,8 @@ private:
 	Sprite *sprite;
 	TileMap *map;
     // my vars
+	string wordName;
+	int wordType; //1 - noun; 2 - verb; 3 - property
 };
 
 
