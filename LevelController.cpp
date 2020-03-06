@@ -16,10 +16,35 @@ void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderPr
 	std::ifstream i("../levels/lvl_"+to_string(lvl)+"_setup.txt");
 	json j;
 	i >> j;
-	string name = j["mapObjects"][0]["name"];
-	MapObject *mo = new MapObject(glm::vec2(0,0), name);
-	mo->init(tileMapPos, shaderProgram, name);
-	objects.push_back(mo);
+
+
+	// Read map words
+	auto mapWords = j["mapWords"];
+	for(auto i = 0; i < mapWords.size(); ++i) {
+		string name = mapWords[i]["name"];
+		float posy = mapWords[i]["posy"];
+		float posx = mapWords[i]["posx"];
+
+		//my code goes here
+		MapObject *mo = new MapObject(glm::vec2(posx,posy), name);
+		mo->init(tileMapPos, shaderProgram, name);
+		objects.push_back(mo);
+	}
+
+	// Read map objects
+	auto mapObs = j["mapObjects"];
+	for(auto i = 0; i < mapObs.size(); ++i) {
+		string name = mapObs[i]["name"];
+		float posy = mapObs[i]["posy"];
+		float posx = mapObs[i]["posx"];
+
+		//my code goes here
+		MapObject *mo = new MapObject(glm::vec2(posx,posy), name);
+		mo->init(tileMapPos, shaderProgram, name);
+		objects.push_back(mo);
+	}
+	// init properties
+		// set animations for words	
 }
 
 void LevelController::update(int deltaTime)

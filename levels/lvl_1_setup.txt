@@ -3,18 +3,18 @@
     "mapObjects":
     [
       {
-        "posx":"12",
-        "posy":"10",
+        "posx":12,
+        "posy":10,
         "name":"bub"
       },
       {
-        "posx":"22",
-        "posy":"10",
+        "posx":32,
+        "posy":10,
         "name":"bub"
       },
       {
-        "posx":"32",
-        "posy":"10",
+        "posx":52,
+        "posy":10,
         "name":"bub"
       }
     ]
