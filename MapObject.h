@@ -12,7 +12,7 @@ class MapObject
 {
 
 public:
-	MapObject();
+	MapObject(const glm::vec2 &pos, string name);
 	void init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, string name);
 	void update(int deltaTime, const glm::vec2 &pos, string dir);
 	void render();

@@ -1,0 +1,21 @@
+{
+    "test":"test",
+    "mapObjects":
+    [
+      {
+        "posx":"12",
+        "posy":"10",
+        "name":"bub"
+      },
+      {
+        "posx":"22",
+        "posy":"10",
+        "name":"bub"
+      },
+      {
+        "posx":"32",
+        "posy":"10",
+        "name":"bub"
+      }
+    ]
+}

@@ -251,8 +251,17 @@ OPENGL_xmesa_INCLUDE_DIR:PATH=OPENGL_xmesa_INCLUDE_DIR-NOTFOUND
 //Path to a library.
 SOIL:FILEPATH=/usr/local/lib/libSOIL.a
 
+//Path to a library.
+nlohmann_json:FILEPATH=nlohmann_json-NOTFOUND
+
+//The directory containing a CMake configuration file for nlohmann_json.
+nlohmann_json_DIR:PATH=nlohmann_json_DIR-NOTFOUND
+
 //Value Computed by CMake
 tbe_BINARY_DIR:STATIC=/home/auri/Documents/UNI/VJ/baba_is_you/build
+
+//Dependencies for the target
+tbe_LIB_DEPENDS:STATIC=general;/usr/local/lib/libSOIL.a;general;/usr/lib/x86_64-linux-gnu/libGL.so;general;/usr/lib/x86_64-linux-gnu/libGLU.so;general;/usr/lib/x86_64-linux-gnu/libglut.so;general;/usr/lib/x86_64-linux-gnu/libGLEW.so;
 
 //Value Computed by CMake
 tbe_SOURCE_DIR:STATIC=/home/auri/Documents/UNI/VJ/baba_is_you

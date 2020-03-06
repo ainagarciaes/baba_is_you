@@ -11,7 +11,10 @@ enum MapObjectAnims
 	STAND_LEFT, STAND_RIGHT, MOVE_LEFT, MOVE_RIGHT
 };
 
-MapObject::MapObject() {}
+MapObject::MapObject(const glm::vec2 &pos, string name) {
+	posMapObject = pos;
+	objectName = name; 
+}
 
 void MapObject::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, string name)
 {

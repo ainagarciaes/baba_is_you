@@ -4,12 +4,21 @@
 #include <GL/glut.h>
 #include "LevelController.h"
 #include "Game.h"
+#include <include/nlohmann/json.hpp>
+#include<fstream>
+
+// for convenience
+using json = nlohmann::json;
 
 void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, int lvl)
 {
 	std::cout << "init level controller" << std::endl;
-	MapObject *mo = new MapObject();
-	mo->init(tileMapPos, shaderProgram, "bub");
+	std::ifstream i("../levels/lvl_"+to_string(lvl)+"_setup.txt");
+	json j;
+	i >> j;
+	string name = j["mapObjects"][0]["name"];
+	MapObject *mo = new MapObject(glm::vec2(0,0), name);
+	mo->init(tileMapPos, shaderProgram, name);
 	objects.push_back(mo);
 }
 
