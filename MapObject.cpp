@@ -41,52 +41,29 @@ void MapObject::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram,
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posMapObject.x), float(tileMapDispl.y + posMapObject.y)));
 }
 
-void MapObject::update(int deltaTime)
+void MapObject::update(int deltaTime, const glm::vec2 &pos, string dir)
 {
 	sprite->update(deltaTime);
-	if(Game::instance().getSpecialKey(GLUT_KEY_LEFT))
+	posMapObject = pos;
+	if(dir == "L")
 	{
 		if(sprite->animation() != MOVE_LEFT)
 			sprite->changeAnimation(MOVE_LEFT);
-		posMapObject.x -= 2;
-		if(tmap->collisionMoveLeft(posMapObject, glm::ivec2(32, 32)))
-		{
-			posMapObject.x += 2;
-			sprite->changeAnimation(STAND_LEFT);
-		}
 	}
-	else if(Game::instance().getSpecialKey(GLUT_KEY_RIGHT))
+	else if(dir == "R")
 	{
 		if(sprite->animation() != MOVE_RIGHT)
 			sprite->changeAnimation(MOVE_RIGHT);
-		posMapObject.x += 2;
-		if(tmap->collisionMoveRight(posMapObject, glm::ivec2(32, 32)))
-		{
-			posMapObject.x -= 2;
-			sprite->changeAnimation(STAND_RIGHT);
-		}
 	} 	
-	else if(Game::instance().getSpecialKey(GLUT_KEY_UP))
+	else if(dir == "U")
 	{
 		if(sprite->animation() != MOVE_RIGHT)
 			sprite->changeAnimation(MOVE_RIGHT);
-		posMapObject.y -= 2;
-		if(tmap->collisionMoveUp(posMapObject, glm::ivec2(32, 32)))
-		{
-			posMapObject.y += 2;
-			sprite->changeAnimation(STAND_RIGHT);
-		}
 	}
-	else if(Game::instance().getSpecialKey(GLUT_KEY_DOWN))
+	else if(dir == "D")
 	{
 		if(sprite->animation() != MOVE_RIGHT)
 			sprite->changeAnimation(MOVE_RIGHT);
-		posMapObject.y += 2;
-		if(tmap->collisionMoveDown(posMapObject, glm::ivec2(32, 32)))
-		{
-			posMapObject.y -= 2;
-			sprite->changeAnimation(STAND_RIGHT);
-		}
 	}
 	else
 	{

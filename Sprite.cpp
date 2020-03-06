@@ -2,7 +2,7 @@
 #include <GL/gl.h>
 #include <glm/gtc/matrix_transform.hpp>
 #include "Sprite.h"
-
+#include <iostream>
 
 Sprite *Sprite::createSprite(const glm::vec2 &quadSize, const glm::vec2 &sizeInSpritesheet, Texture *spritesheet, ShaderProgram *program)
 {
@@ -83,6 +83,7 @@ void Sprite::addKeyframe(int animId, const glm::vec2 &displacement)
 {
 	if(animId < int(animations.size()))
 		animations[animId].keyframeDispl.push_back(displacement);
+	
 }
 
 void Sprite::changeAnimation(int animId)

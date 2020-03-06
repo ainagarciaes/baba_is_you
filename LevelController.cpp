@@ -44,36 +44,39 @@ void LevelController::movePlayable(int deltaTime) {
 	bool up = Game::instance().getSpecialKey(GLUT_KEY_UP);
 	bool down = Game::instance().getSpecialKey(GLUT_KEY_DOWN);
 
-	string name;
-	glm::ivec2 posPlayer;
-
 	if (left) {
 		for (int i = 0; i < objects.size(); ++i) {
 			MapObject *ob = objects[i];
 			glm::ivec2 pos = ob->getPosition();
 			pos.x -= 2;
-			ob->setPosition(pos);
+			ob->update(deltaTime, pos, "L");
 		}
 	} else if (right) {
 		for (int i = 0; i < objects.size(); ++i) {
 			MapObject *ob = objects[i];
 			glm::ivec2 pos = ob->getPosition();
 			pos.x += 2;
-			ob->setPosition(pos);
+			ob->update(deltaTime, pos, "R");
 		}
 	} else if (up) {
 		for (int i = 0; i < objects.size(); ++i) {
 			MapObject *ob = objects[i];
 			glm::ivec2 pos = ob->getPosition();
 			pos.y -= 2;
-			ob->setPosition(pos);
+			ob->update(deltaTime, pos, "U");
 		}
 	} else if (down) {
 		for (int i = 0; i < objects.size(); ++i) {
 			MapObject *ob = objects[i];
 			glm::ivec2 pos = ob->getPosition();
 			pos.y += 2;
-			ob->setPosition(pos);
+			ob->update(deltaTime, pos, "D");
+		}
+	} else {
+		for (int i = 0; i < objects.size(); ++i) {
+			MapObject *ob = objects[i];
+			glm::ivec2 pos = ob->getPosition();
+			ob->update(deltaTime, pos, "S");
 		}
 	}
 	/*

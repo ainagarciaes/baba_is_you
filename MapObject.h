@@ -14,7 +14,7 @@ class MapObject
 public:
 	MapObject();
 	void init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, string name);
-	void update(int deltaTime);
+	void update(int deltaTime, const glm::vec2 &pos, string dir);
 	void render();
 	
 	void setTileMap(TileMap *tileMap);
