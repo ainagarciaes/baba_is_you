@@ -12,6 +12,7 @@ class MapObject
 {
 
 public:
+	MapObject();
 	void init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, string name);
 	void update(int deltaTime);
 	void render();

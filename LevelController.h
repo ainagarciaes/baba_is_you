@@ -32,7 +32,7 @@ private:
 	// MY VARS
 	int nextScene;
 	std::map<string, bool> playable; //for each kind of object in the level, sets if it is currently playable
-    std::vector<MapObject> objects;
+    std::vector<MapObject*> objects;
     std::vector<Words> words;
 };
 #endif // _LEVEL_CONTROLLER_INCLUDE

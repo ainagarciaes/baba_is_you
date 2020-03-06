@@ -11,6 +11,8 @@ enum MapObjectAnims
 	STAND_LEFT, STAND_RIGHT, MOVE_LEFT, MOVE_RIGHT
 };
 
+MapObject::MapObject() {}
+
 void MapObject::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, string name)
 {
 	bool ok = spritesheet.loadFromFile("../images/bub.png", TEXTURE_PIXEL_FORMAT_RGBA);

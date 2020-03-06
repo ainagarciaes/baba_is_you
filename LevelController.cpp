@@ -8,8 +8,8 @@
 void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, int lvl)
 {
 	std::cout << "init level controller" << std::endl;
-	MapObject mo;
-	mo.init(tileMapPos, shaderProgram, "bub");
+	MapObject *mo = new MapObject();
+	mo->init(tileMapPos, shaderProgram, "bub");
 	objects.push_back(mo);
 }
 
@@ -24,7 +24,7 @@ void LevelController::render()
 {
 	// render objects
 	for (int i = 0; i < objects.size(); ++i) {
-		objects[i].render();
+		(*objects[i]).render();
 	}
 	// render words
 	for (int i = 0; i < words.size(); ++i) {
