@@ -6,6 +6,7 @@
 #include <map>
 #include "MapObject.h"
 #include "Words.h"
+#include "Player.h"
 
 class LevelController
 {
@@ -27,10 +28,6 @@ private:
 	bool isPlayable(string name);
 
 	bool bJumping;
-	glm::ivec2 tileMapDispl, posLevelController;
-	int jumpAngle, startY;
-	Texture spritesheet;
-	Sprite *sprite;
 	TileMap *map;
 	// MY VARS
 	int nextScene;

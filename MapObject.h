@@ -12,20 +12,20 @@ class MapObject
 {
 
 public:
-	void init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram);
+	void init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, string name);
 	void update(int deltaTime);
 	void render();
 	
 	void setTileMap(TileMap *tileMap);
 	void setPosition(const glm::vec2 &pos);
 	string getName();
-	glm::vec2 getPosition();
+	glm::ivec2 getPosition();
 	
 private:
 	glm::ivec2 tileMapDispl, posMapObject;
 	Texture spritesheet;
 	Sprite *sprite;
-	TileMap *map;
+	TileMap *tmap;
     // my vars
     string objectName;
     std::map<string, bool> properties;

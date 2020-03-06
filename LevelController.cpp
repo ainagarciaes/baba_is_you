@@ -8,7 +8,9 @@
 void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, int lvl)
 {
 	std::cout << "init level controller" << std::endl;
-	tileMapDispl = tileMapPos;
+	MapObject mo;
+	mo.init(tileMapPos, shaderProgram, "bub");
+	objects.push_back(mo);
 }
 
 void LevelController::update(int deltaTime)
@@ -33,11 +35,6 @@ void LevelController::render()
 void LevelController::setTileMap(TileMap *tileMap)
 {
 	map = tileMap;
-}
-
-void LevelController::setPosition(const glm::vec2 &pos)
-{
-	posLevelController = pos;
 }
 
 void LevelController::movePlayable(int deltaTime) {

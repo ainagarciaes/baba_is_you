@@ -1,6 +1,8 @@
 #include <SOIL.h>
 #include "Texture.h"
 #include <iostream>
+#include <unistd.h>
+#include <stdio.h>
 
 using namespace std;
 
@@ -15,9 +17,14 @@ Texture::Texture()
 
 
 bool Texture::loadFromFile(const string &filename, PixelFormat format)
-{
-	unsigned char *image = NULL;
+{	
+
+	char cwd[1024];
+    chdir("/path/to/change/directory/to");
+    getcwd(cwd, sizeof(cwd));
+    printf("Current working dir: %s\n", cwd);
 	
+	unsigned char *image = NULL;
 	switch(format)
 	{
 	case TEXTURE_PIXEL_FORMAT_RGB:
@@ -25,12 +32,16 @@ bool Texture::loadFromFile(const string &filename, PixelFormat format)
 		break;
 	case TEXTURE_PIXEL_FORMAT_RGBA:
 		image = SOIL_load_image(filename.c_str(), &widthTex, &heightTex, 0, SOIL_LOAD_RGBA);
+		std::cout<<SOIL_last_result()<<filename<<std::endl;
 		break;
 	}
-	if(image == NULL)
+	if(image == NULL) {
 		return false;
+	}
+
 	glGenTextures(1, &texId);
 	glBindTexture(GL_TEXTURE_2D, texId);
+
 	switch(format)
 	{
 	case TEXTURE_PIXEL_FORMAT_RGB:
