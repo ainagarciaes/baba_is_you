@@ -29,11 +29,9 @@ void LevelScene::init(int lvl)
 {
 	std::cout<<"INIT level scene"<<std::endl;
 	initShaders();
-	map = TileMap::createTileMap("../levels/level0"+to_string(lvl-2)+".txt", glm::vec2(32, 16), texProgram);
+	map = TileMap::createTileMap("../levels/level0"+to_string(lvl-2)+".txt", glm::vec2(0, 0), texProgram);
 	levelController = new LevelController();
 	levelController->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram, lvl);
-	//levelController->setPosition(glm::vec2(INIT_PLAYER_X_TILES * map->getTileSize(), INIT_PLAYER_Y_TILES * map->getTileSize()));
-	//levelController->setTileMap(map);
 	projection = glm::ortho(0.f, float(CAMERA_WIDTH - 1), float(CAMERA_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;
 	nextScene = -1;

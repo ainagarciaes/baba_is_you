@@ -28,7 +28,7 @@ InstructionsScene::~InstructionsScene()
 void InstructionsScene::init()
 {
 	initShaders();
-	map = TileMap::createTileMap("../levels/instructions.txt", glm::vec2(32, 16), texProgram);
+	map = TileMap::createTileMap("../levels/instructions.txt", glm::vec2(0, 0), texProgram);
 	projection = glm::ortho(0.f, float(CAMERA_WIDTH - 1), float(CAMERA_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;
 	nextScene = -1;
