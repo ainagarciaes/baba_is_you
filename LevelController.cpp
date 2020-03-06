@@ -24,7 +24,8 @@ void LevelController::render()
 {
 	// render objects
 	for (int i = 0; i < objects.size(); ++i) {
-		(*objects[i]).render();
+		MapObject *ob = objects[i];
+		ob->render();
 	}
 	// render words
 	for (int i = 0; i < words.size(); ++i) {
@@ -45,6 +46,36 @@ void LevelController::movePlayable(int deltaTime) {
 
 	string name;
 	glm::ivec2 posPlayer;
+
+	if (left) {
+		for (int i = 0; i < objects.size(); ++i) {
+			MapObject *ob = objects[i];
+			glm::ivec2 pos = ob->getPosition();
+			pos.x -= 2;
+			ob->setPosition(pos);
+		}
+	} else if (right) {
+		for (int i = 0; i < objects.size(); ++i) {
+			MapObject *ob = objects[i];
+			glm::ivec2 pos = ob->getPosition();
+			pos.x += 2;
+			ob->setPosition(pos);
+		}
+	} else if (up) {
+		for (int i = 0; i < objects.size(); ++i) {
+			MapObject *ob = objects[i];
+			glm::ivec2 pos = ob->getPosition();
+			pos.y -= 2;
+			ob->setPosition(pos);
+		}
+	} else if (down) {
+		for (int i = 0; i < objects.size(); ++i) {
+			MapObject *ob = objects[i];
+			glm::ivec2 pos = ob->getPosition();
+			pos.y += 2;
+			ob->setPosition(pos);
+		}
+	}
 	/*
 		We have to iterate the map according to the direction the player wants to move, and then, for each playable element
 		check if it can move to that direction taking into consideration:

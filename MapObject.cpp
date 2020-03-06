@@ -38,9 +38,7 @@ void MapObject::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram,
 		
 	sprite->changeAnimation(0);
 	tileMapDispl = tileMapPos;
-	sprite->setPosition(glm::vec2(float(30), float(30)));
-	//sprite->setPosition(glm::vec2(float(tileMapDispl.x + posMapObject.x), float(tileMapDispl.y + posMapObject.y)));
-	
+	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posMapObject.x), float(tileMapDispl.y + posMapObject.y)));
 }
 
 void MapObject::update(int deltaTime)
