@@ -17,17 +17,17 @@ void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderPr
 	json j;
 	i >> j;
 
-
 	// Read map words
 	auto mapWords = j["mapWords"];
 	for(auto i = 0; i < mapWords.size(); ++i) {
 		string name = mapWords[i]["name"];
-		float posy = mapWords[i]["posy"];
-		float posx = mapWords[i]["posx"];
+		int posy = mapWords[i]["posy"];
+		int posx = mapWords[i]["posx"];
 
 		//my code goes here
 		MapObject *mo = new MapObject(glm::vec2(posx,posy), name);
 		mo->init(tileMapPos, shaderProgram, name);
+		obs_words_positions[posy%32][posx%32] = name;
 		objects.push_back(mo);
 	}
 
@@ -35,14 +35,25 @@ void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderPr
 	auto mapObs = j["mapObjects"];
 	for(auto i = 0; i < mapObs.size(); ++i) {
 		string name = mapObs[i]["name"];
-		float posy = mapObs[i]["posy"];
-		float posx = mapObs[i]["posx"];
+		int posy = mapObs[i]["posy"];
+		int posx = mapObs[i]["posx"];
 
 		//my code goes here
 		MapObject *mo = new MapObject(glm::vec2(posx,posy), name);
 		mo->init(tileMapPos, shaderProgram, name);
+		obs_words_positions[posy%32][posx%32] = name;
 		objects.push_back(mo);
 	}
+
+	// load map walls for collisions
+	auto walls = j["walls"];
+	for(auto i = 0; i < walls.size(); ++i) {
+		int posy = walls[i]["posy"];
+		int posx = walls[i]["posx"];
+		obs_words_positions[posy][posx] = "wall";
+	}
+
+	moving = 0;
 	// init properties
 		// set animations for words	
 }
@@ -78,41 +89,83 @@ void LevelController::movePlayable(int deltaTime) {
 	bool up = Game::instance().getSpecialKey(GLUT_KEY_UP);
 	bool down = Game::instance().getSpecialKey(GLUT_KEY_DOWN);
 
-	if (left) {
-		for (int i = 0; i < objects.size(); ++i) {
-			MapObject *ob = objects[i];
-			glm::ivec2 pos = ob->getPosition();
-			pos.x -= 2;
-			ob->update(deltaTime, pos, "L");
-		}
-	} else if (right) {
-		for (int i = 0; i < objects.size(); ++i) {
-			MapObject *ob = objects[i];
-			glm::ivec2 pos = ob->getPosition();
-			pos.x += 2;
-			ob->update(deltaTime, pos, "R");
-		}
-	} else if (up) {
-		for (int i = 0; i < objects.size(); ++i) {
-			MapObject *ob = objects[i];
-			glm::ivec2 pos = ob->getPosition();
-			pos.y -= 2;
-			ob->update(deltaTime, pos, "U");
-		}
-	} else if (down) {
-		for (int i = 0; i < objects.size(); ++i) {
-			MapObject *ob = objects[i];
-			glm::ivec2 pos = ob->getPosition();
-			pos.y += 2;
-			ob->update(deltaTime, pos, "D");
-		}
+	if (moving == 0) {
+		//check collisions
+		if (left) {
+			moving = 1;
+			for (int i = 0; i < objects.size(); ++i) { //TODO: ITERATE IN THE REQUIRED WAY
+				MapObject *ob = objects[i];
+				glm::ivec2 pos = ob->getPosition();
+				pos.x -= 2;
+				ob->update(deltaTime, pos, "L");
+			}
+		} else if (right) {
+			moving = 2;
+			for (int i = 0; i < objects.size(); ++i) {
+				MapObject *ob = objects[i];
+				glm::ivec2 pos = ob->getPosition();
+				pos.x += 2;
+				ob->update(deltaTime, pos, "R");
+			}
+		} else if (up) {
+			moving = 3;
+			for (int i = 0; i < objects.size(); ++i) {
+				MapObject *ob = objects[i];
+				glm::ivec2 pos = ob->getPosition();
+				pos.y -= 2;
+				ob->update(deltaTime, pos, "U");
+			}
+		} else if (down) {
+			moving = 4;
+			for (int i = 0; i < objects.size(); ++i) {
+				MapObject *ob = objects[i];
+				glm::ivec2 pos = ob->getPosition();
+				pos.y += 2;
+				ob->update(deltaTime, pos, "D");
+			}
+		} else {
+			for (int i = 0; i < objects.size(); ++i) {
+				MapObject *ob = objects[i];
+				glm::ivec2 pos = ob->getPosition();
+				ob->update(deltaTime, pos, "S");
+			}
+		}		
 	} else {
-		for (int i = 0; i < objects.size(); ++i) {
-			MapObject *ob = objects[i];
-			glm::ivec2 pos = ob->getPosition();
-			ob->update(deltaTime, pos, "S");
+		if (moving == 1) {
+			for (int i = 0; i < objects.size(); ++i) {
+				MapObject *ob = objects[i];
+				glm::ivec2 pos = ob->getPosition();
+				pos.x -= 2;
+				ob->update(deltaTime, pos, "L");
+				if (pos.x%32 == 0) moving = 0;
+			}
+		} else if (moving == 2) {
+			for (int i = 0; i < objects.size(); ++i) {
+				MapObject *ob = objects[i];
+				glm::ivec2 pos = ob->getPosition();
+				pos.x += 2;
+				ob->update(deltaTime, pos, "R");
+				if (pos.x%32 == 0) moving = 0;
+			}
+		} else if (moving == 3) {
+			for (int i = 0; i < objects.size(); ++i) {
+				MapObject *ob = objects[i];
+				glm::ivec2 pos = ob->getPosition();
+				pos.y -= 2;
+				ob->update(deltaTime, pos, "U");
+				if (pos.y%32 == 0) moving = 0;
+			}
+		} else if (moving == 4) {
+			for (int i = 0; i < objects.size(); ++i) {
+				MapObject *ob = objects[i];
+				glm::ivec2 pos = ob->getPosition();
+				pos.y += 2;
+				ob->update(deltaTime, pos, "D");
+				if (pos.y%32 == 0) moving = 0;
+			}
 		}
 	}
+
 	/*
 		We have to iterate the map according to the direction the player wants to move, and then, for each playable element
 		check if it can move to that direction taking into consideration:

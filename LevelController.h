@@ -27,12 +27,14 @@ private:
 	void updateNextScene();
 	bool isPlayable(string name);
 
-	bool bJumping;
+	int moving; // 0 not moving, 1 Left, 2 Right, 3 Up, 4 Down
 	TileMap *map;
 	// MY VARS
 	int nextScene;
 	std::map<string, bool> playable; //for each kind of object in the level, sets if it is currently playable
     std::vector<MapObject*> objects;
     std::vector<Words> words;
+
+	string obs_words_positions[15][20];
 };
 #endif // _LEVEL_CONTROLLER_INCLUDE
