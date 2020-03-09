@@ -12,8 +12,6 @@ using json = nlohmann::json;
 
 void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, int lvl)
 {
-	std::cout << "init level controller" << std::endl;
-
 	for (int k = 0; k < 15; k++) {
 		for (int w = 0; w < 20; w++) {
 			obs_words_positions[k][w] = "empty";
@@ -36,7 +34,7 @@ void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderPr
 		//my code goes here
 		Words *mo = new Words(glm::vec2(posx,posy), name, wtype);
 		mo->init(tileMapPos, shaderProgram, name);
-		obs_words_positions[posy%32][posx%32] = name;
+		obs_words_positions[posy%32-1][posx%32] = name;
 		words[id]=mo;
 	}
 
@@ -51,7 +49,6 @@ void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderPr
 		//my code goes here
 		MapObject *mo = new MapObject(glm::vec2(posx,posy), name);
 		mo->init(tileMapPos, shaderProgram, name);
-		cout << posy%32 << posx%32 << id << endl;
 		obs_words_positions[posy/32][posx/32] = id;
 		objects[id] = mo;
 		playable[name] = false;
@@ -118,6 +115,7 @@ void LevelController::movePlayable(int deltaTime) {
 			cout << endl;
 		}
 	}
+
 	if (moving == 0) {
 		if (left) { 
 			moving = 1; 
@@ -159,20 +157,40 @@ void LevelController::movePlayable(int deltaTime) {
 			movCont = 14;
 		} else if (up) {
 			moving = 3;
-			for (int i = 0; i < objects.size(); ++i) {
-				MapObject *ob = objects[to_string(i+1)];
-				glm::ivec2 pos = ob->getPosition();
-				pos.y -= 2;
-				ob->update(deltaTime, pos, "U");
+			for (int j = 1; j < 14; j++) { // check map state
+				for (int i = 1; i < 19; i++) {
+					string id = obs_words_positions[j][i];
+					// we check that there is not another object at the left of the player and that this object exists
+					if (moveRecursive(deltaTime, "U", i, j) && objects.find(id) != objects.end()) {
+						MapObject *ob = objects[id];
+						glm::ivec2 pos = ob->getPosition();
+						if (playable[ob->getName()]) { // If it is playable and it does not collide, it can move
+							pos.y -= 2;
+							ob->update(deltaTime, pos, "U");
+							obs_words_positions[j-1][i] = obs_words_positions[j][i];
+							obs_words_positions[j][i] = "empty";
+						}
+					}
+				}
 			}
 			movCont = 14;
 		} else if (down) {
 			moving = 4;
-			for (int i = 0; i < objects.size(); ++i) {
-				MapObject *ob = objects[to_string(i+1)];
-				glm::ivec2 pos = ob->getPosition();
-				pos.y += 2;
-				ob->update(deltaTime, pos, "D");
+			for (int j = 14; j > 0; j--) { // check map state
+				for (int i = 1; i < 19; i++) {
+					string id = obs_words_positions[j][i];
+					// we check that there is not another object at the left of the player and that this object exists
+					if (moveRecursive(deltaTime, "D", i, j) && objects.find(id) != objects.end()) {
+						MapObject *ob = objects[id];
+						glm::ivec2 pos = ob->getPosition();
+						if (playable[ob->getName()]) { // If it is playable and it does not collide, it can move
+							pos.y += 2;
+							ob->update(deltaTime, pos, "D");
+							obs_words_positions[j+1][i] = obs_words_positions[j][i];
+							obs_words_positions[j][i] = "empty";
+						}
+					}
+				}
 			}
 			movCont = 14;
 		} else {
@@ -183,38 +201,27 @@ void LevelController::movePlayable(int deltaTime) {
 			}
 		}		
 	} else {
-		if (moving == 1) {
-			for (int i = 0; i < objects.size(); ++i) {
-				MapObject *ob = objects[to_string(i+1)];
-				glm::ivec2 pos = ob->getPosition();
-				if (pos.x % 32 != 0) {
+		std::map<std::string, MapObject*>::iterator it = objects.begin();
+		while (it != objects.end())
+		{
+			MapObject *ob = it->second;
+			glm::ivec2 pos = ob->getPosition();
+			if (pos.x % 32 != 0 || pos.y%32 != 0) {
+				if (moving == 1) {
 					pos.x -= 2;
-					ob->update(deltaTime, pos, "L");
-				}
-			}
-		} else if (moving == 2) {
-			for (int i = 0; i < objects.size(); ++i) {
-				MapObject *ob = objects[to_string(i+1)];
-				glm::ivec2 pos = ob->getPosition();
-				if (pos.x % 32 != 0) {
+					ob->update(deltaTime, pos, "L");	
+				} else if (moving == 2) {
 					pos.x += 2;
 					ob->update(deltaTime, pos, "R");
+				} else if (moving == 3) {
+					pos.y -= 2;
+					ob->update(deltaTime, pos, "U");	
+				} else if (moving == 4) {
+					pos.y += 2;
+					ob->update(deltaTime, pos, "D");
 				}
 			}
-		} else if (moving == 3) {
-			for (int i = 0; i < objects.size(); ++i) {
-				MapObject *ob = objects[to_string(i+1)];
-				glm::ivec2 pos = ob->getPosition();
-				pos.y -= 2;
-				ob->update(deltaTime, pos, "U");
-			}
-		} else if (moving == 4) {
-			for (int i = 0; i < objects.size(); ++i) {
-				MapObject *ob = objects[to_string(i+1)];
-				glm::ivec2 pos = ob->getPosition();
-				pos.y += 2;
-				ob->update(deltaTime, pos, "D");
-			}
+			it++;
 		}
 		if (movCont == 0) moving = 0;
 		movCont -= 1;
@@ -237,6 +244,7 @@ bool LevelController::moveRecursive(int deltaTime, string direction, int x, int 
 	if (x < 0 || x > 19 || y < 0 || y > 14) { //out of bounds
 		return false;
 	}
+
 	if (obs_words_positions[y][x] == "empty") {
 		return true;
 	} else if (obs_words_positions[y][x] == "wall") {
