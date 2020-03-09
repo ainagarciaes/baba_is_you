@@ -30,7 +30,7 @@ void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderPr
 		string name = mapWords[i]["name"];
 		int posy = mapWords[i]["posy"];
 		int posx = mapWords[i]["posx"];
-		string id = mapWords[i]["id"];
+		string id = mapWords[i]["idw"];
 		int wtype = mapWords[i]["wtype"];
 
 		//my code goes here
@@ -117,7 +117,7 @@ void LevelController::movePlayable(int deltaTime) {
 				for (int j = 1; j < 14; j++) { // check map state
 					string id = obs_words_positions[j][i];
 					// we check that there is not another object at the left of the player and that this object exists
-					if (obs_words_positions[j][i-1] == "empty" && objects.find(id) != objects.end()) {
+					if (moveRecursive(deltaTime, "L", i, j) && objects.find(id) != objects.end()) {
 						MapObject *ob = objects[id];
 						glm::ivec2 pos = ob->getPosition();
 						if (playable[ob->getName()]) { // If it is playable and it does not collide, it can move
@@ -208,9 +208,20 @@ void LevelController::movePlayable(int deltaTime) {
 	*/
 }
 
-bool LevelController::moveRecursive(int deltaTime, string direction) {
-	// recursively call moveRecursive if there is an object in the next position facing the direction
-	// if there is a word and the call returns true, the word has to be moved
+bool LevelController::moveRecursive(int deltaTime, string direction, int x, int y) {
+	if (x == 0 || y == 0) {
+		return false;
+	}
+
+
+	if (obs_words_positions[y][x] == "empty") {
+		return true;
+	} else if (obs_words_positions[y][x] == "wall") {
+		return false;
+	} else {
+		// other cases, check if it is an object and it is pushable, etc...
+	}
+	
 	return true;
 }
 

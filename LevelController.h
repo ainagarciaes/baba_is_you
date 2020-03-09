@@ -23,7 +23,7 @@ public:
 private:
     void movePlayable(int deltaTime);
 	void processQueries();
-    bool moveRecursive(int deltaTime, string direction);
+    bool moveRecursive(int deltaTime, string direction, int x, int y);
 	void updateNextScene();
 	bool isPlayable(string name);
 
