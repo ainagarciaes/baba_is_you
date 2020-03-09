@@ -94,6 +94,7 @@ void Sprite::changeAnimation(int animId)
 		currentKeyframe = 0;
 		timeAnimation = 0.f;
 		texCoordDispl = animations[animId].keyframeDispl[0];
+		
 	}
 }
 
