@@ -119,7 +119,7 @@ void LevelController::movePlayable(int deltaTime) {
 		}
 	}
 	if (moving == 0) {
-		if (left) { // TODO: ADD PUSHABLE OBJECTS
+		if (left) { 
 			moving = 1; 
 			for (int i = 1; i < 19; i++) {
 				for (int j = 1; j < 14; j++) { // check map state
@@ -242,7 +242,7 @@ bool LevelController::moveRecursive(int deltaTime, string direction, int x, int 
 	} else if (obs_words_positions[y][x] == "wall") {
 		return false;
 	} else {
-		// other cases, check if it is an object and it is pushable, etc...
+		// TODO: ADD PUSHABLE OBJECTS
 	}
 	
 	return false;
