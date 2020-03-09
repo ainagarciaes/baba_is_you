@@ -1,5 +1,6 @@
-build/
+build/*
 CMakeLists.txt
-shaders/
-Simple OpenGL Image Library/
+shaders/*
+Simple OpenGL Image Library/*
 SOIL.h
+backup_aina/*
