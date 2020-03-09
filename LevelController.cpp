@@ -12,6 +12,8 @@ using json = nlohmann::json;
 
 void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, int lvl)
 {
+	s = shaderProgram;
+	level = lvl;
 	for (int k = 0; k < 15; k++) {
 		for (int w = 0; w < 20; w++) {
 			obs_words_positions[k][w] = "empty";
@@ -70,9 +72,24 @@ void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderPr
 
 void LevelController::update(int deltaTime)
 {
+	if (Game::instance().getKey(82)) {
+		cout << "restart" << endl;
+		this->init(glm::ivec2(0,0), s, level);
+	}
+	
 	movePlayable(deltaTime);
 	processQueries();
 	updateNextScene();
+
+	/* PRINT MAP DEBUG -> DELETE IT ON FINAL VERSION */
+	if (Game::instance().getKey(49)) {
+			for (int j = 0; j < 15; j++) {
+		for (int i = 0; i < 20; i++) {
+				cout << obs_words_positions[j][i] << " ";
+			}
+			cout << endl;
+		}
+	}
 }
 
 void LevelController::render()
@@ -106,15 +123,6 @@ void LevelController::movePlayable(int deltaTime) {
 	bool right = Game::instance().getSpecialKey(GLUT_KEY_RIGHT);
 	bool up = Game::instance().getSpecialKey(GLUT_KEY_UP);
 	bool down = Game::instance().getSpecialKey(GLUT_KEY_DOWN);
-
-	if (Game::instance().getKey(49)) {
-			for (int j = 0; j < 15; j++) {
-		for (int i = 0; i < 20; i++) {
-				cout << obs_words_positions[j][i] << " ";
-			}
-			cout << endl;
-		}
-	}
 
 	if (moving == 0) {
 		if (left) { 
@@ -265,6 +273,7 @@ int LevelController::getNextScene() {
 }
 
 void LevelController::updateNextScene() {
+
 	//check if there is a win condition, if so, set the next scene to whatever it has to
 }
 
