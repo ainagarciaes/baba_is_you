@@ -110,6 +110,14 @@ void LevelController::movePlayable(int deltaTime) {
 	bool up = Game::instance().getSpecialKey(GLUT_KEY_UP);
 	bool down = Game::instance().getSpecialKey(GLUT_KEY_DOWN);
 
+	if (Game::instance().getKey(49)) {
+			for (int j = 0; j < 15; j++) {
+		for (int i = 0; i < 20; i++) {
+				cout << obs_words_positions[j][i] << " ";
+			}
+			cout << endl;
+		}
+	}
 	if (moving == 0) {
 		if (left) { // TODO: ADD PUSHABLE OBJECTS
 			moving = 1; 
@@ -132,11 +140,21 @@ void LevelController::movePlayable(int deltaTime) {
 			movCont = 14;
 		} else if (right) {
 			moving = 2;
-			for (int i = 0; i < objects.size(); ++i) {
-				MapObject *ob = objects[to_string(i)];
-				glm::ivec2 pos = ob->getPosition();
-				pos.x += 2;
-				ob->update(deltaTime, pos, "R");
+			for (int i = 19; i > 0; i--) {
+				for (int j = 1; j < 14; j++) { // check map state
+					string id = obs_words_positions[j][i];
+					// we check that there is not another object at the left of the player and that this object exists
+					if (moveRecursive(deltaTime, "R", i, j) && objects.find(id) != objects.end()) {
+						MapObject *ob = objects[id];
+						glm::ivec2 pos = ob->getPosition();
+						if (playable[ob->getName()]) { // If it is playable and it does not collide, it can move
+							pos.x += 2;
+							ob->update(deltaTime, pos, "R");
+							obs_words_positions[j][i+1] = obs_words_positions[j][i];
+							obs_words_positions[j][i] = "empty";
+						}
+					}
+				}
 			}
 			movCont = 14;
 		} else if (up) {
@@ -178,8 +196,10 @@ void LevelController::movePlayable(int deltaTime) {
 			for (int i = 0; i < objects.size(); ++i) {
 				MapObject *ob = objects[to_string(i+1)];
 				glm::ivec2 pos = ob->getPosition();
-				pos.x += 2;
-				ob->update(deltaTime, pos, "R");
+				if (pos.x % 32 != 0) {
+					pos.x += 2;
+					ob->update(deltaTime, pos, "R");
+				}
 			}
 		} else if (moving == 3) {
 			for (int i = 0; i < objects.size(); ++i) {
@@ -209,11 +229,14 @@ void LevelController::movePlayable(int deltaTime) {
 }
 
 bool LevelController::moveRecursive(int deltaTime, string direction, int x, int y) {
-	if (x == 0 || y == 0) {
+	if (direction == "L") x--;
+	else if (direction == "R") x++;
+	else if (direction == "U") y--;
+	else y++;
+
+	if (x < 0 || x > 19 || y < 0 || y > 14) { //out of bounds
 		return false;
 	}
-
-
 	if (obs_words_positions[y][x] == "empty") {
 		return true;
 	} else if (obs_words_positions[y][x] == "wall") {
@@ -222,7 +245,7 @@ bool LevelController::moveRecursive(int deltaTime, string direction, int x, int 
 		// other cases, check if it is an object and it is pushable, etc...
 	}
 	
-	return true;
+	return false;
 }
 
 void LevelController::processQueries() {
