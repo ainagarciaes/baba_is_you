@@ -12,7 +12,8 @@ class Words
 {
 
 public:
-	void init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram);
+	Words(const glm::vec2 &pos, string name, int wtype);
+	void init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, string name);
 	void update(int deltaTime);
 	void render();
 	

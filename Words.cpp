@@ -11,7 +11,13 @@ enum WordsAnims
 	STAND_LEFT, STAND_RIGHT, MOVE_LEFT, MOVE_RIGHT
 };
 
-void Words::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram)
+Words::Words(const glm::vec2 &pos, string name, int wtype) {
+	posWords = pos;
+	wordName = name; 
+	wordType = wtype;
+}
+
+void Words::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, string name)
 {
 	spritesheet.loadFromFile("../images/bub.png", TEXTURE_PIXEL_FORMAT_RGBA);
 	sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(0.25, 0.25), &spritesheet, &shaderProgram);

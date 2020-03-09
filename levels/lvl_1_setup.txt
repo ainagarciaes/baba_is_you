@@ -5,17 +5,20 @@
       {
         "posx":64,
         "posy":64,
-        "name":"bub"
+        "name":"bub",
+	"ido":"1"
       },
       {
         "posx":32,
         "posy":64,
-        "name":"bub"
+        "name":"bub",
+	"ido":"2"
       },
       {
         "posx":128,
         "posy":64,
-        "name":"bub"
+        "name":"bub",
+	"ido":"3"
       }
     ],
     "walls":
@@ -299,6 +302,6 @@
       {
 	"posx":19,
         "posy":0
-      },
+      }
     ]
 }
