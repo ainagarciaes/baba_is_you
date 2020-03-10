@@ -13,7 +13,7 @@ class CreditsNames
 
 public:
 	CreditsNames(const glm::vec2 &pos);
-	void init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, int x, int y);
+	void init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, float x, float y);
 	void update(int deltaTime, const glm::vec2 &pos, string dir);
 	void render();
 	

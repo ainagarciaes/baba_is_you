@@ -10,15 +10,20 @@ CreditsNames::CreditsNames(const glm::vec2 &pos) {
 	posCreditsNames = pos;
 }
 
-void CreditsNames::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, int x, int y)
+void CreditsNames::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, float x, float y)
 {
-	bool ok = spritesheet.loadFromFile("../images/credits.png", TEXTURE_PIXEL_FORMAT_RGBA);
-	std::cout<<ok<<std::endl;
-	sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(x, y), &spritesheet, &shaderProgram);
+	bool ok = spritesheet.loadFromFile("../images/names_credits.png", TEXTURE_PIXEL_FORMAT_RGBA);
+	sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(0.1666, 0.5), &spritesheet, &shaderProgram);
+	sprite->setNumberAnimations(1);
+	sprite->setAnimationSpeed(0, 8);
+	sprite->addKeyframe(0, glm::vec2(x, y));
+	sprite->changeAnimation(0);
+	sprite->setPosition(glm::vec2(tileMapPos.x, tileMapPos.y));
 }
 
 void CreditsNames::update(int deltaTime, const glm::vec2 &pos, string dir)
 {
+	sprite->update(deltaTime);
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posCreditsNames.x), float(tileMapDispl.y + posCreditsNames.y)));
 }
 

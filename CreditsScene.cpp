@@ -35,7 +35,7 @@ void CreditsScene::init()
 	for (int j = 0; j < 2; j++){
 		for (int i = 0; i < 6; i++){
 			CreditsNames *mo = new CreditsNames(glm::ivec2(i*32+7*32, 480-64+32*j));
-			mo->init(glm::ivec2(i*32+7*32, 480-64+32*j), texProgram, i/6,j/2);
+			mo->init(glm::ivec2(i*32+7*32, 480-64+32*j), texProgram, i/float(6),j/float(2));
 			objects.push_back(mo);
 		}
 	}
@@ -63,7 +63,6 @@ void CreditsScene::render()
 	map->render();
 	for (int i = 0; i < objects.size(); i++) {
 		objects[i]->render();
-		cout << objects[i]->getPosition().y << endl;
 	}
 }
 
