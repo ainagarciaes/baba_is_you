@@ -165,7 +165,6 @@ CMakeFiles/tbe.dir/Sprite.cpp.o: ../Sprite.cpp
 CMakeFiles/tbe.dir/Sprite.cpp.o: ../Sprite.h
 CMakeFiles/tbe.dir/Sprite.cpp.o: ../Texture.h
 
-CMakeFiles/tbe.dir/Texture.cpp.o: .././SOIL.h
 CMakeFiles/tbe.dir/Texture.cpp.o: ../Texture.cpp
 CMakeFiles/tbe.dir/Texture.cpp.o: ../Texture.h
 
