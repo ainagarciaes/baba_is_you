@@ -55,7 +55,7 @@ void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderPr
 		objects[id] = mo;
 		playable[name] = false;
 	}
-	playable["bub"] = true;
+	playable["rock"] = true;
 
 	// load map walls for collisions
 	auto walls = j["walls"];

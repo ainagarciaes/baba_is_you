@@ -19,8 +19,10 @@ class TileMap
 public:
 	// Tile maps can only be created inside an OpenGL context
 	static TileMap *createTileMap(const string &levelFile, const glm::vec2 &minCoords, ShaderProgram &program);
+    static TileMap *createTileMapMenu(const string &levelFile, const glm::vec2 &minCoords, ShaderProgram &program, bool menu);
 
 	TileMap(const string &levelFile, const glm::vec2 &minCoords, ShaderProgram &program);
+    TileMap(const string &levelFile, const glm::vec2 &minCoords, ShaderProgram &program, bool menu);
 	~TileMap();
 
 	void render() const;
@@ -32,11 +34,11 @@ public:
 	bool collisionMoveRight(const glm::ivec2 &pos, const glm::ivec2 &size) const;
 	bool collisionMoveDown(const glm::ivec2 &pos, const glm::ivec2 &size) const;
 	bool collisionMoveUp(const glm::ivec2 &pos, const glm::ivec2 &size) const;
-
 	
 private:
 	bool loadLevel(const string &levelFile);
 	void prepareArrays(const glm::vec2 &minCoords, ShaderProgram &program);
+	void prepareArrays2(const glm::vec2 &minCoords, ShaderProgram &program);
 
 private:
 	GLuint vao;

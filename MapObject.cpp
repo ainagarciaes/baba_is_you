@@ -46,16 +46,12 @@ void MapObject::update(int deltaTime, const glm::vec2 &pos, string dir)
 	count++;
 		if(sprite->animation() == 0 && count%8==0){
 				sprite->changeAnimation(1);
-							std::cout<<"pos2"<<std::endl;
 		}
 		else if(sprite->animation() == 1 && count%8==0){
-	
-				sprite->changeAnimation(2);
-							std::cout<<"pos3"<<std::endl;
+			sprite->changeAnimation(2);
 		}
 		else if(sprite->animation() == 2 && count%8==0){
-				sprite->changeAnimation(0);
-							std::cout<<"pos1"<<std::endl;
+			sprite->changeAnimation(0);
 		}
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posMapObject.x), float(tileMapDispl.y + posMapObject.y)));
 }

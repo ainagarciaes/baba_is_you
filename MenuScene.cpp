@@ -27,7 +27,7 @@ MenuScene::~MenuScene()
 void MenuScene::init()
 {
 	initShaders();
-	map = TileMap::createTileMap("../levels/menu.txt", glm::vec2(0, 0), texProgram);
+	map = TileMap::createTileMapMenu("../levels/menu.txt", glm::vec2(0, 0), texProgram, true);
 	projection = glm::ortho(0.f, float(CAMERA_WIDTH - 1), float(CAMERA_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;
 	nextScene = -1;
