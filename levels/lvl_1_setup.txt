@@ -13,20 +13,20 @@
         "name":"door",
 	"ido":"2"
       },
-            {
-                "posx":128,
+      {
+        "posx":128,
         "posy":128,
         "name":"key",
 	"ido":"3"
       },
-                  {
-                "posx":32,
+      {
+        "posx":32,
         "posy":128,
         "name":"flag",
 	"ido":"4"
       },
-                  {
-                "posx":300,
+      {
+        "posx":300,
         "posy":128,
         "name":"key",
 	"ido":"5"
