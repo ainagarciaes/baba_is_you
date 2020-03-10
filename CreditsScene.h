@@ -5,7 +5,8 @@
 #include <glm/glm.hpp>
 #include "ShaderProgram.h"
 #include "TileMap.h"
-#include "Player.h"
+#include "CreditsNames.h"
+
 
 #define CAMERA_WIDTH 640
 #define CAMERA_HEIGHT 480
@@ -34,6 +35,7 @@ private:
 	float currentTime;
 	glm::mat4 projection;
 	int nextScene;
+	std::vector<CreditsNames*> objects;
 };
 
 

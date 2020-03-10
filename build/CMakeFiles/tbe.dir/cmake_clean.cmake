@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/tbe.dir/CreditsNames.cpp.o"
   "CMakeFiles/tbe.dir/CreditsScene.cpp.o"
   "CMakeFiles/tbe.dir/Game.cpp.o"
   "CMakeFiles/tbe.dir/InstructionsScene.cpp.o"

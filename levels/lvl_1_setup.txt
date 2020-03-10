@@ -2,10 +2,22 @@
     "mapObjects":
     [
       {
-        "posx":50,
+        "posx":32,
         "posy":96,
         "name":"rock",
 	"ido":"1"
+      },
+      {
+        "posx":128,
+        "posy":96,
+        "name":"rock",
+	"ido":"2"
+      },
+      {
+        "posx":256,
+        "posy":96,
+        "name":"rock",
+	"ido":"3"
       }
     ],
     "walls":
