@@ -81,7 +81,7 @@ all: CMakeFiles/tbe.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/tbe.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles 18
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/inchko/baba_is_you/build/CMakeFiles 17
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/tbe.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/inchko/baba_is_you/build/CMakeFiles 0
 .PHONY : CMakeFiles/tbe.dir/rule

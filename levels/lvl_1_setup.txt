@@ -10,15 +10,28 @@
       {
         "posx":128,
         "posy":96,
-        "name":"rock",
+        "name":"door",
 	"ido":"2"
       },
-      {
-        "posx":256,
-        "posy":96,
-        "name":"rock",
+            {
+                "posx":128,
+        "posy":128,
+        "name":"key",
 	"ido":"3"
+      },
+                  {
+                "posx":32,
+        "posy":128,
+        "name":"flag",
+	"ido":"4"
+      },
+                  {
+                "posx":300,
+        "posy":128,
+        "name":"key",
+	"ido":"5"
       }
+
     ],
     "walls":
     [

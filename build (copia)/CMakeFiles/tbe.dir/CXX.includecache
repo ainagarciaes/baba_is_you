@@ -108,30 +108,11 @@ Sprite.h
 TileMap.h
 /home/inchko/baba_is_you/TileMap.h
 
-<<<<<<< HEAD
-/home/auri/Documents/UNI/VJ/baba_is_you/Sprite.h
-vector
-=======
 /home/inchko/baba_is_you/Shader.h
-string
->>>>>>> 4dfde98ffef68ef420a805fc747325618a752c28
--
-glm/glm.hpp
--
-<<<<<<< HEAD
-Texture.h
-/home/auri/Documents/UNI/VJ/baba_is_you/Texture.h
-ShaderProgram.h
-/home/auri/Documents/UNI/VJ/baba_is_you/ShaderProgram.h
-AnimKeyframes.h
-/home/auri/Documents/UNI/VJ/baba_is_you/AnimKeyframes.h
-
-/home/auri/Documents/UNI/VJ/baba_is_you/Texture.h
 string
 -
 GL/glew.h
 -
-=======
 GL/gl.h
 -
 
@@ -156,7 +137,6 @@ ShaderProgram.h
 /home/inchko/baba_is_you/ShaderProgram.h
 AnimKeyframes.h
 /home/inchko/baba_is_you/AnimKeyframes.h
->>>>>>> 4dfde98ffef68ef420a805fc747325618a752c28
 
 /home/inchko/baba_is_you/Texture.h
 string
@@ -177,16 +157,6 @@ Sprite.h
 /home/inchko/baba_is_you/Sprite.h
 TileMap.h
 /home/inchko/baba_is_you/TileMap.h
-map
--
-string
--
-
-/home/auri/Documents/UNI/VJ/baba_is_you/Words.h
-Sprite.h
-/home/auri/Documents/UNI/VJ/baba_is_you/Sprite.h
-TileMap.h
-/home/auri/Documents/UNI/VJ/baba_is_you/TileMap.h
 map
 -
 string

@@ -11,6 +11,7 @@
 # Disable implicit rules so canonical targets will work.
 .SUFFIXES:
 
+
 # Remove some rules from gmake that .SUFFIXES does not remove.
 SUFFIXES =
 
@@ -55,19 +56,6 @@ include CMakeFiles/tbe.dir/progress.make
 
 # Include the compile flags for this target's objects.
 include CMakeFiles/tbe.dir/flags.make
-
-CMakeFiles/tbe.dir/CreditsNames.cpp.o: CMakeFiles/tbe.dir/flags.make
-CMakeFiles/tbe.dir/CreditsNames.cpp.o: ../CreditsNames.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/tbe.dir/CreditsNames.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tbe.dir/CreditsNames.cpp.o -c /home/auri/Documents/UNI/VJ/baba_is_you/CreditsNames.cpp
-
-CMakeFiles/tbe.dir/CreditsNames.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tbe.dir/CreditsNames.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/auri/Documents/UNI/VJ/baba_is_you/CreditsNames.cpp > CMakeFiles/tbe.dir/CreditsNames.cpp.i
-
-CMakeFiles/tbe.dir/CreditsNames.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tbe.dir/CreditsNames.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/auri/Documents/UNI/VJ/baba_is_you/CreditsNames.cpp -o CMakeFiles/tbe.dir/CreditsNames.cpp.s
 
 CMakeFiles/tbe.dir/CreditsScene.cpp.o: CMakeFiles/tbe.dir/flags.make
 CMakeFiles/tbe.dir/CreditsScene.cpp.o: ../CreditsScene.cpp
@@ -279,7 +267,6 @@ CMakeFiles/tbe.dir/main.cpp.s: cmake_force
 
 # Object files for target tbe
 tbe_OBJECTS = \
-"CMakeFiles/tbe.dir/CreditsNames.cpp.o" \
 "CMakeFiles/tbe.dir/CreditsScene.cpp.o" \
 "CMakeFiles/tbe.dir/Game.cpp.o" \
 "CMakeFiles/tbe.dir/InstructionsScene.cpp.o" \
@@ -300,7 +287,6 @@ tbe_OBJECTS = \
 # External object files for target tbe
 tbe_EXTERNAL_OBJECTS =
 
-tbe: CMakeFiles/tbe.dir/CreditsNames.cpp.o
 tbe: CMakeFiles/tbe.dir/CreditsScene.cpp.o
 tbe: CMakeFiles/tbe.dir/Game.cpp.o
 tbe: CMakeFiles/tbe.dir/InstructionsScene.cpp.o

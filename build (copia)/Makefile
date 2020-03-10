@@ -123,33 +123,6 @@ tbe/fast:
 	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/build
 .PHONY : tbe/fast
 
-CreditsNames.o: CreditsNames.cpp.o
-
-.PHONY : CreditsNames.o
-
-# target to build an object file
-CreditsNames.cpp.o:
-	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/CreditsNames.cpp.o
-.PHONY : CreditsNames.cpp.o
-
-CreditsNames.i: CreditsNames.cpp.i
-
-.PHONY : CreditsNames.i
-
-# target to preprocess a source file
-CreditsNames.cpp.i:
-	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/CreditsNames.cpp.i
-.PHONY : CreditsNames.cpp.i
-
-CreditsNames.s: CreditsNames.cpp.s
-
-.PHONY : CreditsNames.s
-
-# target to generate assembly for a file
-CreditsNames.cpp.s:
-	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/CreditsNames.cpp.s
-.PHONY : CreditsNames.cpp.s
-
 CreditsScene.o: CreditsScene.cpp.o
 
 .PHONY : CreditsScene.o
@@ -591,9 +564,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... tbe"
 	@echo "... edit_cache"
-	@echo "... CreditsNames.o"
-	@echo "... CreditsNames.i"
-	@echo "... CreditsNames.s"
 	@echo "... CreditsScene.o"
 	@echo "... CreditsScene.i"
 	@echo "... CreditsScene.s"
