@@ -1,0 +1,3 @@
+/home/inchko/baba_is_you/build/CMakeFiles/rebuild_cache.dir
+/home/inchko/baba_is_you/build/CMakeFiles/tbe.dir
+/home/inchko/baba_is_you/build/CMakeFiles/edit_cache.dir
