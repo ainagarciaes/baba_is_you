@@ -14,7 +14,7 @@ class CreditsNames
 public:
 	CreditsNames(const glm::vec2 &pos);
 	void init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, float x, float y);
-	void update(int deltaTime, const glm::vec2 &pos, string dir);
+	void update(int deltaTime, const glm::vec2 &pos);
 	void render();
 	
 	void setTileMap(TileMap *tileMap);
@@ -26,8 +26,7 @@ private:
 	Texture spritesheet;
 	Sprite *sprite;
 	TileMap *tmap;
-    // my vars
-	
+    // my vars	
 };
 
 

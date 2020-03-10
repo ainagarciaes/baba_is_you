@@ -36,6 +36,7 @@ private:
 	glm::mat4 projection;
 	int nextScene;
 	std::vector<CreditsNames*> objects;
+	int cont;
 };
 
 

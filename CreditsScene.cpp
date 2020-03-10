@@ -27,6 +27,7 @@ CreditsScene::~CreditsScene()
 void CreditsScene::init()
 {
 	initShaders();
+	cont = 0;
 	map = TileMap::createTileMapMenu("../levels/credits.txt", glm::vec2(0, 0), texProgram, true);
 	projection = glm::ortho(0.f, float(CAMERA_WIDTH - 1), float(CAMERA_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;
@@ -47,13 +48,22 @@ void CreditsScene::update(int deltaTime)
 	if(Game::instance().getKey(8))
 	{	
 		nextScene = 0;
-	} 
+	}
+	
+	for (int i = 0; i < objects.size(); i++) {
+		glm::vec2 pos = objects[i]->getPosition();
+		pos.y -= 2;
+		objects[i]->setPosition(pos);
+	}
+	cont++;
+	if (cont == 300) {
+		nextScene = 0;
+	}
 }
 
 void CreditsScene::render()
 {
 	glm::mat4 modelview;
-
 	texProgram.use();
 	texProgram.setUniformMatrix4f("projection", projection);
 	texProgram.setUniform4f("color", 1.0f, 1.0f, 1.0f, 1.0f);

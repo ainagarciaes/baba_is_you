@@ -21,7 +21,7 @@ void CreditsNames::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgr
 	sprite->setPosition(glm::vec2(tileMapPos.x, tileMapPos.y));
 }
 
-void CreditsNames::update(int deltaTime, const glm::vec2 &pos, string dir)
+void CreditsNames::update(int deltaTime, const glm::vec2 &pos)
 {
 	sprite->update(deltaTime);
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posCreditsNames.x), float(tileMapDispl.y + posCreditsNames.y)));
@@ -41,7 +41,7 @@ void CreditsNames::setTileMap(TileMap *tileMap)
 void CreditsNames::setPosition(const glm::vec2 &pos)
 {
 	posCreditsNames = pos;
-	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posCreditsNames.x), float(tileMapDispl.y + posCreditsNames.y)));
+	sprite->setPosition(glm::vec2(float(posCreditsNames.x), float(posCreditsNames.y)));
 }
 
 glm::ivec2 CreditsNames::getPosition(){
