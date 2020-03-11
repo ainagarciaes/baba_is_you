@@ -30,7 +30,6 @@ private:
     // my vars
     string objectName;
 	string objID;
-    std::map<string, bool> properties;
 };
 
 

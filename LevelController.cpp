@@ -53,7 +53,14 @@ void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderPr
 		mo->init(tileMapPos, shaderProgram, name);
 		obs_words_positions[posy/32][posx/32] = id;
 		objects[id] = mo;
+		/* init properties */
 		playable[name] = false;
+		pushable[name]=false; 
+		hot[name]=false; 
+		melt[name]=false; 
+		open[name]=false; 
+		close[name]=false; 
+		win[name]=false; 
 	}
 	playable["rock"] = true;
 
@@ -66,8 +73,7 @@ void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderPr
 	}
 
 	moving = 0;
-	// init properties
-		// set animations for words	
+	isBaba = true;
 }
 
 void LevelController::update(int deltaTime)
@@ -265,7 +271,16 @@ bool LevelController::moveRecursive(int deltaTime, string direction, int x, int 
 }
 
 void LevelController::processQueries() {
-	//process queries in the map and change the required objects
+	emptyMaps();
+	isBaba = true;
+	// 3. Process queries & update object properties
+	processLR();
+	processRL();
+	processUD();
+	processDU();
+	if (isBaba) {
+		playable["baba"] = true;
+	}
 }
 
 int LevelController::getNextScene() {
@@ -279,4 +294,49 @@ void LevelController::updateNextScene() {
 
 bool LevelController::isPlayable(string name) {
 	return playable[name];
+}
+
+void LevelController::emptyMaps() {
+	string mkey = "";
+	for(std::map<std::string,bool>::iterator it = playable.begin(); it != playable.end(); ++it) {
+		mkey = it->first;
+		playable[mkey] = false;
+		pushable[mkey]=false; 
+		hot[mkey]=false; 
+		melt[mkey]=false; 
+		open[mkey]=false; 
+		close[mkey]=false; 
+		win[mkey]=false; 
+	}
+}
+
+void LevelController::processLR(){
+
+}
+void LevelController::processRL(){
+
+}
+void LevelController::processUD(){
+
+}
+void LevelController::processDU(){
+
+}
+void LevelController::setProperty(string property, string object, bool value) {
+	if (property == "playable") {
+		playable[object]=value;	
+		isBaba = false;
+	} else if (property == "pushable") {
+		pushable[object]=value;	
+	} else if (property == "open") {
+		open[object]=value;	
+	} else if (property == "close") {
+		close[object]=value;	
+	} else if (property == "hot") {
+		hot[object]=value;	
+	} else if (property == "melt") {
+		melt[object]=value;	
+	} else if (property == "win") {
+		win[object]=value;	
+	}
 }

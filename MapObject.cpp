@@ -77,6 +77,7 @@ void MapObject::setPosition(const glm::vec2 &pos)
 string MapObject::getName(){
 	return objectName;
 }
+
 glm::ivec2 MapObject::getPosition(){
 	return posMapObject;
 }

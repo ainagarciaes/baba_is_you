@@ -25,15 +25,31 @@ private:
 	void processQueries();
     bool moveRecursive(int deltaTime, string direction, int x, int y);
 	void updateNextScene();
+	void emptyMaps();
 	bool isPlayable(string name);
+	void processLR();
+	void processRL();
+	void processUD();
+	void processDU();
+	void setProperty(string property, string object, bool value);
 
 	int moving; // 0 not moving, 1 Left, 2 Right, 3 Up, 4 Down
 	TileMap *map;
 	// MY VARS
 	int nextScene;
+
+	/* Objects with each property */
 	std::map<string, bool> playable; //for each kind of object in the level, sets if it is currently playable
+	std::map<string, bool> pushable; 
+	std::map<string, bool> hot; 
+	std::map<string, bool> melt; 
+	std::map<string, bool> open; 
+	std::map<string, bool> close; 
+	std::map<string, bool> win; 
+
     std::map<string,MapObject*> objects;
     std::map<string,Words*> words;
+	bool isBaba;
 	int movCont;
 	ShaderProgram s;
 	int level;
