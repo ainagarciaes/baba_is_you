@@ -17,6 +17,7 @@ public:
 	void update(int deltaTime, const glm::vec2 &pos, string dir);
 	void render();
 	
+	void changeTo(string objectType);
 	void setTileMap(TileMap *tileMap);
 	void setPosition(const glm::vec2 &pos);
 	string getName();

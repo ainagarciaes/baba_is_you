@@ -311,7 +311,7 @@ void LevelController::emptyMaps() {
 }
 
 void LevelController::processLR(){
-
+	
 }
 void LevelController::processRL(){
 

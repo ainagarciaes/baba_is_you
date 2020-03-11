@@ -82,3 +82,6 @@ glm::ivec2 MapObject::getPosition(){
 	return posMapObject;
 }
 
+void MapObject::changeTo(string objectType){
+	
+}
