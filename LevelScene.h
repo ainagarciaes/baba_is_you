@@ -25,6 +25,7 @@ public:
 	void update(int deltaTime);
 	void render();
 	int getNextScene();
+	LevelController getLevelC();
 
 private:
 	void initShaders();

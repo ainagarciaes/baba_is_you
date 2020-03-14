@@ -340,3 +340,26 @@ void LevelController::setProperty(string property, string object, bool value) {
 		win[object]=value;	
 	}
 }
+
+std::map<string,Words*> LevelController::getWords(){ return words;}
+
+//return 4 = not word found in pos
+int LevelController:: getTWordByPosition(const glm::vec2 &pos){
+	
+  std::map<string,Words*> :: iterator it = words.begin();
+	bool found=false;
+	int ret=4;
+	while (it != words.end() or found)
+	{
+		glm::vec2 posit = it->second->getPosition();
+		if(pos.x==posit.x){
+			if(pos.y==posit.y)
+			found=true;
+			ret=it->second->getWtype();
+		}
+	}
+	
+	return  ret;
+	
+
+}

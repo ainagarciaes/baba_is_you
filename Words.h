@@ -20,12 +20,18 @@ public:
 	void setTileMap(TileMap *tileMap);
 	void setPosition(const glm::vec2 &pos);
 	
+	glm::vec2 getPosition();
+	int getWtype();
+	bool checkFrase();
+	
 private:
 	glm::ivec2 tileMapDispl, posWords;
 	Texture spritesheet;
 	Sprite *sprite;
 	TileMap *map;
     // my vars
+	LevelScene ls;
+	LevelController lc;
 	string wordName;
 	int wordType; //1 - noun; 2 - verb; 3 - property
 };

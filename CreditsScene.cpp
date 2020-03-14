@@ -4,6 +4,7 @@
 #include <GL/glut.h>
 #include <glm/gtc/matrix_transform.hpp>
 #include "CreditsScene.h"
+#include "CreditsNames.h"
 #include "Game.h"
 
 #define SCREEN_X 0
@@ -32,14 +33,14 @@ void CreditsScene::init()
 	projection = glm::ortho(0.f, float(CAMERA_WIDTH - 1), float(CAMERA_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;
 	nextScene = -1;
-
+/*
 	for (int j = 0; j < 2; j++){
 		for (int i = 0; i < 6; i++){
 			CreditsNames *mo = new CreditsNames(glm::ivec2(i*32+7*32, 480-64+32*j));
 			mo->init(glm::ivec2(i*32+7*32, 480-64+32*j), texProgram, i/float(6),j/float(2));
 			objects.push_back(mo);
 		}
-	}
+	}*/
 }
 
 void CreditsScene::update(int deltaTime)
@@ -49,12 +50,12 @@ void CreditsScene::update(int deltaTime)
 	{	
 		nextScene = 0;
 	}
-	
+	/*
 	for (int i = 0; i < objects.size(); i++) {
 		glm::vec2 pos = objects[i]->getPosition();
 		pos.y -= 2;
 		objects[i]->setPosition(pos);
-	}
+	}*/
 	cont++;
 	if (cont == 300) {
 		nextScene = 0;
@@ -70,10 +71,10 @@ void CreditsScene::render()
 	modelview = glm::mat4(1.0f);
 	texProgram.setUniformMatrix4f("modelview", modelview);
 	texProgram.setUniform2f("texCoordDispl", 0.f, 0.f);
-	map->render();
+	/*map->render();
 	for (int i = 0; i < objects.size(); i++) {
 		objects[i]->render();
-	}
+	}*/
 }
 
 void CreditsScene::initShaders()

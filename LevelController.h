@@ -19,6 +19,8 @@ public:
 	void setTileMap(TileMap *tileMap);
 	void setPosition(const glm::vec2 &pos);
 	int getNextScene();
+	std::map<string,Words*> getWords();
+	int getTWordByPosition(const glm::vec2 &pos);
 
 private:
     void movePlayable(int deltaTime);

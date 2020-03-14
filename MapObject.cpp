@@ -32,7 +32,6 @@ void MapObject::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram,
 	sprite->addKeyframe(1, glm::vec2(0.f, 0.33f));
 	sprite->setAnimationSpeed(2, 8);
 	sprite->addKeyframe(2, glm::vec2(0.f, 0.66f));
-
 	sprite->changeAnimation(0);
 	tileMapDispl = tileMapPos;
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posMapObject.x), float(tileMapDispl.y + posMapObject.y)));

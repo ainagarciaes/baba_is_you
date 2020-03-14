@@ -73,6 +73,8 @@ bool Game::getSpecialKey(int key) const
 	return specialKeys[key];
 }
 
+LevelScene Game::getLevelS(){return level;}
+
 void Game::initScene(){
 	if (sceneID == 0) { // menu
 		menu.init();
