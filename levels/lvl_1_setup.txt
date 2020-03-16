@@ -11,14 +11,14 @@
 		{
 			"name":"key",
 			"posy":256,
-			"posx":128,
+			"posx":256,
 			"idw":"7",
 			"wtype":1
 		},
 		{
 			"name":"is",
 			"posy":256,
-			"posx":256,
+			"posx":96,
 			"idw":"8",
 			"wtype":2
 		}

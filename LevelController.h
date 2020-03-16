@@ -27,12 +27,14 @@ private:
 	void processQueries();
     bool moveRecursive(int deltaTime, string direction, int x, int y);
 	void updateNextScene();
+	void updateWords(int deltaTime);
 	void emptyMaps();
 	bool isPlayable(string name);
 	void processLR();
 	void processUD();
 	void setProperty(string property, string object, bool value);
 	void setObject(string ob1, string ob2);
+	void setConnected(Words *w1,bool con);
 
 	void executeQuery(Words *w1, Words *w2, Words *w3);
 
