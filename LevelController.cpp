@@ -385,7 +385,25 @@ void LevelController::processLR(){
 }
 
 void LevelController::processUD(){
-
+	string val = "";
+	
+	for (int j = 0; j < 13; j++) { // check map state
+		for (int i = 0; i < 20; i++) {
+			val = obs_words_positions[j][i];
+			if (words.find(val) != words.end()) {
+				Words *w1 = words[val]; 
+				val = obs_words_positions[j+1][i];
+				if (words.find(val) != words.end()) {
+					Words *w2 = words[val]; 
+					val = obs_words_positions[j+2][i];
+					if (words.find(val) != words.end()) {
+						Words *w3 = words[val]; 
+						executeQuery(w1, w2, w3);
+					}
+				}
+			}
+		}
+	}
 }
 
 void LevelController::setProperty(string property, string object, bool value) {
