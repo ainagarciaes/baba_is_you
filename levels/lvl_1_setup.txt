@@ -2,7 +2,7 @@
 	"mapWords":
 	[
 		{
-			"name":"rock",
+			"name":"baba",
 			"posy":256,
 			"posx":64,
 			"idw":"6",

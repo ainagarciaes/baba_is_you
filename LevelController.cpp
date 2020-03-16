@@ -414,6 +414,7 @@ void LevelController::setObject(string ob1, string ob2){
 		MapObject *o = it->second;
 		string name = o->getName();
 		if (name == ob1) {
+			cout << "changing object type" << endl;
 			o->changeTo(ob2);
 		}
 		it++;
@@ -421,6 +422,7 @@ void LevelController::setObject(string ob1, string ob2){
 }
 
 void LevelController::executeQuery(Words *w1, Words *w2, Words *w3){
+	//cout << "EXECUTE " << w1->getName() << " " << w2->getName() << " " << w3->getName() << endl;
 	// N is P
 	int t1 = w1->getWtype();
 	string n1 = w1->getName();
@@ -428,8 +430,7 @@ void LevelController::executeQuery(Words *w1, Words *w2, Words *w3){
 	string n2 = w2->getName();
 	int t3 = w3->getWtype();
 	string n3 = w3->getName();
-
-	if (t1 != 1 || t1 != 2) return;
+	if (t1 != 1 || t2 != 2) return;
 	if (n2 == "is") {
 		if (t3 == 3) {
 			setProperty(n3, n1, true);
