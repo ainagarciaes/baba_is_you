@@ -12,8 +12,6 @@ enum WordsAnims
 };
 
 Words::Words(const glm::vec2 &pos, string name, int wtype) {
-	ls=Game::instance().getLevelS();
-	lc=ls.getLevelC;
 	posWords = pos;
 	wordName = name; 
 	wordType = wtype;
@@ -21,7 +19,7 @@ Words::Words(const glm::vec2 &pos, string name, int wtype) {
 
 void Words::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, string name)
 {
-	spritesheet.loadFromFile("../images/"+name+".png", TEXTURE_PIXEL_FORMAT_RGBA);
+	spritesheet.loadFromFile("../images/words/"+name+".png", TEXTURE_PIXEL_FORMAT_RGBA);
 	sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(0.5, 0.33), &spritesheet, &shaderProgram);
 	sprite->setNumberAnimations(6);
 	
@@ -33,7 +31,6 @@ void Words::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, str
 		
 		sprite->setAnimationSpeed(POS3, 8);
 		sprite->addKeyframe(POS3, glm::vec2(0.f, 0.f));
-
 		
 		sprite->setAnimationSpeed(POS1C, 8);
 		sprite->addKeyframe(POS1C, glm::vec2(0.25, 0.f));
@@ -48,67 +45,15 @@ void Words::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, str
 	sprite->changeAnimation(0);
 	tileMapDispl = tileMapPos;
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posWords.x), float(tileMapDispl.y + posWords.y)));
-	
 }
-/*
-void Words::update(int deltaTime)
+
+void Words::update(int deltaTime, const glm::vec2 &pos, string dir)
 {
 	sprite->update(deltaTime);
-	bool change=Words::checkFrase();
-	if(Game::instance().getSpecialKey(GLUT_KEY_LEFT))
-	{
-		if(sprite->animation() != MOVE_LEFT)
-			sprite->changeAnimation(MOVE_LEFT);
-		posWords.x -= 2;
-		if(map->collisionMoveLeft(posWords, glm::ivec2(32, 32)))
-		{
-			posWords.x += 2;
-			sprite->changeAnimation(STAND_LEFT);
-		}
-	}
-	else if(Game::instance().getSpecialKey(GLUT_KEY_RIGHT))
-	{
-		if(sprite->animation() != MOVE_RIGHT)
-			sprite->changeAnimation(MOVE_RIGHT);
-		posWords.x += 2;
-		if(map->collisionMoveRight(posWords, glm::ivec2(32, 32)))
-		{
-			posWords.x -= 2;
-			sprite->changeAnimation(STAND_RIGHT);
-		}
-	} 	
-	else if(Game::instance().getSpecialKey(GLUT_KEY_UP))
-	{
-		if(sprite->animation() != MOVE_RIGHT)
-			sprite->changeAnimation(MOVE_RIGHT);
-		posWords.y -= 2;
-		if(map->collisionMoveUp(posWords, glm::ivec2(32, 32)))
-		{
-			posWords.y += 2;
-			sprite->changeAnimation(STAND_RIGHT);
-		}
-	}
-	else if(Game::instance().getSpecialKey(GLUT_KEY_DOWN))
-	{
-		if(sprite->animation() != MOVE_RIGHT)
-			sprite->changeAnimation(MOVE_RIGHT);
-		posWords.y += 2;
-		if(map->collisionMoveDown(posWords, glm::ivec2(32, 32)))
-		{
-			posWords.y -= 2;
-			sprite->changeAnimation(STAND_RIGHT);
-		}
-	}
-	else
-	{
-		if(sprite->animation() == MOVE_LEFT)
-			sprite->changeAnimation(STAND_LEFT);
-		else if(sprite->animation() == MOVE_RIGHT)
-			sprite->changeAnimation(STAND_RIGHT);
-	}
+	posWords = pos;
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posWords.x), float(tileMapDispl.y + posWords.y)));
 }
-*/
+
 
 void Words::render()
 {
@@ -127,9 +72,16 @@ void Words::setPosition(const glm::vec2 &pos)
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posWords.x), float(tileMapDispl.y + posWords.y)));
 }
 
-int Words::getWtype(){	return wordType;}
+int Words::getWtype(){	
+	return wordType;
+}
+
+string Words::getName(){ 
+	return wordName;
+}
 
 
+/*
 bool Words::checkFrase(){
 
 	int newWT;
@@ -192,6 +144,6 @@ bool Words::checkFrase(){
 	}
 		else return false;
 }
-
+*/
 
 

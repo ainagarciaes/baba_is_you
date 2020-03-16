@@ -36,7 +36,7 @@ void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderPr
 		//my code goes here
 		Words *mo = new Words(glm::vec2(posx,posy), name, wtype);
 		mo->init(tileMapPos, shaderProgram, name);
-		obs_words_positions[posy%32-1][posx%32] = name;
+		obs_words_positions[posy/32][posx/32] = name;
 		words[id]=mo;
 	}
 
@@ -215,6 +215,7 @@ void LevelController::movePlayable(int deltaTime) {
 			}
 		}		
 	} else {
+		// auto move objs
 		std::map<std::string, MapObject*>::iterator it = objects.begin();
 		while (it != objects.end())
 		{
@@ -237,6 +238,31 @@ void LevelController::movePlayable(int deltaTime) {
 			}
 			it++;
 		}
+
+		// automove words
+		std::map<std::string, Words*>::iterator it2 = words.begin();
+		while (it2 != words.end())
+		{
+			Words *ob = it2->second;
+			glm::ivec2 pos = ob->getPosition();
+			if (pos.x % 32 != 0 || pos.y%32 != 0) {
+				if (moving == 1) {
+					pos.x -= 2;
+					ob->update(deltaTime, pos, "L");	
+				} else if (moving == 2) {
+					pos.x += 2;
+					ob->update(deltaTime, pos, "R");
+				} else if (moving == 3) {
+					pos.y -= 2;
+					ob->update(deltaTime, pos, "U");	
+				} else if (moving == 4) {
+					pos.y += 2;
+					ob->update(deltaTime, pos, "D");
+				}
+			}
+			it2++;
+		}
+
 		if (movCont == 0) moving = 0;
 		movCont -= 1;
 	}
@@ -259,14 +285,32 @@ bool LevelController::moveRecursive(int deltaTime, string direction, int x, int 
 		return false;
 	}
 
-	if (obs_words_positions[y][x] == "empty") {
+	string nextPos = obs_words_positions[y][x];
+	if (nextPos == "empty") {
 		return true;
-	} else if (obs_words_positions[y][x] == "wall") {
+	} else if (nextPos == "wall") {
 		return false;
 	} else {
-		// TODO: ADD PUSHABLE OBJECTS
+		// check if it is an object
+		if (objects.find(nextPos) != objects.end()) {
+			// check if melt/open happens -> if so -> destroy object and move
+			// check if it is pushable -> if so -> try to move it too
+		}
+		// check if it is a word
+		else if (words.find(nextPos) != words.end()) {
+			bool movRec = moveRecursive(deltaTime, direction, x, y);
+			if(movRec) {
+				Words *w = words[nextPos];
+				glm::vec2 pos = w->getPosition();
+				if (direction == "L") pos.x -= 2;
+				else if (direction == "R") pos.x += 2;
+				else if (direction == "U") pos.y -= 2;
+				else pos.y += 2;
+				w->setPosition(pos);
+			}
+			return movRec;
+		}	
 	}
-	
 	return false;
 }
 
@@ -275,9 +319,7 @@ void LevelController::processQueries() {
 	isBaba = true;
 	// 3. Process queries & update object properties
 	processLR();
-	processRL();
 	processUD();
-	processDU();
 	if (isBaba) {
 		playable["baba"] = true;
 	}
@@ -311,19 +353,33 @@ void LevelController::emptyMaps() {
 }
 
 void LevelController::processLR(){
+	string val = "";
 	
+	for (int j = 0; j < 15; j++) { // check map state
+		for (int i = 0; i < 18; i++) {
+			val = obs_words_positions[j][i];
+			if (words.find(val) != words.end()) {
+				Words *w1 = words[val]; 
+				val = obs_words_positions[j][i+1];
+				if (words.find(val) != words.end()) {
+					Words *w2 = words[val]; 
+					val = obs_words_positions[j][i+2];
+					if (words.find(val) != words.end()) {
+						Words *w3 = words[val]; 
+						executeQuery(w1, w2, w3);
+					}
+				}
+			}
+		}
+	}
 }
-void LevelController::processRL(){
 
-}
 void LevelController::processUD(){
 
 }
-void LevelController::processDU(){
 
-}
 void LevelController::setProperty(string property, string object, bool value) {
-	if (property == "playable") {
+	if (property == "is") {
 		playable[object]=value;	
 		isBaba = false;
 	} else if (property == "pushable") {
@@ -341,7 +397,41 @@ void LevelController::setProperty(string property, string object, bool value) {
 	}
 }
 
-std::map<string,Words*> LevelController::getWords(){ return words;}
+void LevelController::setObject(string ob1, string ob2){
+	std::map<std::string, MapObject*>::iterator it = objects.begin();
+ 	while (it != objects.end())
+	{
+		MapObject *o = it->second;
+		string name = o->getName();
+		if (name == ob1) {
+			o->changeTo(ob2);
+		}
+		it++;
+	}	
+}
+
+void LevelController::executeQuery(Words *w1, Words *w2, Words *w3){
+	// N is P
+	int t1 = w1->getWtype();
+	string n1 = w1->getName();
+	int t2 = w2->getWtype();
+	string n2 = w2->getName();
+	int t3 = w3->getWtype();
+	string n3 = w3->getName();
+
+	if (t1 != 1 || t1 != 2) return;
+	if (n2 == "is") {
+		if (t3 == 3) {
+			setProperty(n3, n1, true);
+		} else {
+			setObject(n1, n3);
+		}
+	}
+	// N is N
+}
+
+
+/*std::map<string,Words*> LevelController::getWords(){ return words;}
 
 //return 4 = not word found in pos
 int LevelController:: getTWordByPosition(const glm::vec2 &pos){
@@ -362,4 +452,4 @@ int LevelController:: getTWordByPosition(const glm::vec2 &pos){
 	return  ret;
 	
 
-}
+}*/

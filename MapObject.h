@@ -21,9 +21,11 @@ public:
 	void setTileMap(TileMap *tileMap);
 	void setPosition(const glm::vec2 &pos);
 	string getName();
+	void initSprite(string name);
 	glm::ivec2 getPosition();
 	
 private:
+	ShaderProgram sp;
 	glm::ivec2 tileMapDispl, posMapObject;
 	Texture spritesheet;
 	Sprite *sprite;

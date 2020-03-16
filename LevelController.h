@@ -30,10 +30,11 @@ private:
 	void emptyMaps();
 	bool isPlayable(string name);
 	void processLR();
-	void processRL();
 	void processUD();
-	void processDU();
 	void setProperty(string property, string object, bool value);
+	void setObject(string ob1, string ob2);
+
+	void executeQuery(Words *w1, Words *w2, Words *w3);
 
 	int moving; // 0 not moving, 1 Left, 2 Right, 3 Up, 4 Down
 	TileMap *map;

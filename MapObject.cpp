@@ -20,11 +20,16 @@ objectName = name;
 
 void MapObject::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, string name)
 {
-	bool ok = spritesheet.loadFromFile("../images/"+name+".png", TEXTURE_PIXEL_FORMAT_RGBA);
-	std::cout<<ok<<std::endl;
-	std::cout<<name<<std::endl;
-	sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(1.f, 0.30), &spritesheet, &shaderProgram);
+	sp = shaderProgram;
 	count==0;
+	tileMapDispl = tileMapPos;
+	initSprite(name);
+	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posMapObject.x), float(tileMapDispl.y + posMapObject.y)));
+}
+
+void MapObject::initSprite(string name) {
+	spritesheet.loadFromFile("../images/"+name+".png", TEXTURE_PIXEL_FORMAT_RGBA);
+	sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(1.f, 0.30), &spritesheet, &sp);
 	sprite->setNumberAnimations(3);
 	sprite->setAnimationSpeed(0, 8);
 	sprite->addKeyframe(0, glm::vec2(0.f, 0.f));
@@ -33,8 +38,6 @@ void MapObject::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram,
 	sprite->setAnimationSpeed(2, 8);
 	sprite->addKeyframe(2, glm::vec2(0.f, 0.66f));
 	sprite->changeAnimation(0);
-	tileMapDispl = tileMapPos;
-	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posMapObject.x), float(tileMapDispl.y + posMapObject.y)));
 }
 
 void MapObject::update(int deltaTime, const glm::vec2 &pos, string dir)
@@ -42,8 +45,6 @@ void MapObject::update(int deltaTime, const glm::vec2 &pos, string dir)
 	sprite->update(deltaTime);
 	posMapObject = pos;
 	count++;
-	cout<<count<<endl;
-	cout<<objectName<<endl;
 
 	if(sprite->animation() == 0 && count%8==0){
 		sprite->changeAnimation(1); 
@@ -82,5 +83,6 @@ glm::ivec2 MapObject::getPosition(){
 }
 
 void MapObject::changeTo(string objectType){
-	
+	initSprite(objectType);
+	objectName = objectType;
 }

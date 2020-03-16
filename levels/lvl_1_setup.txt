@@ -1,130 +1,154 @@
 {
-    "mapObjects":
+	"mapWords":
+	[
+		{
+			"name":"rock",
+			"posy":256,
+			"posx":64,
+			"idw":"6",
+			"wtype":1
+		},
+		{
+			"name":"key",
+			"posy":256,
+			"posx":128,
+			"idw":"7",
+			"wtype":1
+		},
+		{
+			"name":"is",
+			"posy":256,
+			"posx":256,
+			"idw":"8",
+			"wtype":2
+		}
+	],    
+	"mapObjects":
     [
       {
         "posx":32,
         "posy":96,
-        "name":"rock",
-	"ido":"1"
+        "name":"baba",
+		"ido":"1"
       },
       {
         "posx":128,
         "posy":96,
         "name":"door",
-	"ido":"2"
+		"ido":"2"
       },
       {
         "posx":128,
         "posy":128,
         "name":"key",
-	"ido":"3"
+		"ido":"3"
       },
       {
         "posx":32,
         "posy":128,
         "name":"flag",
-	"ido":"4"
+		"ido":"4"
       },
       {
         "posx":320,
         "posy":128,
         "name":"key",
-	"ido":"5"
+		"ido":"5"
       }
 
     ],
     "walls":
     [
       {
-	"posx":0,
+		"posx":0,
         "posy":0
       },
       {
-	"posx":3,
+		"posx":3,
         "posy":3
       },
       {
-	"posx":0,
+		"posx":0,
         "posy":1
       },
       {
-	"posx":0,
+		"posx":0,
         "posy":2
       },
       {
-	"posx":0,
+		"posx":0,
         "posy":3
       },
       {
-	"posx":0,
+		"posx":0,
         "posy":4
       },
       {
-	"posx":0,
+		"posx":0,
         "posy":5
       },
       {
-	"posx":0,
+		"posx":0,
         "posy":6
       },
       {
-	"posx":0,
+		"posx":0,
         "posy":7
       },
       {
-	"posx":0,
+		"posx":0,
         "posy":8
       },
       {
-	"posx":0,
+		"posx":0,
         "posy":9
       },
       {
-	"posx":0,
+		"posx":0,
         "posy":10
       },
       {
-	"posx":0,
+		"posx":0,
         "posy":11
       },
       {
-	"posx":0,
+		"posx":0,
         "posy":12
       },
       {
-	"posx":0,
+		"posx":0,
         "posy":13
       },
       {
-	"posx":0,
+		"posx":0,
         "posy":14
       },      
       {
-	"posx":19,
+		"posx":19,
         "posy":0
       },
       {
-	"posx":19,
+		"posx":19,
         "posy":1
       },
       {
-	"posx":19,
+		"posx":19,
         "posy":2
       },
       {
-	"posx":19,
+		"posx":19,
         "posy":3
       },
       {
-	"posx":19,
+		"posx":19,
         "posy":4
       },
       {
-	"posx":19,
+		"posx":19,
         "posy":5
       },
       {
-	"posx":19,
+		"posx":19,
         "posy":6
       },
       {

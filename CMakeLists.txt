@@ -9,6 +9,7 @@ project (tbe)
 # the project's entire directory structure.
 # add_subdirectory (Hello)
 # add_subdirectory (Demo)
+
 # Create a library called "Hello" which includes the source file "hello.cxx".
 # The extension is already found. Any number of sources could be listed here.
 find_package(OpenGL REQUIRED)
@@ -17,8 +18,7 @@ find_package(GLEW REQUIRED)
 find_library(SOIL SOIL /usr/local/lib/libSOIL.a)
 find_library(nlohmann_json /include)
 
-
-include_directories($(GLEW_INCLUDE_DIRS) ${OPENGL_INCLUDE_DIRS} ${GLUT_INCLUDE_DIRS} .)
+include_directories($(GLEW_INCLUDE_DIRS) ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} .)
 
 
 # Make sure the compiler can find include files for our Hello library
