@@ -80,7 +80,6 @@ string Words::getName(){
 	return wordName;
 }
 
-
 /*
 bool Words::checkFrase(){
 

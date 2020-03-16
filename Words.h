@@ -20,6 +20,7 @@ public:
 	void setTileMap(TileMap *tileMap);
 	void setPosition(const glm::vec2 &pos);
 	string getName();
+	string getID();
 	glm::vec2 getPosition();
 	int getWtype();
 	bool checkFrase();

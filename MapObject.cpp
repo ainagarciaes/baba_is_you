@@ -14,8 +14,8 @@ STAND_LEFT, STAND_RIGHT, MOVE_LEFT, MOVE_RIGHT,POS1,POS2,POS3
 };
 
 MapObject::MapObject(const glm::vec2 &pos, string name) {
-posMapObject = pos;
-objectName = name; 
+	posMapObject = pos;
+	objectName = name; 
 }
 
 void MapObject::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, string name)

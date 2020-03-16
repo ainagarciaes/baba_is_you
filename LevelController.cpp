@@ -36,7 +36,7 @@ void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderPr
 		//my code goes here
 		Words *mo = new Words(glm::vec2(posx,posy), name, wtype);
 		mo->init(tileMapPos, shaderProgram, name);
-		obs_words_positions[posy/32][posx/32] = name;
+		obs_words_positions[posy/32][posx/32] = id;
 		words[id]=mo;
 	}
 
@@ -137,10 +137,10 @@ void LevelController::movePlayable(int deltaTime) {
 				for (int j = 1; j < 14; j++) { // check map state
 					string id = obs_words_positions[j][i];
 					// we check that there is not another object at the left of the player and that this object exists
-					if (moveRecursive(deltaTime, "L", i, j) && objects.find(id) != objects.end()) {
-						MapObject *ob = objects[id];
-						glm::ivec2 pos = ob->getPosition();
-						if (playable[ob->getName()]) { // If it is playable and it does not collide, it can move
+					if (objects.find(id) != objects.end()) {
+						MapObject *ob = objects[id]; 
+						if (playable[ob->getName()] && moveRecursive(deltaTime, "L", i, j)) {
+							glm::ivec2 pos = ob->getPosition();
 							pos.x -= 2;
 							ob->update(deltaTime, pos, "L");
 							obs_words_positions[j][i-1] = obs_words_positions[j][i];
@@ -155,11 +155,10 @@ void LevelController::movePlayable(int deltaTime) {
 			for (int i = 19; i > 0; i--) {
 				for (int j = 1; j < 14; j++) { // check map state
 					string id = obs_words_positions[j][i];
-					// we check that there is not another object at the left of the player and that this object exists
-					if (moveRecursive(deltaTime, "R", i, j) && objects.find(id) != objects.end()) {
-						MapObject *ob = objects[id];
-						glm::ivec2 pos = ob->getPosition();
-						if (playable[ob->getName()]) { // If it is playable and it does not collide, it can move
+					if (objects.find(id) != objects.end()) {
+						MapObject *ob = objects[id]; 
+						if (playable[ob->getName()] && moveRecursive(deltaTime, "R", i, j)) {
+							glm::ivec2 pos = ob->getPosition();
 							pos.x += 2;
 							ob->update(deltaTime, pos, "R");
 							obs_words_positions[j][i+1] = obs_words_positions[j][i];
@@ -174,11 +173,10 @@ void LevelController::movePlayable(int deltaTime) {
 			for (int j = 1; j < 14; j++) { // check map state
 				for (int i = 1; i < 19; i++) {
 					string id = obs_words_positions[j][i];
-					// we check that there is not another object at the left of the player and that this object exists
-					if (moveRecursive(deltaTime, "U", i, j) && objects.find(id) != objects.end()) {
-						MapObject *ob = objects[id];
-						glm::ivec2 pos = ob->getPosition();
-						if (playable[ob->getName()]) { // If it is playable and it does not collide, it can move
+					if (objects.find(id) != objects.end()) {
+						MapObject *ob = objects[id]; 
+						if (playable[ob->getName()] && moveRecursive(deltaTime, "U", i, j)) {
+							glm::ivec2 pos = ob->getPosition();
 							pos.y -= 2;
 							ob->update(deltaTime, pos, "U");
 							obs_words_positions[j-1][i] = obs_words_positions[j][i];
@@ -193,11 +191,10 @@ void LevelController::movePlayable(int deltaTime) {
 			for (int j = 14; j > 0; j--) { // check map state
 				for (int i = 1; i < 19; i++) {
 					string id = obs_words_positions[j][i];
-					// we check that there is not another object at the left of the player and that this object exists
-					if (moveRecursive(deltaTime, "D", i, j) && objects.find(id) != objects.end()) {
-						MapObject *ob = objects[id];
-						glm::ivec2 pos = ob->getPosition();
-						if (playable[ob->getName()]) { // If it is playable and it does not collide, it can move
+					if (objects.find(id) != objects.end()) {
+						MapObject *ob = objects[id]; 
+						if (playable[ob->getName()] && moveRecursive(deltaTime, "D", i, j)) {
+							glm::ivec2 pos = ob->getPosition();
 							pos.y += 2;
 							ob->update(deltaTime, pos, "D");
 							obs_words_positions[j+1][i] = obs_words_positions[j][i];
@@ -302,11 +299,24 @@ bool LevelController::moveRecursive(int deltaTime, string direction, int x, int 
 			if(movRec) {
 				Words *w = words[nextPos];
 				glm::vec2 pos = w->getPosition();
-				if (direction == "L") pos.x -= 2;
-				else if (direction == "R") pos.x += 2;
-				else if (direction == "U") pos.y -= 2;
-				else pos.y += 2;
+				if (direction == "L") {
+					pos.x -= 2;
+					x--;
+				}
+				else if (direction == "R") {
+					pos.x += 2;
+					x++;
+				}
+				else if (direction == "U") {
+					pos.y -= 2;
+					y--;
+				} 
+				else {
+					pos.y += 2;
+					y++;
+				}
 				w->setPosition(pos);
+				obs_words_positions[y][x] = nextPos;
 			}
 			return movRec;
 		}	
