@@ -290,8 +290,9 @@ bool LevelController::moveRecursive(int deltaTime, string direction, int x, int 
 	} else {
 		// check if it is an object
 		if (objects.find(nextPos) != objects.end()) {
-			// check if melt/open happens -> if so -> destroy object and move
+			// check if melt/hot happens -> if so -> destroy object and move
 			// check if it is pushable -> if so -> try to move it too
+			// check if open/close -> if so -> destroy object and move
 		}
 		// check if it is a word
 		else if (words.find(nextPos) != words.end()) {
