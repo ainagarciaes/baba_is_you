@@ -83,10 +83,11 @@ void LevelController::update(int deltaTime)
 		this->init(glm::ivec2(0,0), s, level);
 	}
 	
+
 	movePlayable(deltaTime);
+	updateWords(deltaTime);
 	processQueries();
 	updateNextScene();
-	updateWords(deltaTime);
 
 	/* PRINT MAP DEBUG -> DELETE IT ON FINAL VERSION */
 	
@@ -103,7 +104,7 @@ void LevelController::update(int deltaTime)
 void LevelController::updateWords(int deltaTime){	// render objects
 	std::map<std::string, Words*>::iterator it2 = words.begin();
  	while (it2 != words.end())
-	{
+	{	
 		Words *o = it2->second;
 		glm::vec2 pos = o->getPosition();
 		o->update(deltaTime,pos,"nothing");
