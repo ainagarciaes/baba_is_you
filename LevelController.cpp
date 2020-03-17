@@ -89,7 +89,7 @@ void LevelController::update(int deltaTime)
 	updateWords(deltaTime);
 
 	/* PRINT MAP DEBUG -> DELETE IT ON FINAL VERSION */
-	/*
+	
 	if (Game::instance().getKey(49)) {
 			for (int j = 0; j < 15; j++) {
 		for (int i = 0; i < 20; i++) {
@@ -97,7 +97,7 @@ void LevelController::update(int deltaTime)
 			}
 			cout << endl;
 		}
-	}*/
+	}
 }
 
 void LevelController::updateWords(int deltaTime){	// render objects
@@ -294,6 +294,7 @@ bool LevelController::moveRecursive(int deltaTime, string direction, int x, int 
 		return false;
 	}
 
+	string myPos = obs_words_positions[y][x];
 	string nextPos = obs_words_positions[y][x];
 	if (nextPos == "empty") {
 		return true;
@@ -304,6 +305,32 @@ bool LevelController::moveRecursive(int deltaTime, string direction, int x, int 
 		if (objects.find(nextPos) != objects.end()) {
 			// check if melt/hot happens -> if so -> destroy object and move
 			// check if it is pushable -> if so -> try to move it too
+			MapObject *mo = objects[nextPos];
+			if (pushable[mo->getName()]){
+				bool movRec = moveRecursive(deltaTime, direction, x, y);
+				if(movRec) {
+					glm::vec2 pos = mo->getPosition();
+					if (direction == "L") {
+						pos.x -= 2;
+						x--;
+					}
+					else if (direction == "R") {
+						pos.x += 2;
+						x++;
+					}
+					else if (direction == "U") {
+						pos.y -= 2;
+						y--;
+					} 
+					else {
+						pos.y += 2;
+						y++;
+					}
+					mo->setPosition(pos);
+					obs_words_positions[y][x] = nextPos;
+				}
+				return movRec;
+			}
 			// check if open/close -> if so -> destroy object and move
 		}
 		// check if it is a word
@@ -340,7 +367,6 @@ bool LevelController::moveRecursive(int deltaTime, string direction, int x, int 
 void LevelController::processQueries() {
 	emptyMaps();
 	isBaba = true;
-	// 3. Process queries & update object properties
 	processLR();
 	processUD();
 	if (isBaba) {
@@ -423,7 +449,7 @@ void LevelController::setProperty(string property, string object, bool value) {
 	if (property == "is") {
 		playable[object]=value;	
 		isBaba = false;
-	} else if (property == "pushable") {
+	} else if (property == "push") {
 		pushable[object]=value;	
 	} else if (property == "open") {
 		open[object]=value;	
@@ -476,7 +502,6 @@ void LevelController::executeQuery(Words *w1, Words *w2, Words *w3){
 			setObject(n1, n3);
 		}
 	}
-	// N is N
 }
 
 

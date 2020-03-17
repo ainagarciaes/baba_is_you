@@ -21,7 +21,29 @@
 			"posx":96,
 			"idw":"8",
 			"wtype":2
+		},
+		{
+			"name":"key",
+			"posy":32,
+			"posx":32,
+			"idw":"9",
+			"wtype":1
+		},
+		{
+			"name":"is",
+			"posy":32,
+			"posx":64,
+			"idw":"10",
+			"wtype":2
+		},
+		{
+			"name":"push",
+			"posy":32,
+			"posx":96,
+			"idw":"11",
+			"wtype":3
 		}
+
 	],    
 	"mapObjects":
     [
