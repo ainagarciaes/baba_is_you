@@ -86,8 +86,10 @@ void LevelController::update(int deltaTime)
 	movePlayable(deltaTime);
 	processQueries();
 	updateNextScene();
+	updateWords(deltaTime);
 
 	/* PRINT MAP DEBUG -> DELETE IT ON FINAL VERSION */
+	/*
 	if (Game::instance().getKey(49)) {
 			for (int j = 0; j < 15; j++) {
 		for (int i = 0; i < 20; i++) {
@@ -95,9 +97,19 @@ void LevelController::update(int deltaTime)
 			}
 			cout << endl;
 		}
-	}
+	}*/
 }
 
+void LevelController::updateWords(int deltaTime){	// render objects
+	std::map<std::string, Words*>::iterator it2 = words.begin();
+ 	while (it2 != words.end())
+	{
+		Words *o = it2->second;
+		glm::vec2 pos = o->getPosition();
+		o->update(deltaTime,pos,"nothing");
+		it2++;
+	}
+}
 void LevelController::render()
 {
 	// render objects
@@ -425,6 +437,10 @@ void LevelController::setProperty(string property, string object, bool value) {
 		win[object]=value;	
 	}
 }
+//this function simply calls changeConn in words saying in which state the frase is
+void LevelController::setConnected(Words *w1,bool con){
+	w1->changeConn(con);
+}
 
 void LevelController::setObject(string ob1, string ob2){
 	std::map<std::string, MapObject*>::iterator it = objects.begin();
@@ -451,6 +467,9 @@ void LevelController::executeQuery(Words *w1, Words *w2, Words *w3){
 	string n3 = w3->getName();
 	if (t1 != 1 || t2 != 2) return;
 	if (n2 == "is") {
+		setConnected(w1,true);
+		setConnected(w2,true);
+		setConnected(w3,true);
 		if (t3 == 3) {
 			setProperty(n3, n1, true);
 		} else {

@@ -22,24 +22,24 @@ void Words::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, str
 	spritesheet.loadFromFile("../images/words/"+name+".png", TEXTURE_PIXEL_FORMAT_RGBA);
 	sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(0.5, 0.33), &spritesheet, &shaderProgram);
 	sprite->setNumberAnimations(6);
-	
+	connected=false;
 		sprite->setAnimationSpeed(POS1, 8);
-		sprite->addKeyframe(POS1, glm::vec2(0.f, 0.f));
+		sprite->addKeyframe(POS1, glm::vec2(0.5f, 0.f));
 		
 		sprite->setAnimationSpeed(POS2, 8);
-		sprite->addKeyframe(POS2, glm::vec2(0.25f, 0.f));
+		sprite->addKeyframe(POS2, glm::vec2(0.5f, 0.33f));
 		
 		sprite->setAnimationSpeed(POS3, 8);
-		sprite->addKeyframe(POS3, glm::vec2(0.f, 0.f));
+		sprite->addKeyframe(POS3, glm::vec2(0.5f, 0.66f));
 		
 		sprite->setAnimationSpeed(POS1C, 8);
-		sprite->addKeyframe(POS1C, glm::vec2(0.25, 0.f));
+		sprite->addKeyframe(POS1C, glm::vec2(0.f, 0.f));
 				
 		sprite->setAnimationSpeed(POS2C, 8);
-		sprite->addKeyframe(POS2C, glm::vec2(0.25, 0.f));
+		sprite->addKeyframe(POS2C, glm::vec2(0.f, 0.33f));
 
 		sprite->setAnimationSpeed(POS3C, 8);
-		sprite->addKeyframe(POS3C, glm::vec2(0.25, 0.f));
+		sprite->addKeyframe(POS3C, glm::vec2(0.f, 0.66f));
 
 		
 	sprite->changeAnimation(0);
@@ -51,6 +51,38 @@ void Words::update(int deltaTime, const glm::vec2 &pos, string dir)
 {
 	sprite->update(deltaTime);
 	posWords = pos;
+	count++;
+
+if(!connected){
+	if(sprite->animation() == POS1 && count%8==0){
+		sprite->changeAnimation(POS2); 
+	}
+	else if(sprite->animation() == POS2 && count%8==0){
+		sprite->changeAnimation(POS3); 
+	}
+	else if(sprite->animation() == POS3 && count%8==0){
+		sprite->changeAnimation(POS1);
+	}
+}else{
+	if(sprite->animation() == POS1 && count%8==0){
+		sprite->changeAnimation(POS1C); 
+	}
+	else if(sprite->animation() == POS2 && count%8==0){
+		sprite->changeAnimation(POS2C); 
+	}
+	else if(sprite->animation() == POS3 && count%8==0){
+		sprite->changeAnimation(POS3C);
+	}
+		if(sprite->animation() == POS1C && count%8==0){
+		sprite->changeAnimation(POS2C); 
+	}
+	else if(sprite->animation() == POS2C && count%8==0){
+		sprite->changeAnimation(POS3C ); 
+	}
+	else if(sprite->animation() == POS3C && count%8==0){
+		sprite->changeAnimation(POS1C);
+	}
+}
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posWords.x), float(tileMapDispl.y + posWords.y)));
 }
 
@@ -79,6 +111,11 @@ int Words::getWtype(){
 string Words::getName(){ 
 	return wordName;
 }
+
+void Words::changeConn(bool a){
+ connected=a;
+}
+
 
 /*
 bool Words::checkFrase(){

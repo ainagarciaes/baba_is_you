@@ -24,6 +24,7 @@ public:
 	glm::vec2 getPosition();
 	int getWtype();
 	bool checkFrase();
+	void changeConn(bool a);
 	
 private:
 	glm::ivec2 tileMapDispl, posWords;
@@ -34,6 +35,8 @@ private:
 	//LevelScene ls;
 	//LevelController lc;
 	string wordName;
+	long count;
+	bool connected; //frase is complete
 	int wordType; //1 - noun; 2 - verb; 3 - property
 };
 

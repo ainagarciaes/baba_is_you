@@ -4,8 +4,8 @@
 
 #include <glm/glm.hpp>
 #include "ShaderProgram.h"
-#include "TileMap.h"
 #include "CreditsNames.h"
+#include "TileMap.h"
 
 
 #define CAMERA_WIDTH 640
