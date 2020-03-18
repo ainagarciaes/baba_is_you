@@ -350,7 +350,6 @@ bool LevelController::moveRecursive(int deltaTime, string direction, int x, int 
 			if (open[name]) {
 				return checkClose(x,y);
 			}
-			if (close[name]) return checkOpen(x,y);
 		}
 		// check if it is a word
 		else if (words.find(nextPos) != words.end()) {
@@ -522,58 +521,7 @@ void LevelController::executeQuery(Words *w1, Words *w2, Words *w3){
 		}
 	}
 }
-bool LevelController::checkOpen(int x, int y) {
-	bool ret = false;
-	string myname = obs_words_positions[y][x];
-	string obsname;
-	if (x < 19) {
-		obsname = obs_words_positions[y][x+1];
-		if (open.find(obsname) != open.end()){
-			if (open[obsname]) {
-				objects[myname]->destroyObj();
-				objects[obsname]->destroyObj();
-				obs_words_positions[y][x+1] = "empty";
-				obs_words_positions[y][x] = "empty";
-				ret = true;
-			}
-		}
-	} else if (x > 1) {
-		obsname = obs_words_positions[y][x-1];
-		if (open.find(obsname) != open.end()){
-			if (open[obsname]) {
-				objects[myname]->destroyObj();
-				objects[obsname]->destroyObj();
-				obs_words_positions[y][x-1] = "empty";
-				obs_words_positions[y][x] = "empty";
-				ret = true;
-			}
-		}
-	} else if (y > 1) {
-		obsname = obs_words_positions[y-1][x];
-		if (open.find(obsname) != open.end()){
-			if (open[obsname]) {
-				objects[myname]->destroyObj();
-				objects[obsname]->destroyObj();
-				obs_words_positions[y-1][x] = "empty";
-				obs_words_positions[y][x] = "empty";
-				ret = true;
-			}
-		}		
-	} else if (y < 14) {
-		obsname = obs_words_positions[y+1][x];
-		if (open.find(obsname) != open.end()){
-			if (open[obsname]) {
-				objects[myname]->destroyObj();
-				objects[obsname]->destroyObj();
-				obs_words_positions[y+1][x] = "empty";
-				obs_words_positions[y][x] = "empty";
-				ret = true;
-			}
-		}	
-	}
-	return ret;
 
-}
 bool LevelController::checkClose(int x, int y) {
 	bool ret = false;
 	string myname = obs_words_positions[y][x];
