@@ -304,9 +304,10 @@ bool LevelController::moveRecursive(int deltaTime, string direction, int x, int 
 	} else {
 		// check if it is an object
 		if (objects.find(nextPos) != objects.end()) {
-			// check if melt/hot happens -> if so -> destroy object and move
-			// check if it is pushable -> if so -> try to move it too
 			MapObject *mo = objects[nextPos];
+			// check if melt/hot happens -> if so -> destroy object and move
+			
+			// check if it is pushable -> if so -> try to move it too
 			if (pushable[mo->getName()]){
 				bool movRec = moveRecursive(deltaTime, direction, x, y);
 				if(movRec) {
