@@ -28,7 +28,7 @@ void MapObject::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram,
 }
 
 void MapObject::initSprite(string name) {
-	spritesheet.loadFromFile("../images/"+name+".png", TEXTURE_PIXEL_FORMAT_RGBA);
+	spritesheet.loadFromFile("../images/objects/"+name+".png", TEXTURE_PIXEL_FORMAT_RGBA);
 	sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(1.f, 0.30), &spritesheet, &sp);
 	sprite->setNumberAnimations(3);
 	sprite->setAnimationSpeed(0, 8);
