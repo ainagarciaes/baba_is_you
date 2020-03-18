@@ -22,6 +22,7 @@ void MapObject::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram,
 {
 	sp = shaderProgram;
 	count==0;
+	destroy = false;
 	tileMapDispl = tileMapPos;
 	initSprite(name);
 	sprite->setPosition(glm::vec2(float(tileMapDispl.x + posMapObject.x), float(tileMapDispl.y + posMapObject.y)));
@@ -86,3 +87,12 @@ void MapObject::changeTo(string objectType){
 	initSprite(objectType);
 	objectName = objectType;
 }
+
+void MapObject::destroyObj() {
+	destroy = true;
+}
+
+bool MapObject::getDestroy() {
+	return destroy;
+}
+

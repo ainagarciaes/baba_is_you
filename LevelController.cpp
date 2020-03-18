@@ -83,17 +83,28 @@ void LevelController::update(int deltaTime)
 		this->init(glm::ivec2(0,0), s, level);
 	}
 	
-
 	movePlayable(deltaTime);
 	updateWords(deltaTime);
 	processQueries();
 	updateNextScene();
+	std::map<std::string, MapObject*>::iterator it = objects.begin();
+ 	while (it != objects.end())
+	{
+		MapObject *o = it->second;
+		bool del = o->getDestroy();
+		if (del)
+		{
+			it = objects.erase(it);
+		}
+		else {
+			++it;
+		}
+	}
 
 	/* PRINT MAP DEBUG -> DELETE IT ON FINAL VERSION */
-	
 	if (Game::instance().getKey(49)) {
-			for (int j = 0; j < 15; j++) {
-		for (int i = 0; i < 20; i++) {
+		for (int j = 0; j < 15; j++) {
+			for (int i = 0; i < 20; i++) {
 				cout << obs_words_positions[j][i] << " ";
 			}
 			cout << endl;
@@ -119,7 +130,7 @@ void LevelController::render()
 	{
 		MapObject *o = it->second;
 		o->render();
-		it++;
+		++it;
 	}
 
 	// render objects
@@ -218,10 +229,13 @@ void LevelController::movePlayable(int deltaTime) {
 			}
 			movCont = 14;
 		} else {
-			for (int i = 0; i < objects.size(); ++i) {
-				MapObject *ob = objects[to_string(i+1)];
+			std::map<std::string, MapObject*>::iterator it = objects.begin();
+			while (it != objects.end())
+			{
+				MapObject *ob = it->second;
 				glm::ivec2 pos = ob->getPosition();
 				ob->update(deltaTime, pos, "S");
+				++it;
 			}
 		}		
 	} else {
@@ -276,27 +290,28 @@ void LevelController::movePlayable(int deltaTime) {
 		if (movCont == 0) moving = 0;
 		movCont -= 1;
 	}
-
-	/*
-		We have to iterate the map according to the direction the player wants to move, and then, for each playable element
-		check if it can move to that direction taking into consideration:
-			1. if there is a wall or the map ends
-			2. if there is some blocking element (call to moveRecursive)
-	*/
 }
 
 bool LevelController::moveRecursive(int deltaTime, string direction, int x, int y) {
-	if (direction == "L") x--;
-	else if (direction == "R") x++;
-	else if (direction == "U") y--;
-	else y++;
+	// Get the position of the next element in that direction
+	if (direction == "L") {
+		x--;
+	}
+	else if (direction == "R") {
+		x++;
+	}
+	else if (direction == "U") {
+		y--;
+	} 
+	else {
+		y++;
+	}
 
 	if (x < 0 || x > 19 || y < 0 || y > 14) { //out of bounds
 		return false;
 	}
-
-	string myPos = obs_words_positions[y][x];
 	string nextPos = obs_words_positions[y][x];
+	
 	if (nextPos == "empty") {
 		return true;
 	} else if (nextPos == "wall") {
@@ -304,9 +319,7 @@ bool LevelController::moveRecursive(int deltaTime, string direction, int x, int 
 	} else {
 		// check if it is an object
 		if (objects.find(nextPos) != objects.end()) {
-			MapObject *mo = objects[nextPos];
-			// check if melt/hot happens -> if so -> destroy object and move
-			
+			MapObject *mo = objects[nextPos];	
 			// check if it is pushable -> if so -> try to move it too
 			if (pushable[mo->getName()]){
 				bool movRec = moveRecursive(deltaTime, direction, x, y);
@@ -333,7 +346,11 @@ bool LevelController::moveRecursive(int deltaTime, string direction, int x, int 
 				}
 				return movRec;
 			}
-			// check if open/close -> if so -> destroy object and move
+			string name = mo->getName();
+			if (open[name]) {
+				return checkClose(x,y);
+			}
+			if (close[name]) return checkOpen(x,y);
 		}
 		// check if it is a word
 		else if (words.find(nextPos) != words.end()) {
@@ -455,7 +472,7 @@ void LevelController::setProperty(string property, string object, bool value) {
 		pushable[object]=value;	
 	} else if (property == "open") {
 		open[object]=value;	
-	} else if (property == "close") {
+	} else if (property == "shut") {
 		close[object]=value;	
 	} else if (property == "hot") {
 		hot[object]=value;	
@@ -505,27 +522,119 @@ void LevelController::executeQuery(Words *w1, Words *w2, Words *w3){
 		}
 	}
 }
+bool LevelController::checkOpen(int x, int y) {
+	bool ret = false;
+	string myname = obs_words_positions[y][x];
+	string obsname;
+	if (x < 19) {
+		obsname = obs_words_positions[y][x+1];
+		if (open.find(obsname) != open.end()){
+			if (open[obsname]) {
+				objects[myname]->destroyObj();
+				objects[obsname]->destroyObj();
+				obs_words_positions[y][x+1] = "empty";
+				obs_words_positions[y][x] = "empty";
+				ret = true;
+			}
+		}
+	} else if (x > 1) {
+		obsname = obs_words_positions[y][x-1];
+		if (open.find(obsname) != open.end()){
+			if (open[obsname]) {
+				objects[myname]->destroyObj();
+				objects[obsname]->destroyObj();
+				obs_words_positions[y][x-1] = "empty";
+				obs_words_positions[y][x] = "empty";
+				ret = true;
+			}
+		}
+	} else if (y > 1) {
+		obsname = obs_words_positions[y-1][x];
+		if (open.find(obsname) != open.end()){
+			if (open[obsname]) {
+				objects[myname]->destroyObj();
+				objects[obsname]->destroyObj();
+				obs_words_positions[y-1][x] = "empty";
+				obs_words_positions[y][x] = "empty";
+				ret = true;
+			}
+		}		
+	} else if (y < 14) {
+		obsname = obs_words_positions[y+1][x];
+		if (open.find(obsname) != open.end()){
+			if (open[obsname]) {
+				objects[myname]->destroyObj();
+				objects[obsname]->destroyObj();
+				obs_words_positions[y+1][x] = "empty";
+				obs_words_positions[y][x] = "empty";
+				ret = true;
+			}
+		}	
+	}
+	return ret;
 
-
-/*std::map<string,Words*> LevelController::getWords(){ return words;}
-
-//return 4 = not word found in pos
-int LevelController:: getTWordByPosition(const glm::vec2 &pos){
-	
-  std::map<string,Words*> :: iterator it = words.begin();
-	bool found=false;
-	int ret=4;
-	while (it != words.end() or found)
-	{
-		glm::vec2 posit = it->second->getPosition();
-		if(pos.x==posit.x){
-			if(pos.y==posit.y)
-			found=true;
-			ret=it->second->getWtype();
+}
+bool LevelController::checkClose(int x, int y) {
+	bool ret = false;
+	string myname = obs_words_positions[y][x];
+	string obsname;
+	int xaux = x;
+	int yaux = y;
+	if (x < 19) {
+		xaux = x+1;
+		obsname = obs_words_positions[y][xaux];
+		if (objects.find(obsname) != objects.end()){
+			MapObject *m = objects[obsname];
+			if (close[m->getName()]) {
+				objects[myname]->destroyObj();
+				objects[obsname]->destroyObj();
+				obs_words_positions[y][xaux] = "empty";
+				obs_words_positions[y][x] = "empty";
+				ret = true;
+			}
+		}
+	} 
+	if (x > 1) {
+		xaux = x-1;
+		obsname = obs_words_positions[y][xaux];
+		if (objects.find(obsname) != objects.end()){
+			MapObject *m = objects[obsname];
+			if (close[m->getName()]) {
+				objects[myname]->destroyObj();
+				objects[obsname]->destroyObj();
+				obs_words_positions[y][xaux] = "empty";
+				obs_words_positions[y][x] = "empty";
+				ret = true;
+			}
 		}
 	}
-	
-	return  ret;
-	
-
-}*/
+	if (y > 1) {
+		yaux = y-1;
+		obsname = obs_words_positions[yaux][x];
+		if (objects.find(obsname) != objects.end()){
+			MapObject *m = objects[obsname];
+			if (close[m->getName()]) {
+				objects[myname]->destroyObj();
+				objects[obsname]->destroyObj();
+				obs_words_positions[yaux][x] = "empty";
+				obs_words_positions[y][x] = "empty";
+				ret = true;
+			}
+		}		
+	}
+	if (y < 14) {
+		yaux = y+1;
+		obsname = obs_words_positions[yaux][x];
+		if (objects.find(obsname) != objects.end()){
+			MapObject *m = objects[obsname];
+			if (close[m->getName()]) {
+				objects[myname]->destroyObj();
+				objects[obsname]->destroyObj();
+				obs_words_positions[yaux][x] = "empty";
+				obs_words_positions[y][x] = "empty";
+				ret = true;
+			}
+		}	
+	}
+	return ret;
+}

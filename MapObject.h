@@ -22,6 +22,8 @@ public:
 	void setPosition(const glm::vec2 &pos);
 	string getName();
 	void initSprite(string name);
+	void destroyObj();
+	bool getDestroy();
 	glm::ivec2 getPosition();
 	
 private:
@@ -33,6 +35,7 @@ private:
     // my vars
     string objectName;
 	string objID;
+	bool destroy;
 };
 
 

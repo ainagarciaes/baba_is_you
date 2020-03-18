@@ -35,6 +35,8 @@ private:
 	void setProperty(string property, string object, bool value);
 	void setObject(string ob1, string ob2);
 	void setConnected(Words *w1,bool con);
+	bool checkOpen(int x, int y);
+	bool checkClose(int x, int y);
 
 	void executeQuery(Words *w1, Words *w2, Words *w3);
 

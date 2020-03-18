@@ -37,12 +37,34 @@
 			"wtype":2
 		},
 		{
-			"name":"push",
+			"name":"open",
 			"posy":32,
 			"posx":96,
 			"idw":"11",
 			"wtype":3
+		},
+		{
+			"name":"door",
+			"posy":64,
+			"posx":32,
+			"idw":"12",
+			"wtype":1
+		},
+		{
+			"name":"is",
+			"posy":64,
+			"posx":64,
+			"idw":"13",
+			"wtype":2
+		},
+		{
+			"name":"shut",
+			"posy":64,
+			"posx":96,
+			"idw":"14",
+			"wtype":3
 		}
+
 
 	],    
 	"mapObjects":
