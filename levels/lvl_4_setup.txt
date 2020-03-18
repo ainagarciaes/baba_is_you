@@ -3,43 +3,78 @@
 	[
 		{
 			"name":"baba",
-			"posy":256,
-			"posx":64,
-			"idw":"6",
+			"posy":10*32,
+			"posx":2*32,
+			"idw":"1",
 			"wtype":1
 		},
-		{
-			"name":"key",
-			"posy":256,
-			"posx":256,
-			"idw":"7",
-			"wtype":1
-		},
-		{
+    		{
 			"name":"is",
-			"posy":256,
-			"posx":96,
-			"idw":"8",
+			"posy":10*32,
+			"posx":3*32,
+			"idw":"2",
 			"wtype":2
 		},
-		{
+    		{
+			"name":"you",
+			"posy":10*32,
+			"posx":4*32,
+			"idw":"3",
+			"wtype":3
+		},
+    		{
+			"name":"door",
+			"posy":12*32,
+			"posx":2*32,
+			"idw":"4",
+			"wtype":1
+		},
+    		{
+			"name":"is",
+			"posy":12*32,
+			"posx":3*32,
+			"idw":"5",
+			"wtype":2
+		},
+    		{
+			"name":"push",
+			"posy":4*32,
+			"posx":12*32,
+			"idw":"6",
+			"wtype":3
+		},
+    		{
+			"name":"open",
+			"posy":7*32,
+			"posx":2*32,
+			"idw":"7",
+			"wtype":3
+		},
+    		{
 			"name":"key",
-			"posy":32,
-			"posx":32,
+			"posy":9*32,
+			"posx":3*32,
+			"idw":"8",
+			"wtype":1
+		},
+        		{
+			"name":"flag",
+			"posy":10*32,
+			"posx":16*32,
 			"idw":"9",
 			"wtype":1
 		},
-		{
+        		{
 			"name":"is",
-			"posy":32,
-			"posx":64,
+			"posy":10*32,
+			"posx":17*32,
 			"idw":"10",
 			"wtype":2
 		},
-		{
-			"name":"push",
-			"posy":32,
-			"posx":96,
+        		{
+			"name":"win",
+			"posy":10*32,
+			"posx":18*32,
 			"idw":"11",
 			"wtype":3
 		}
@@ -48,46 +83,141 @@
 	"mapObjects":
     [
       {
-        "posx":32,
-        "posy":96,
+        "posx":1*32,
+        "posy":2*32,
         "name":"baba",
 		"ido":"1"
       },
-      {
-        "posx":128,
-        "posy":96,
-        "name":"door",
+       {
+        "posx":1*32,
+        "posy":4*32,
+        "name":"rock",
 		"ido":"2"
       },
-      {
-        "posx":128,
-        "posy":128,
-        "name":"key",
+ 
+       {
+        "posx":2*32,
+        "posy":11*32,
+        "name":"rock",
 		"ido":"3"
       },
-      {
-        "posx":32,
-        "posy":128,
-        "name":"flag",
+ 
+       {
+        "posx":3*32,
+        "posy":5*32,
+        "name":"rock",
 		"ido":"4"
       },
-      {
-        "posx":320,
-        "posy":128,
-        "name":"key",
+ 
+       {
+        "posx":3*32,
+        "posy":7*32,
+        "name":"rock",
 		"ido":"5"
+      },
+ 
+       {
+        "posx":4*32,
+        "posy":13*32,
+        "name":"rock",
+		"ido":"6"
+      },
+ 
+       {
+        "posx":5*32,
+        "posy":3*32,
+        "name":"rock",
+		"ido":"7"
+      },
+ 
+       {
+        "posx":12*32,
+        "posy":5*32,
+        "name":"rock",
+		"ido":"8"
+      },
+       {
+        "posx":12*32,
+        "posy":6*32,
+        "name":"rock",
+		"ido":"9"
+      },
+      {
+        "posx":14*32,
+        "posy":6*32,
+        "name":"door",
+		"ido":"10"
+      },
+        {
+        "posx":15*32,
+        "posy":2*32,
+        "name":"flag",
+		"ido":"11"
+      },
+        {
+         "posx":16*32,
+        "posy":2*32,
+        "name":"rock",
+		"ido":"12"
+      },
+        {
+        "posx":16*32,
+        "posy":1*32,
+        "name":"rock",
+		"ido":"13"
+      },
+        {
+        "posx":16*32,
+        "posy":6*32,
+        "name":"rock",
+		"ido":"14"
+      },
+        {
+        "posx":1*32,
+        "posy":17*32,
+        "name":"key",
+		"ido":"15"
+      },
+        {
+        "posx":17*32,
+        "posy":2*32,
+        "name":"rock",
+		"ido":"16"
+      },
+        {
+        "posx":17*32,
+        "posy":4*32,
+        "name":"rock",
+		"ido":"17"
+      },
+        {
+        "posx":17*32,
+        "posy":5*32,
+        "name":"rock",
+		"ido":"18"
+      },
+        {
+        "posx":18*32,
+        "posy":6*32,
+        "name":"rock",
+		"ido":"19"
+      },
+       {
+        "posx":15*32,
+        "posy":7*32,
+        "name":"rock",
+		"ido":"20"
       }
 
+ 
+
+ 
     ],
     "walls":
     [
       {
 		"posx":0,
         "posy":0
-      },
-      {
-		"posx":3,
-        "posy":3
       },
       {
 		"posx":0,
@@ -194,22 +324,60 @@
         "posy":11
       },
       {
-	"posx":19,
+	"posx":0,
+        "posy":14
+      },
+      {
+	"posx":1,
+        "posy":14
+      },
+      	"posx":14,
+        "posy":1
+      },
+            {
+            	"posx":14,
+        "posy":2
+      },
+            {
+            	"posx":14,
+        "posy":3
+      },
+            {
+            	"posx":14,
+        "posy":4
+      },
+            	"posx":14,
+        "posy":5
+      },
+      {
+            	"posx":14,
+        "posy":7
+      },
+            {
+            	"posx":14,
+        "posy":8
+      },
+            {
+            	"posx":14,
+        "posy":9
+      },
+            {
+            	"posx":14,
+        "posy":10
+      },
+            {
+            	"posx":14,
+        "posy":11
+      },
+            {
+            	"posx":14,
         "posy":12
       },
-      {
-	"posx":19,
+            {
+            	"posx":14,
         "posy":13
       },
-      {
-	"posx":19,
-        "posy":14
-      },
-      {
-	"posx":0,
-        "posy":14
-      },
-      {
+            {
 	"posx":1,
         "posy":14
       },
@@ -364,6 +532,67 @@
       {
 	"posx":19,
         "posy":0
+      },
+            {
+	"posx":6,
+        "posy":13
+      },
+                  {
+	"posx":6,
+        "posy":12
+      },
+                  {
+	"posx":6,
+        "posy":11
+      },
+                  {
+	"posx":6,
+        "posy":10
+      },
+                  {
+	"posx":7,
+        "posy":10
+      },
+        {
+	"posx":8,
+        "posy":10
+      },
+       {
+	"posx":9,
+        "posy":10
+      },
+       {
+	"posx":10,
+        "posy":10
+      },
+          {
+	"posx":10,
+        "posy":11
+      },
+      {
+	"posx":10,
+        "posy":12
+      },
+    {
+	"posx":10,
+        "posy":13
+      },
+          {
+	"posx":15,
+        "posy":9
+      }, 
+                {
+	"posx":16,
+        "posy":9
+      },
+                {
+	"posx":17,
+        "posy":9
+      },
+                {
+	"posx":18,
+        "posy":9
       }
+
     ]
 }
