@@ -2,82 +2,282 @@
 	"mapWords":
 	[
 		{
-			"name":"baba",
-			"posy":256,
-			"posx":64,
-			"idw":"6",
+			"name":"door",
+			"posy":8*32,
+			"posx":1*32,
+			"idw":"1",
 			"wtype":1
 		},
-		{
+				{
+			"name":"baba",
+			"posy":10*32,
+			"posx":1*32,
+			"idw":"2",
+			"wtype":1
+		},
+				{
+			"name":"is",
+			"posy":8*32,
+			"posx":2*32,
+			"idw":"3",
+			"wtype":2
+		},
+						{
+			"name":"is",
+			"posy":10*32,
+			"posx":2*32,
+			"idw":"4",
+			"wtype":2
+		},
+						{
+			"name":"shut",
+			"posy":8*32,
+			"posx":3*32,
+			"idw":"5",
+			"wtype":3
+		},
+						{
+			"name":"you",
+			"posy":10*32,
+			"posx":3*32,
+			"idw":"6",
+			"wtype":3
+		},
+						{
 			"name":"key",
-			"posy":256,
-			"posx":256,
+			"posy":4*32,
+			"posx":5*32,
 			"idw":"7",
 			"wtype":1
 		},
-		{
-			"name":"is",
-			"posy":256,
-			"posx":96,
+						{
+			"name":"rock",
+			"posy":5*32,
+			"posx":5*32,
 			"idw":"8",
-			"wtype":2
-		},
-		{
-			"name":"key",
-			"posy":32,
-			"posx":32,
-			"idw":"9",
 			"wtype":1
 		},
-		{
+						{
+			"name":"push",
+			"posy":2*32,
+			"posx":6*32,
+			"idw":"9",
+			"wtype":3
+		},
+						{
 			"name":"is",
-			"posy":32,
-			"posx":64,
+			"posy":4*32,
+			"posx":6*32,
 			"idw":"10",
 			"wtype":2
 		},
-		{
-			"name":"push",
-			"posy":32,
-			"posx":96,
+						{
+			"name":"flag",
+			"posy":12*32,
+			"posx":6*32,
 			"idw":"11",
+			"wtype":1
+		},
+						{
+			"name":"open",
+			"posy":4*32,
+			"posx":7*32,
+			"idw":"12",
+			"wtype":3
+		},
+						{
+			"name":"is",
+			"posy":11*32,
+			"posx":15*32,
+			"idw":"13",
+			"wtype":2
+		},
+						{
+			"name":"win",
+			"posy":11*32,
+			"posx":16*32,
+			"idw":"14",
 			"wtype":3
 		}
+		
 
 	],    
 	"mapObjects":
     [
       {
-        "posx":32,
-        "posy":96,
+        "posx":1*32,
+        "posy":1*32,
         "name":"baba",
 		"ido":"1"
       },
-      {
-        "posx":128,
-        "posy":96,
-        "name":"door",
+       {
+        "posx":2*32,
+        "posy":2*32,
+        "name":"key",
 		"ido":"2"
       },
-      {
-        "posx":128,
-        "posy":128,
-        "name":"key",
+            {
+        "posx":3*32,
+        "posy":2*32,
+        "name":"door",
 		"ido":"3"
       },
-      {
-        "posx":32,
-        "posy":128,
-        "name":"flag",
+            {
+        "posx":1*32,
+        "posy":1*32,
+        "name":"baba",
 		"ido":"4"
       },
-      {
-        "posx":320,
-        "posy":128,
-        "name":"key",
+            {
+        "posx":5*32,
+        "posy":10*32,
+        "name":"flag",
 		"ido":"5"
+      },
+            {
+        "posx":7*32,
+        "posy":9*32,
+        "name":"rock",
+		"ido":"6"
+      },
+            {
+        "posx":7*32,
+        "posy":13*32,
+        "name":"rock",
+		"ido":"7"
+      },
+            {
+        "posx":8*32,
+        "posy":10*32,
+        "name":"rock",
+		"ido":"8"
+      },
+            {
+        "posx":9*32,
+        "posy":8*32,
+        "name":"rock",
+		"ido":"9"
+      },
+            {
+        "posx":9*32,
+        "posy":12*32,
+        "name":"rock",
+		"ido":"10"
+      },
+            {
+        "posx":10*32,
+        "posy":3*32,
+        "name":"rock",
+		"ido":"11"
+      },
+            {
+        "posx":10*32,
+        "posy":9*32,
+        "name":"rock",
+		"ido":"12"
+      },
+            {
+        "posx":10*32,
+        "posy":11*32,
+        "name":"rock",
+		"ido":"13"
+      },
+            {
+        "posx":10*32,
+        "posy":13*32,
+        "name":"rock",
+		"ido":"14"
+      },
+            {
+        "posx":11*32,
+        "posy":8*32,
+        "name":"rock",
+		"ido":"15"
+      },
+            {
+        "posx":11*32,
+        "posy":9*32,
+        "name":"rock",
+		"ido":"16"
+      },
+            {
+        "posx":11*32,
+        "posy":11*32,
+        "name":"rock",
+		"ido":"17"
+      },
+            {
+        "posx":12*32,
+        "posy":8*32,
+        "name":"rock",
+		"ido":"18"
+      },
+            {
+        "posx":12*32,
+        "posy":10*32,
+        "name":"rock",
+		"ido":"19"
+      },
+            {
+        "posx":12*32,
+        "posy":11*32,
+        "name":"rock",
+		"ido":"20"
+      },
+            {
+        "posx":13*32,
+        "posy":12*32,
+        "name":"rock",
+		"ido":"21"
+      },
+            {
+        "posx":14*32,
+        "posy":8*32,
+        "name":"rock",
+		"ido":"22"
+      },
+            {
+        "posx":14*32,
+        "posy":10*32,
+        "name":"rock",
+		"ido":"23"
+      },
+                  {
+        "posx":14*32,
+        "posy":12*32,
+        "name":"rock",
+		"ido":"24"
+      },
+                  {
+        "posx":14*32,
+        "posy":13*32,
+        "name":"rock",
+		"ido":"25"
+      },
+                  {
+        "posx":15*32,
+        "posy":9*32,
+        "name":"rock",
+		"ido":"26"
+      },
+                  {
+        "posx":15*32,
+        "posy":10*32,
+        "name":"rock",
+		"ido":"27"
+      },
+                  {
+        "posx":16*32,
+        "posy":7*32,
+        "name":"rock",
+		"ido":"28"
+      },
+                  {
+        "posx":16*32,
+        "posy":10*32,
+        "name":"rock",
+		"ido":"29"
       }
-
     ],
     "walls":
     [
@@ -146,63 +346,55 @@
         "posy":14
       },      
       {
-		"posx":19,
-        "posy":0
-      },
-      {
-		"posx":19,
-        "posy":1
-      },
-      {
-		"posx":19,
+		"posx":17,
         "posy":2
       },
       {
-		"posx":19,
+		"posx":17,
         "posy":3
       },
       {
-		"posx":19,
+		"posx":17,
         "posy":4
       },
       {
-		"posx":19,
+		"posx":17,
         "posy":5
       },
       {
-		"posx":19,
+		"posx":17,
         "posy":6
       },
       {
-	"posx":19,
+	"posx":17,
         "posy":7
       },
       {
-	"posx":19,
+	"posx":17,
         "posy":8
       },
       {
-	"posx":19,
+	"posx":17,
         "posy":9
       },
       {
-	"posx":19,
+	"posx":17,
         "posy":10
       },
       {
-	"posx":19,
+	"posx":17,
         "posy":11
       },
       {
-	"posx":19,
+	"posx":17,
         "posy":12
       },
       {
-	"posx":19,
+	"posx":17,
         "posy":13
       },
       {
-	"posx":19,
+	"posx":17,
         "posy":14
       },
       {
@@ -364,6 +556,155 @@
       {
 	"posx":19,
         "posy":0
+      },
+            {
+	"posx":3,
+        "posy":1
+      },
+            {
+	"posx":3,
+        "posy":2
+      },
+            {
+	"posx":3,
+        "posy":4
+      },
+            {
+	"posx":3,
+        "posy":5
+      },
+            {
+	"posx":3,
+        "posy":6
+      },
+                  {
+	"posx":3,
+        "posy":7
+      },
+                  {
+	"posx":1,
+        "posy":7
+      },
+            {
+	"posx":2,
+        "posy":7
+      },
+                  {
+	"posx":4,
+        "posy":7
+      },
+                  {
+	"posx":5,
+        "posy":7
+      },
+                  {
+	"posx":6,
+        "posy":7
+      },
+                  {
+	"posx":7,
+        "posy":7
+      },
+                  {
+	"posx":8,
+        "posy":7
+      },
+                  {
+	"posx":9,
+        "posy":7
+      },
+                  {
+	"posx":10,
+        "posy":7
+      },
+                  {
+	"posx":11,
+        "posy":7
+      },
+                  {
+	"posx":12,
+        "posy":7
+      },
+                  {
+	"posx":13,
+        "posy":7
+      },
+                  {
+	"posx":14,
+        "posy":7
+      },
+                  {
+	"posx":15,
+        "posy":7
+      },
+                  {
+	"posx":10,
+        "posy":5
+      },
+                  {
+	"posx":11,
+        "posy":5
+      },
+                  {
+	"posx":12,
+        "posy":5
+      },
+                  {
+	"posx":13,
+        "posy":5
+      },
+                  {
+	"posx":14,
+        "posy":5
+      },
+                  {
+	"posx":14,
+        "posy":6
+      },
+                  {
+	"posx":10,
+        "posy":1
+      },
+                  {
+	"posx":10,
+        "posy":2
+      },
+                  {
+	"posx":10,
+        "posy":4
+      },
+                  {
+	"posx":10,
+        "posy":5
+      },
+                  {
+	"posx":10,
+        "posy":6
+      },
+                        {
+	"posx":11,
+        "posy":2
+      },
+                        {
+	"posx":12,
+        "posy":2
+      },
+                        {
+	"posx":13,
+        "posy":2
+      },
+                        {
+	"posx":14,
+        "posy":2
+      },
+                        {
+	"posx":15,
+        "posy":2
+      },
+                        {
+	"posx":16,
+        "posy":2
       }
+      
     ]
 }
