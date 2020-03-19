@@ -63,6 +63,27 @@
 			"posx":96,
 			"idw":"14",
 			"wtype":3
+		},
+		{
+			"name":"flag",
+			"posy":64,
+			"posx":160,
+			"idw":"15",
+			"wtype":1
+		},
+		{
+			"name":"is",
+			"posy":64,
+			"posx":192,
+			"idw":"16",
+			"wtype":2
+		},
+		{
+			"name":"win",
+			"posy":64,
+			"posx":224,
+			"idw":"17",
+			"wtype":3
 		}
 
 
@@ -85,13 +106,13 @@
         "posx":128,
         "posy":128,
         "name":"key",
-		"ido":"3"
+	"ido":"3"
       },
       {
         "posx":32,
-        "posy":128,
+        "posy":160,
         "name":"flag",
-		"ido":"4"
+	"ido":"4"
       },
       {
         "posx":320,

@@ -12,6 +12,7 @@ using json = nlohmann::json;
 
 void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, int lvl)
 {
+	nextScene = -1;
 	s = shaderProgram;
 	level = lvl;
 	for (int k = 0; k < 15; k++) {
@@ -320,7 +321,6 @@ bool LevelController::moveRecursive(int deltaTime, string direction, int x, int 
 		// check if it is an object
 		if (objects.find(nextPos) != objects.end()) {
 			MapObject *mo = objects[nextPos];	
-			// check if it is pushable -> if so -> try to move it too
 			if (pushable[mo->getName()]){
 				bool movRec = moveRecursive(deltaTime, direction, x, y);
 				if(movRec) {
@@ -349,6 +349,9 @@ bool LevelController::moveRecursive(int deltaTime, string direction, int x, int 
 			string name = mo->getName();
 			if (open[name]) {
 				return checkClose(x,y);
+			}
+			if (isWin(x, y)) {
+				return false;
 			}
 		}
 		// check if it is a word
@@ -393,6 +396,8 @@ void LevelController::processQueries() {
 }
 
 int LevelController::getNextScene() {
+	// check if there is a win condition
+	cout << nextScene << endl;
 	return nextScene;
 }
 
@@ -478,7 +483,10 @@ void LevelController::setProperty(string property, string object, bool value) {
 	} else if (property == "melt") {
 		melt[object]=value;	
 	} else if (property == "win") {
-		win[object]=value;	
+		win[object]=value;
+		if (playable[object]) {
+			nextScene = level + 3;
+		}	
 	}
 }
 //this function simply calls changeConn in words saying in which state the frase is
@@ -585,4 +593,15 @@ bool LevelController::checkClose(int x, int y) {
 		}	
 	}
 	return ret;
+}
+
+bool LevelController::isWin(int x, int y){
+ 	string id = obs_words_positions[y][x];
+    MapObject *m = objects[id];
+	string name = m->getName();
+	bool b = win[name];
+	if (b) {
+		nextScene = level + 3; 
+	}
+	return b;
 }

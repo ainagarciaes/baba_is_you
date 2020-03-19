@@ -94,7 +94,7 @@ void LevelScene::initShaders()
 }
 
 int LevelScene::getNextScene() {
-	return nextScene;
+	return levelController->getNextScene();
 }
 
 LevelController LevelScene:: getLevelC(){return *levelController;}
