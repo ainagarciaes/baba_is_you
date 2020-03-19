@@ -92,6 +92,9 @@ void LevelController::update(int deltaTime)
  	while (it != objects.end())
 	{
 		MapObject *o = it->second;
+		string name = o->getName();
+		if (!playable[name]) o->update(deltaTime, o->getPosition(),"S");
+
 		bool del = o->getDestroy();
 		if (del)
 		{
@@ -229,7 +232,7 @@ void LevelController::movePlayable(int deltaTime) {
 				}
 			}
 			movCont = 14;
-		} else {
+		} /*else {
 			std::map<std::string, MapObject*>::iterator it = objects.begin();
 			while (it != objects.end())
 			{
@@ -238,7 +241,7 @@ void LevelController::movePlayable(int deltaTime) {
 				ob->update(deltaTime, pos, "S");
 				++it;
 			}
-		}		
+		}	*/	
 	} else {
 		// auto move objs
 		std::map<std::string, MapObject*>::iterator it = objects.begin();
@@ -396,8 +399,6 @@ void LevelController::processQueries() {
 }
 
 int LevelController::getNextScene() {
-	// check if there is a win condition
-	cout << nextScene << endl;
 	return nextScene;
 }
 
