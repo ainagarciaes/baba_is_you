@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/auri/Documents/UNI/VJ/baba_is_you/$(GLEW_INCLUDE_DIRS) -I/home/auri/Documents/UNI/VJ/baba_is_you/. 
+CXX_INCLUDES = -I/home/auri/Documents/UNI/VJ/baba_is_you/$(GLEW_INCLUDE_DIRS) -I/home/auri/Documents/UNI/VJ/baba_is_you/include/irrKlang/include -I/home/auri/Documents/UNI/VJ/baba_is_you/. 
 

@@ -8,6 +8,7 @@ void Game::init()
 	bPlay = true;
 	sceneID = 0;
 	glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
+	audiomanager = new Audio();
 	initScene();
 }
 
@@ -83,7 +84,7 @@ void Game::initScene(){
 	} else if (sceneID == 2){ // instructions
 		instr.init(); 
 	} else if (sceneID > 2 && sceneID < 8) {
-		level.init(sceneID); 
+		level.init(sceneID, audiomanager); 
 	}
 }
 void Game::renderScene(){

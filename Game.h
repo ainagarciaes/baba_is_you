@@ -41,6 +41,7 @@ public:
 private:
 	bool bPlay;                       // Continue to play game?
 	MenuScene menu;
+	Audio *audiomanager;
 	InstructionsScene instr;
 	CreditsScene creds;
 	LevelScene level;

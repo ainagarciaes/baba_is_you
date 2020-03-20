@@ -123,6 +123,33 @@ tbe/fast:
 	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/build
 .PHONY : tbe/fast
 
+Audio.o: Audio.cpp.o
+
+.PHONY : Audio.o
+
+# target to build an object file
+Audio.cpp.o:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/Audio.cpp.o
+.PHONY : Audio.cpp.o
+
+Audio.i: Audio.cpp.i
+
+.PHONY : Audio.i
+
+# target to preprocess a source file
+Audio.cpp.i:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/Audio.cpp.i
+.PHONY : Audio.cpp.i
+
+Audio.s: Audio.cpp.s
+
+.PHONY : Audio.s
+
+# target to generate assembly for a file
+Audio.cpp.s:
+	$(MAKE) -f CMakeFiles/tbe.dir/build.make CMakeFiles/tbe.dir/Audio.cpp.s
+.PHONY : Audio.cpp.s
+
 CreditsNames.o: CreditsNames.cpp.o
 
 .PHONY : CreditsNames.o
@@ -591,6 +618,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... tbe"
 	@echo "... edit_cache"
+	@echo "... Audio.o"
+	@echo "... Audio.i"
+	@echo "... Audio.s"
 	@echo "... CreditsNames.o"
 	@echo "... CreditsNames.i"
 	@echo "... CreditsNames.s"

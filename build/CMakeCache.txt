@@ -252,6 +252,9 @@ OPENGL_xmesa_INCLUDE_DIR:PATH=OPENGL_xmesa_INCLUDE_DIR-NOTFOUND
 SOIL:FILEPATH=/usr/local/lib/libSOIL.a
 
 //Path to a library.
+irrKlang:FILEPATH=irrKlang-NOTFOUND
+
+//Path to a library.
 nlohmann_json:FILEPATH=nlohmann_json-NOTFOUND
 
 //Value Computed by CMake

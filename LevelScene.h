@@ -7,10 +7,12 @@
 #include "TileMap.h"
 #include "Player.h"
 #include "LevelController.h"
+#include "Audio.h"
 
 #define CAMERA_WIDTH 640
 #define CAMERA_HEIGHT 480
 
+#pragma comment(lib, "irrKlang.lib") 
 
 // LevelScene contains all the entities of our game.
 // It is responsible for updating and render them.
@@ -21,7 +23,7 @@ public:
 	LevelScene();
 	~LevelScene();
 
-	void init(int lvl);
+	void init(int lvl, Audio *a);
 	void update(int deltaTime);
 	void render();
 	int getNextScene();
@@ -39,6 +41,7 @@ private:
 	int nextScene;
 	int mylevel;
 	LevelController *levelController;
+	Audio *audiomanager;
 };
 
 

@@ -17,8 +17,10 @@ find_package(GLUT REQUIRED)
 find_package(GLEW REQUIRED)
 find_library(SOIL SOIL /usr/local/lib/libSOIL.a)
 find_library(nlohmann_json /include)
+find_library(irrKlang /include/irrKlang/include)
 
-include_directories($(GLEW_INCLUDE_DIRS) ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} .)
+
+include_directories($(GLEW_INCLUDE_DIRS) ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} include/irrKlang/include .)
 
 
 # Make sure the compiler can find include files for our Hello library
@@ -34,6 +36,6 @@ add_executable(tbe ${SOURCES})
 # Link the executable to the Hello library. Since the Hello library has
 # public include directories we will use those link directories when building
 # helloDemo
-target_link_libraries(tbe ${SOIL} ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} ${GLEW_LIBRARY} ${SOIL_INCLUDE_DIRS})
+target_link_libraries(tbe ${SOIL} ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} ${GLEW_LIBRARY} ${SOIL_INCLUDE_DIRS} /home/auri/Documents/UNI/VJ/baba_is_you/include/irrKlang/bin/linux-gcc-64/libIrrKlang.so)
 
 

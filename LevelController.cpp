@@ -106,14 +106,14 @@ void LevelController::update(int deltaTime)
 	}
 
 	/* PRINT MAP DEBUG -> DELETE IT ON FINAL VERSION */
-	if (Game::instance().getKey(49)) {
+	/*if (Game::instance().getKey(49)) {
 		for (int j = 0; j < 15; j++) {
 			for (int i = 0; i < 20; i++) {
 				cout << obs_words_positions[j][i] << " ";
 			}
 			cout << endl;
 		}
-	}
+	}*/
 }
 
 void LevelController::updateWords(int deltaTime){	// render objects
@@ -232,16 +232,7 @@ void LevelController::movePlayable(int deltaTime) {
 				}
 			}
 			movCont = 14;
-		} /*else {
-			std::map<std::string, MapObject*>::iterator it = objects.begin();
-			while (it != objects.end())
-			{
-				MapObject *ob = it->second;
-				glm::ivec2 pos = ob->getPosition();
-				ob->update(deltaTime, pos, "S");
-				++it;
-			}
-		}	*/	
+		}
 	} else {
 		// auto move objs
 		std::map<std::string, MapObject*>::iterator it = objects.begin();

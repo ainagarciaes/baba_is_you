@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/auri/Documents/UNI/VJ/baba_is_you/Audio.cpp" "/home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles/tbe.dir/Audio.cpp.o"
   "/home/auri/Documents/UNI/VJ/baba_is_you/CreditsNames.cpp" "/home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles/tbe.dir/CreditsNames.cpp.o"
   "/home/auri/Documents/UNI/VJ/baba_is_you/CreditsScene.cpp" "/home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles/tbe.dir/CreditsScene.cpp.o"
   "/home/auri/Documents/UNI/VJ/baba_is_you/Game.cpp" "/home/auri/Documents/UNI/VJ/baba_is_you/build/CMakeFiles/tbe.dir/Game.cpp.o"
@@ -27,6 +28,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../$(GLEW_INCLUDE_DIRS)"
+  "../include/irrKlang/include"
   "../."
   )
 
