@@ -44,7 +44,7 @@
 			"wtype":3
 		},
     		{
-			"name":"open",
+			"name":"shut",
 			"posy":7*32,
 			"posx":2*32,
 			"idw":"7",
@@ -64,6 +64,13 @@
 			"idw":"9",
 			"wtype":1
 		},
+            		{
+			"name":"key",
+			"posy":11*32,
+			"posx":16*32,
+			"idw":"12",
+			"wtype":1
+		},
         		{
 			"name":"is",
 			"posy":10*32,
@@ -71,11 +78,25 @@
 			"idw":"10",
 			"wtype":2
 		},
+            		{
+			"name":"is",
+			"posy":11*32,
+			"posx":17*32,
+			"idw":"13",
+			"wtype":2
+		},
         		{
 			"name":"win",
 			"posy":10*32,
 			"posx":18*32,
 			"idw":"11",
+			"wtype":3
+		},
+            		{
+			"name":"open",
+			"posy":11*32,
+			"posx":18*32,
+			"idw":"14",
 			"wtype":3
 		}
 
@@ -122,14 +143,6 @@
         "name":"rock",
 		"ido":"6"
       },
- 
-       {
-        "posx":5*32,
-        "posy":3*32,
-        "name":"rock",
-		"ido":"7"
-      },
- 
        {
         "posx":12*32,
         "posy":5*32,
