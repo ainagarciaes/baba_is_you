@@ -3,100 +3,100 @@
 	[
 		{
 			"name":"baba",
-			"posy":10*32,
-			"posx":2*32,
-			"idw":"1",
-			"wtype":1
+			"posy":320,
+			"posx":64,
+			"idw":"21",
+			"wtype":2
 		},
     		{
 			"name":"is",
-			"posy":10*32,
-			"posx":3*32,
-			"idw":"2",
+			"posy":320,
+			"posx":96,
+			"idw":"22",
 			"wtype":2
 		},
     		{
 			"name":"you",
-			"posy":10*32,
-			"posx":4*32,
-			"idw":"3",
-			"wtype":3
+			"posy":320,
+			"posx":128,
+			"idw":"23",
+			"wtype":2
 		},
     		{
 			"name":"door",
-			"posy":12*32,
-			"posx":2*32,
-			"idw":"4",
+			"posy":384,
+			"posx":64,
+			"idw":"24",
 			"wtype":1
 		},
     		{
 			"name":"is",
-			"posy":12*32,
-			"posx":3*32,
-			"idw":"5",
+			"posy":384,
+			"posx":96,
+			"idw":"25",
 			"wtype":2
 		},
     		{
 			"name":"push",
-			"posy":4*32,
-			"posx":12*32,
-			"idw":"6",
+			"posy":128,
+			"posx":384,
+			"idw":"26",
 			"wtype":3
 		},
     		{
 			"name":"shut",
-			"posy":7*32,
-			"posx":2*32,
-			"idw":"7",
+			"posy":224,
+			"posx":64,
+			"idw":"27",
 			"wtype":3
 		},
     		{
 			"name":"key",
-			"posy":9*32,
-			"posx":3*32,
-			"idw":"8",
+			"posy":288,
+			"posx":96,
+			"idw":"28",
 			"wtype":1
 		},
         		{
 			"name":"flag",
-			"posy":10*32,
-			"posx":16*32,
-			"idw":"9",
+			"posy":320,
+			"posx":512,
+			"idw":"29",
 			"wtype":1
 		},
             		{
 			"name":"key",
-			"posy":11*32,
-			"posx":16*32,
-			"idw":"12",
+			"posy":352,
+			"posx":512,
+			"idw":"30",
 			"wtype":1
 		},
         		{
 			"name":"is",
-			"posy":10*32,
-			"posx":17*32,
-			"idw":"10",
+			"posy":320,
+			"posx":544,
+			"idw":"31",
 			"wtype":2
 		},
             		{
 			"name":"is",
-			"posy":11*32,
-			"posx":17*32,
-			"idw":"13",
+			"posy":352,
+			"posx":544,
+			"idw":"32",
 			"wtype":2
 		},
         		{
 			"name":"win",
-			"posy":10*32,
-			"posx":18*32,
-			"idw":"11",
+			"posy":320,
+			"posx":576,
+			"idw":"33",
 			"wtype":3
 		},
             		{
 			"name":"open",
-			"posy":11*32,
-			"posx":18*32,
-			"idw":"14",
+			"posy":352,
+			"posx":576,
+			"idw":"34",
 			"wtype":3
 		}
 
@@ -104,120 +104,120 @@
 	"mapObjects":
     [
       {
-        "posx":1*32,
-        "posy":2*32,
+        "posx":32,
+        "posy":64,
         "name":"baba",
 		"ido":"1"
       },
        {
-        "posx":1*32,
-        "posy":4*32,
+        "posx":32,
+        "posy":128,
         "name":"rock",
 		"ido":"2"
       },
  
        {
-        "posx":2*32,
-        "posy":11*32,
+        "posx":64,
+        "posy":352,
         "name":"rock",
 		"ido":"3"
       },
  
        {
-        "posx":3*32,
-        "posy":5*32,
+        "posx":96,
+        "posy":160,
         "name":"rock",
 		"ido":"4"
       },
  
        {
-        "posx":3*32,
-        "posy":7*32,
+        "posx":96,
+        "posy":224,
         "name":"rock",
 		"ido":"5"
       },
  
        {
-        "posx":4*32,
-        "posy":13*32,
+        "posx":128,
+        "posy":416,
         "name":"rock",
 		"ido":"6"
       },
        {
-        "posx":12*32,
-        "posy":5*32,
+        "posx":384,
+        "posy":160,
         "name":"rock",
 		"ido":"8"
       },
        {
-        "posx":12*32,
-        "posy":6*32,
+        "posx":384,
+        "posy":192,
         "name":"rock",
 		"ido":"9"
       },
       {
-        "posx":14*32,
-        "posy":6*32,
+        "posx":448,
+        "posy":192,
         "name":"door",
 		"ido":"10"
       },
         {
-        "posx":15*32,
-        "posy":2*32,
+        "posx":480,
+        "posy":64,
         "name":"flag",
 		"ido":"11"
       },
         {
-         "posx":16*32,
-        "posy":2*32,
+         "posx":512,
+        "posy":64,
         "name":"rock",
 		"ido":"12"
       },
         {
-        "posx":16*32,
-        "posy":1*32,
+        "posx":512,
+        "posy":32,
         "name":"rock",
 		"ido":"13"
       },
         {
-        "posx":16*32,
-        "posy":6*32,
+        "posx":512,
+        "posy":192,
         "name":"rock",
 		"ido":"14"
       },
         {
-        "posx":1*32,
-        "posy":17*32,
+        "posx":32,
+        "posy":544,
         "name":"key",
 		"ido":"15"
       },
         {
-        "posx":17*32,
-        "posy":2*32,
+        "posx":544,
+        "posy":64,
         "name":"rock",
 		"ido":"16"
       },
         {
-        "posx":17*32,
-        "posy":4*32,
+        "posx":544,
+        "posy":128,
         "name":"rock",
 		"ido":"17"
       },
         {
-        "posx":17*32,
-        "posy":5*32,
+        "posx":544,
+        "posy":160,
         "name":"rock",
 		"ido":"18"
       },
         {
-        "posx":18*32,
-        "posy":6*32,
+        "posx":576,
+        "posy":192,
         "name":"rock",
 		"ido":"19"
       },
        {
-        "posx":15*32,
-        "posy":7*32,
+        "posx":1160,
+        "posy":224,
         "name":"rock",
 		"ido":"20"
       }
