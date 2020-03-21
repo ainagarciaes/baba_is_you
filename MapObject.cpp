@@ -10,7 +10,7 @@ long count;
 
 enum MapObjectAnims
 {
-	STAND_LEFT, STAND_RIGHT, MOVE_LEFT, MOVE_RIGHT, STAND_UP, MOVE_UP, MOVE_DOWN, STAND_DOWN, IDLE
+	STAND_LEFT, STAND_RIGHT, MOVE_LEFT, MOVE_RIGHT, STAND_UP, MOVE_UP, MOVE_DOWN, STAND_DOWN
 };
 
 MapObject::MapObject(const glm::vec2 &pos, string name) {

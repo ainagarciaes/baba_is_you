@@ -24,13 +24,17 @@ MenuScene::~MenuScene()
 }
 
 
-void MenuScene::init()
+void MenuScene::init(Audio *a)
 {
 	initShaders();
 	map = TileMap::createTileMapMenu("../levels/menu.txt", glm::vec2(0, 0), texProgram, true);
 	projection = glm::ortho(0.f, float(CAMERA_WIDTH - 1), float(CAMERA_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;
 	nextScene = -1;
+
+	audiomanager = a;
+	audiomanager->stopAllSounds();
+	audiomanager->play(TITLE_MUSIC, true);
 }
 
 void MenuScene::update(int deltaTime)

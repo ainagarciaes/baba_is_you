@@ -29,7 +29,6 @@ void LevelScene::init(int lvl, Audio *a)
 {
 	std::cout<<"INIT level scene"<<std::endl;
 	initShaders();
-	audiomanager = a;
 	map = TileMap::createTileMap("../levels/level0"+to_string(lvl-2)+".txt", glm::vec2(0, 0), texProgram);
 	levelController = new LevelController();
 	levelController->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram, lvl-2);
@@ -38,8 +37,10 @@ void LevelScene::init(int lvl, Audio *a)
 	nextScene = -1;
 	mylevel = lvl-2;
 
-	audiomanager->play(LEVEL, true);
-	//audiomanager->stopAllSounds();
+	audiomanager = a;
+	audiomanager->stopAllSounds();
+	cout << "LEVEL " << mylevel << endl;
+	audiomanager->play(LEVEL1, true);
 }
 
 void LevelScene::update(int deltaTime)

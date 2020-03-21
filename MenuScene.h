@@ -6,6 +6,8 @@
 #include "ShaderProgram.h"
 #include "TileMap.h"
 #include "Player.h"
+#include "Audio.h"
+#pragma comment(lib, "irrKlang.lib") 
 
 #define CAMERA_WIDTH 640
 #define CAMERA_HEIGHT 480
@@ -21,7 +23,7 @@ public:
 	MenuScene();
 	~MenuScene();
 
-	void init();
+	void init(Audio *a);
 	void update(int deltaTime);
 	void render();
 	int getNextScene();
@@ -34,6 +36,8 @@ private:
 	float currentTime;
 	glm::mat4 projection;
 	int nextScene;
+	Audio *audiomanager;
+
 };
 
 

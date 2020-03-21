@@ -78,11 +78,11 @@ LevelScene Game::getLevelS(){return level;}
 
 void Game::initScene(){
 	if (sceneID == 0) { // menu
-		menu.init();
+		menu.init(audiomanager);
 	} else if (sceneID == 1){ // credits
-		creds.init(); 
+		creds.init(audiomanager); 
 	} else if (sceneID == 2){ // instructions
-		instr.init(); 
+		instr.init(audiomanager); 
 	} else if (sceneID > 2 && sceneID < 8) {
 		level.init(sceneID, audiomanager); 
 	}

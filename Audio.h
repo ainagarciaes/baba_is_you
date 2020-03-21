@@ -4,10 +4,10 @@
 #include <irrKlang.h>
 using namespace irrklang;
 
-#define NUM_SOUNDS 4
+#define NUM_SOUNDS 8
 
 enum AUDIOS {
-	TITLE_MUSIC, LEVEL, CREDITS, INSTRUCTIONS
+	TITLE_MUSIC, LEVEL1, LEVEL2, LEVEL3, LEVEL4, LEVEL5, CREDITS, INSTRUCTIONS
 };
 
 class Audio

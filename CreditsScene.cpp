@@ -19,13 +19,12 @@ CreditsScene::CreditsScene()
 }
 
 CreditsScene::~CreditsScene()
-{
+{ 
 	if(map != NULL)
 		delete map;
 }
 
-
-void CreditsScene::init()
+void CreditsScene::init(Audio *a)
 {
 	initShaders();
 	cont = 0;
@@ -41,6 +40,9 @@ void CreditsScene::init()
 			objects.push_back(mo);
 		}
 	}
+	audiomanager = a;
+	audiomanager->stopAllSounds();
+	audiomanager->play(CREDITS, true);
 }
 
 void CreditsScene::update(int deltaTime)

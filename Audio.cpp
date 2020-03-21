@@ -21,13 +21,18 @@ Audio::~Audio()
  
 void Audio::init()
 {
-	bindAudio("../music/awesomeness.wav", TITLE_MUSIC);
-	bindAudio("../music/rockSlide.wav", LEVEL);
-	bindAudio("../music/awesomeness.wav", INSTRUCTIONS);
-	bindAudio("../music/awesomeness.wav", CREDITS);
+	bindAudio("../music/menu.wav", TITLE_MUSIC);
+	bindAudio("../music/lvl1.wav", LEVEL1);
+	bindAudio("../music/lvl2.wav", LEVEL2);
+	bindAudio("../music/lvl3.wav", LEVEL3);
+	bindAudio("../music/lvl4.wav", LEVEL4);
+	bindAudio("../music/lvl5.wav", LEVEL5);
+	bindAudio("../music/instructions.wav", INSTRUCTIONS);
+	bindAudio("../music/credits.wav", CREDITS);
 }
 
 void Audio::bindAudio(const char * file, int i) {
+	std::cout << "BIND AUDIO " << i << std::endl;
 	sounds[i] = soundEngine->addSoundSourceFromFile(file);
 }
 

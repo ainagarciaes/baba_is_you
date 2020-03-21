@@ -6,11 +6,12 @@
 #include "ShaderProgram.h"
 #include "CreditsNames.h"
 #include "TileMap.h"
-
+#include "Audio.h"
 
 #define CAMERA_WIDTH 640
 #define CAMERA_HEIGHT 480
 
+#pragma comment(lib, "irrKlang.lib") 
 
 // CreditsScene contains all the entities of our game.
 // It is responsible for updating and render them.
@@ -22,7 +23,7 @@ public:
 	CreditsScene();
 	~CreditsScene();
 
-	void init();
+	void init(Audio *a);
 	void update(int deltaTime);
 	void render();
 	int getNextScene();
@@ -37,8 +38,8 @@ private:
 	int nextScene;
 	std::vector<CreditsNames*> objects;
 	int cont;
+	Audio *audiomanager;
 };
-
 
 #endif // _CREDITS_SCENE_INCLUDE
 
