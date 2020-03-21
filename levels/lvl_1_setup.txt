@@ -3,113 +3,113 @@
 	[
 		{
 			"name":"baba",
-			"posy":3*32,
-			"posx":2*32,
-			"idw":"1",
+			"posy":96,
+			"posx":64,
+			"idw":"11",
 			"wtype":1
 		},
 		{
 			"name":"rock",
-			"posy":4*32,
-			"posx":2*32,
-			"idw":"2",
+			"posy":128,
+			"posx":64,
+			"idw":"12",
 			"wtype":1
 		},
 		{
 			"name":"is",
-			"posy":3*32,
-			"posx":*32,
-			"idw":"3",
+			"posy":96,
+			"posx":96,
+			"idw":"13",
 			"wtype":2
 		},
 		{
 			"name":"you",
-			"posy":3*32,
-			"posx":4*32,
-			"idw":"4",
+			"posy":96,
+			"posx":128,
+			"idw":"14",
 			"wtype":3
 		},
 		{
 			"name":"rock",
-			"posy":8*32,
-			"posx":7*32,
-			"idw":"5",
+			"posy":256,
+			"posx":224,
+			"idw":"15",
 			"wtype":1
 		},
 		{
 			"name":"is",
-			"posy":6*32,
-			"posx":9*32,
-			"idw":"6",
+			"posy":192,
+			"posx":288,
+			"idw":"16",
 			"wtype":2
 		},
 		{
 			"name":"win",
-			"posy":8*32,
-			"posx":11*32,
-			"idw":"7",
+			"posy":256,
+			"posx":352,
+			"idw":"17",
 			"wtype":3
 		}
 	],    
 	"mapObjects":
     [
       {
-        "posx":1*32,
-        "posy":2*32,
+        "posx":32,
+        "posy":64,
         "name":"baba",
 		"ido":"1"
       },  
           {
-        "posx":6*32,
-        "posy":8*32,
+        "posx":192,
+        "posy":256,
         "name":"rock",
 		"ido":"2"
       },
                 {
-        "posx":7*32,
-        "posy":3*32,
+        "posx":224,
+        "posy":96,
         "name":"rock",
 		"ido":"3"
       },
                 {
-        "posx":7*32,
-        "posy":6*32,
+        "posx":224,
+        "posy":192,
         "name":"rock",
 		"ido":"4"
       },
                 {
-        "posx":9*32,
-        "posy":5*32,
+        "posx":288,
+        "posy":160,
         "name":"rock",
 		"ido":"5"
       },
                 {
-        "posx":9*32,
-        "posy":10*32,
+        "posx":288,
+        "posy":320,
         "name":"rock",
 		"ido":"6"
       },
                 {
-        "posx":11*32,
-        "posy":2*32,
+        "posx":352,
+        "posy":64,
         "name":"rock",
 		"ido":"7"
       },
                 {
-        "posx":12*32,
-        "posy":8*32,
+        "posx":160,
+        "posy":256,
         "name":"rock",
 		"ido":"8"
       },
                 {
-        "posx":13*32,
-        "posy":3*32,
+        "posx":192,
+        "posy":96,
         "name":"rock",
 		"ido":"9"
       },
                       {
-        "posx":14*32,
-        "posy":6*32,
+        "posx":1128,
+        "posy":192,
         "name":"rock",
 		"ido":"10"
       }

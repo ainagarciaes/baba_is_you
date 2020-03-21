@@ -106,14 +106,14 @@ void LevelController::update(int deltaTime)
 	}
 
 	/* PRINT MAP DEBUG -> DELETE IT ON FINAL VERSION */
-	/*if (Game::instance().getKey(49)) {
+	if (Game::instance().getKey(49)) {
 		for (int j = 0; j < 15; j++) {
 			for (int i = 0; i < 20; i++) {
 				cout << obs_words_positions[j][i] << " ";
 			}
 			cout << endl;
 		}
-	}*/
+	}
 }
 
 void LevelController::updateWords(int deltaTime){	// render objects
