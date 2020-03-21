@@ -176,24 +176,6 @@ map
 string
 -
 
-/home/auri/Documents/UNI/VJ/baba_is_you/CreditsScene.cpp
-iostream
--
-cmath
--
-GL/glew.h
--
-GL/glut.h
--
-glm/gtc/matrix_transform.hpp
--
-CreditsScene.h
-/home/auri/Documents/UNI/VJ/baba_is_you/CreditsScene.h
-CreditsNames.h
-/home/auri/Documents/UNI/VJ/baba_is_you/CreditsNames.h
-Game.h
-/home/auri/Documents/UNI/VJ/baba_is_you/Game.h
-
 /home/auri/Documents/UNI/VJ/baba_is_you/CreditsScene.h
 glm/glm.hpp
 -
@@ -241,6 +223,18 @@ Words.h
 /home/auri/Documents/UNI/VJ/baba_is_you/Words.h
 Player.h
 /home/auri/Documents/UNI/VJ/baba_is_you/Player.h
+
+/home/auri/Documents/UNI/VJ/baba_is_you/LevelScene.cpp
+iostream
+-
+cmath
+-
+glm/gtc/matrix_transform.hpp
+-
+LevelScene.h
+/home/auri/Documents/UNI/VJ/baba_is_you/LevelScene.h
+Game.h
+/home/auri/Documents/UNI/VJ/baba_is_you/Game.h
 
 /home/auri/Documents/UNI/VJ/baba_is_you/LevelScene.h
 glm/glm.hpp

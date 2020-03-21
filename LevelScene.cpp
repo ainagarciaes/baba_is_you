@@ -39,8 +39,7 @@ void LevelScene::init(int lvl, Audio *a)
 
 	audiomanager = a;
 	audiomanager->stopAllSounds();
-	cout << "LEVEL " << mylevel << endl;
-	audiomanager->play(LEVEL1, true);
+	audiomanager->play(mylevel, true);
 }
 
 void LevelScene::update(int deltaTime)
