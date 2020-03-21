@@ -461,7 +461,7 @@ void LevelController::processUD(){
 }
 
 void LevelController::setProperty(string property, string object, bool value) {
-	if (property == "is") {
+	if (property == "you") {
 		playable[object]=value;	
 		isBaba = false;
 	} else if (property == "push") {

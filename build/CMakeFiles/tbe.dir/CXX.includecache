@@ -586,22 +586,6 @@ LevelController.h
 Audio.h
 /home/auri/Documents/UNI/VJ/baba_is_you/Audio.h
 
-/home/auri/Documents/UNI/VJ/baba_is_you/MapObject.cpp
-cmath
--
-iostream
--
-GL/glew.h
--
-GL/glut.h
--
-MapObject.h
-/home/auri/Documents/UNI/VJ/baba_is_you/MapObject.h
-Game.h
-/home/auri/Documents/UNI/VJ/baba_is_you/Game.h
-Texture.h
-/home/auri/Documents/UNI/VJ/baba_is_you/Texture.h
-
 /home/auri/Documents/UNI/VJ/baba_is_you/MapObject.h
 Sprite.h
 /home/auri/Documents/UNI/VJ/baba_is_you/Sprite.h
