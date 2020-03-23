@@ -73,7 +73,7 @@ if(!connected){
 	else if(sprite->animation() == POS3 && count%8==0){
 		sprite->changeAnimation(POS3C);
 	}
-		if(sprite->animation() == POS1C && count%8==0){
+	else if(sprite->animation() == POS1C && count%8==0){
 		sprite->changeAnimation(POS2C); 
 	}
 	else if(sprite->animation() == POS2C && count%8==0){
