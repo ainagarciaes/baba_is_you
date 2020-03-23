@@ -61,6 +61,7 @@ private:
 	int movCont;
 	ShaderProgram s;
 	int level;
+	int idcont;
 	string obs_words_positions[15][20];
 };
 #endif // _LEVEL_CONTROLLER_INCLUDE

@@ -12,6 +12,7 @@ using json = nlohmann::json;
 
 void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, int lvl)
 {
+	idcont = 0;
 	nextScene = -1;
 	s = shaderProgram;
 	level = lvl;
@@ -518,6 +519,54 @@ void LevelController::executeQuery(Words *w1, Words *w2, Words *w3){
 			setProperty(n3, n1, true);
 		} else {
 			setObject(n1, n3);
+		}
+	}
+
+	if (n2 == "make") {
+		for (int i = 0; i < 20; i++) {
+			for (int j = 0; j <15; j++) {
+				string idobj = obs_words_positions[j][i];
+				// if elemento es n1 ->
+				if(objects.find(idobj) != objects.end()) {
+					MapObject *aux = objects[idobj];
+					if (aux->getName() == n1) {
+						// check animation
+						// if animation es una de les de moving -> calcular direccio contraria
+						string mov = aux->getMovement();
+						bool moving = true;
+						int xx = i;
+						int yy = j;
+						if (mov == "L") {
+							xx++;
+						} else if (mov == "U") {
+							yy--;
+						} else if (mov == "D") {
+							yy++;
+						} else if (mov == "R") {
+							xx--;
+						} else {
+							moving = false;
+						}
+
+						// mirar si esta empty, si ho esta:
+						if (moving && xx >= 0 && xx < 20 && yy < 15 && yy >= 0) {
+							if (obs_words_positions[yy][xx] != "empty") { 
+								// posar nova id (mantenir un contador al level controller i anar sumant)
+								string id = "o" + idcont;
+								idcont++;
+								obs_words_positions[yy][xx] = id;
+								float x = xx*32;
+								float y = yy*32;
+								// crear l'objecte, etc...
+								MapObject *newObj = new MapObject(glm::vec2(x, y), n3);
+								newObj->init(glm::vec2(0,0), s, n3);
+								//afegirlo al map d'objectes
+								objects[id] = newObj;
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 }

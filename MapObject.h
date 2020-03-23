@@ -25,6 +25,7 @@ public:
 	void destroyObj();
 	bool getDestroy();
 	glm::ivec2 getPosition();
+	string getMovement();
 	
 private:
 	ShaderProgram sp;

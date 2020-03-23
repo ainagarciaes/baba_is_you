@@ -157,3 +157,24 @@ bool MapObject::getDestroy() {
 	return destroy;
 }
 
+string MapObject::getMovement() {
+	int anim = sprite->animation();
+	string dir;
+	switch(anim) {
+		case MOVE_DOWN:
+		dir = "D";
+		break;
+		case MOVE_LEFT:
+		dir = "L";
+		break;
+		case MOVE_RIGHT:
+		dir = "R";
+		break;
+		case MOVE_UP:
+		dir = "U";
+		break;
+		default:
+		dir = " ";
+	}
+	return dir;
+}
