@@ -122,13 +122,7 @@
         "name":"door",
 		"ido":"3"
       },
-            {
-        "posx":32,
-        "posy":32,
-        "name":"baba",
-		"ido":"4"
-      },
-            {
+      {
         "posx":160,
         "posy":320,
         "name":"flag",
