@@ -314,11 +314,16 @@ bool LevelController::moveRecursive(int deltaTime, string direction, int x, int 
 		return false;
 	} else {
 		// check if it is an object
+		bool ret;
 		if (objects.find(nextPos) != objects.end()) {
 			MapObject *mo = objects[nextPos];	
+			string name = mo->getName();
+			if (open[name]) {
+				ret = checkClose(x,y);
+			}
 			if (pushable[mo->getName()]){
 				bool movRec = moveRecursive(deltaTime, direction, x, y);
-				if(movRec) {
+				if(movRec && !ret) {
 					glm::vec2 pos = mo->getPosition();
 					if (direction == "L") {
 						pos.x -= 2;
@@ -340,10 +345,6 @@ bool LevelController::moveRecursive(int deltaTime, string direction, int x, int 
 					obs_words_positions[y][x] = nextPos;
 				}
 				return movRec;
-			}
-			string name = mo->getName();
-			if (open[name]) {
-				return checkClose(x,y);
 			}
 			if (isWin(x, y)) {
 				return false;
@@ -572,6 +573,7 @@ void LevelController::executeQuery(Words *w1, Words *w2, Words *w3){
 }
 
 bool LevelController::checkClose(int x, int y) {
+	cout << "check close" << endl;
 	bool ret = false;
 	string myname = obs_words_positions[y][x];
 	string obsname;
