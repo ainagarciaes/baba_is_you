@@ -94,7 +94,7 @@ void LevelController::update(int deltaTime)
 	{
 		MapObject *o = it->second;
 		string name = o->getName();
-		if (!playable[name]) o->update(deltaTime, o->getPosition(),"S");
+		if (!playable[name]) o->update(deltaTime, o->getPosition(), "S");
 
 		bool del = o->getDestroy();
 		if (del)
@@ -233,6 +233,18 @@ void LevelController::movePlayable(int deltaTime) {
 				}
 			}
 			movCont = 14;
+		} else {
+			std::map<std::string, MapObject*>::iterator it3 = objects.begin();
+			for (int j = 14; j > 0; j--) { // check map state
+				for (int i = 1; i < 19; i++) {
+					string id = obs_words_positions[j][i];
+					if (objects.find(id) != objects.end()) {
+						MapObject *ob = objects[id]; 
+						glm::ivec2 pos = ob->getPosition();
+						ob->update(deltaTime, pos, "S");	
+					}
+				}
+			}
 		}
 	} else {
 		// auto move objs
@@ -255,7 +267,7 @@ void LevelController::movePlayable(int deltaTime) {
 					pos.y += 2;
 					ob->update(deltaTime, pos, "D");
 				}
-			}
+			} 
 			it++;
 		}
 
@@ -283,7 +295,9 @@ void LevelController::movePlayable(int deltaTime) {
 			it2++;
 		}
 
-		if (movCont == 0) moving = 0;
+		if (movCont == 0) {
+			moving = 0;
+		}
 		movCont -= 1;
 	}
 }
