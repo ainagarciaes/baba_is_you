@@ -28,7 +28,7 @@ InstructionsScene::~InstructionsScene()
 void InstructionsScene::init(Audio *a)
 {
 	initShaders();
-	map = TileMap::createTileMap("../levels/instructions.txt", glm::vec2(0, 0), texProgram);
+	map = TileMap::createTileMapMenu("../levels/instructions.txt", glm::vec2(0, 0), texProgram, true);
 	projection = glm::ortho(0.f, float(CAMERA_WIDTH - 1), float(CAMERA_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;
 	nextScene = -1;

@@ -33,13 +33,12 @@ void CreditsScene::init(Audio *a)
 	currentTime = 0.0f;
 	nextScene = -1;
 
-	for (int j = 0; j < 2; j++){
-		for (int i = 0; i < 6; i++){
-			CreditsNames *mo = new CreditsNames(glm::ivec2(i*32+7*32, 480-64+32*j));
-			mo->init(glm::ivec2(i*32+7*32, 480-64+32*j), texProgram, i/float(6),j/float(2));
-			objects.push_back(mo);
-		}
+	for (int i = 0; i < 6; i++){
+		CreditsNames *mo = new CreditsNames(glm::ivec2(i*32+7*32, 480-64));
+		mo->init(glm::ivec2(i*32+7*32, 480-64), texProgram, i/float(6),0);
+		objects.push_back(mo);
 	}
+	
 	audiomanager = a;
 	audiomanager->stopAllSounds();
 	audiomanager->play(CREDITS, true);
