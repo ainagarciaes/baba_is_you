@@ -241,7 +241,9 @@ void LevelController::movePlayable(int deltaTime) {
 					if (objects.find(id) != objects.end()) {
 						MapObject *ob = objects[id]; 
 						glm::ivec2 pos = ob->getPosition();
-						ob->update(deltaTime, pos, "S");	
+						string name = ob->getName();
+						if (name == "baba")
+							ob->update(deltaTime, pos, "S");	
 					}
 				}
 			}
@@ -554,9 +556,9 @@ void LevelController::executeQuery(Words *w1, Words *w2, Words *w3){
 						if (mov == "L") {
 							xx++;
 						} else if (mov == "U") {
-							yy--;
-						} else if (mov == "D") {
 							yy++;
+						} else if (mov == "D") {
+							yy--;
 						} else if (mov == "R") {
 							xx--;
 						} else {
@@ -565,7 +567,7 @@ void LevelController::executeQuery(Words *w1, Words *w2, Words *w3){
 
 						// mirar si esta empty, si ho esta:
 						if (moving && xx >= 0 && xx < 20 && yy < 15 && yy >= 0) {
-							if (obs_words_positions[yy][xx] != "empty") { 
+							if (obs_words_positions[yy][xx] == "empty") { 
 								// posar nova id (mantenir un contador al level controller i anar sumant)
 								string id = "o" + idcont;
 								idcont++;
@@ -587,7 +589,6 @@ void LevelController::executeQuery(Words *w1, Words *w2, Words *w3){
 }
 
 bool LevelController::checkClose(int x, int y) {
-	cout << "check close" << endl;
 	bool ret = false;
 	string myname = obs_words_positions[y][x];
 	string obsname;

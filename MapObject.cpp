@@ -172,6 +172,17 @@ string MapObject::getMovement() {
 		break;
 		case MOVE_UP:
 		dir = "U";
+		case STAND_DOWN:
+		dir = "D";
+		break;
+		case STAND_LEFT:
+		dir = "L";
+		break;
+		case STAND_RIGHT:
+		dir = "R";
+		break;
+		case STAND_UP:
+		dir = "U";
 		break;
 		default:
 		dir = " ";
