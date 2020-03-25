@@ -7,12 +7,13 @@
 #include "MapObject.h"
 #include "Words.h"
 #include "Player.h"
+#include "Audio.h"
 
 class LevelController
 {
 
 public:
-	void init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, int lvl);
+	void init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, int lvl,Audio *a);
 	void update(int deltaTime);
 	void render();
 	
@@ -63,5 +64,6 @@ private:
 	int level;
 	int idcont;
 	string obs_words_positions[15][20];
+	Audio *audiomanager;
 };
 #endif // _LEVEL_CONTROLLER_INCLUDE

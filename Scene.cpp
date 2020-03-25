@@ -29,7 +29,7 @@ void Scene::init(int lvl)
 	initShaders();
 	map = TileMap::createTileMap("../levels/level0"+to_string(lvl)+".txt", glm::vec2(32, 16), texProgram);
 	levelController = new LevelController();
-	levelController->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram, lvl);
+	//levelController->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram, lvl, audiomanager);
 	levelController->setTileMap(map);
 	projection = glm::ortho(0.f, float(CAMERA_WIDTH - 1), float(CAMERA_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;

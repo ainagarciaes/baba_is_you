@@ -10,7 +10,7 @@
 // for convenience
 using json = nlohmann::json;
 
-void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, int lvl)
+void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderProgram, int lvl, Audio *a)
 {
 	idcont = 0;
 	nextScene = -1;
@@ -64,7 +64,6 @@ void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderPr
 		close[name]=false; 
 		win[name]=false; 
 	}
-	playable["rock"] = true;
 
 	// load map walls for collisions
 	auto walls = j["walls"];
@@ -73,16 +72,16 @@ void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderPr
 		int posx = walls[i]["posx"];
 		obs_words_positions[posy][posx] = "wall";
 	}
-
 	moving = 0;
 	isBaba = true;
+	audiomanager = a;
 }
 
 void LevelController::update(int deltaTime)
 {
 	if (Game::instance().getKey(82)) {
 		cout << "restart" << endl;
-		this->init(glm::ivec2(0,0), s, level);
+		this->init(glm::ivec2(0,0), s, level, audiomanager);
 	}
 	
 	movePlayable(deltaTime);
@@ -330,16 +329,18 @@ bool LevelController::moveRecursive(int deltaTime, string direction, int x, int 
 		return false;
 	} else {
 		// check if it is an object
-		bool ret;
+		bool ret = false;
 		if (objects.find(nextPos) != objects.end()) {
 			MapObject *mo = objects[nextPos];	
 			string name = mo->getName();
 			if (open[name]) {
 				ret = checkClose(x,y);
+				if (ret) audiomanager->play(DOOR, false);
 			}
 			if (pushable[mo->getName()]){
 				bool movRec = moveRecursive(deltaTime, direction, x, y);
 				if(movRec && !ret) {
+					audiomanager->play(PUSH, false);
 					glm::vec2 pos = mo->getPosition();
 					if (direction == "L") {
 						pos.x -= 2;
@@ -569,7 +570,7 @@ void LevelController::executeQuery(Words *w1, Words *w2, Words *w3){
 						if (moving && xx >= 0 && xx < 20 && yy < 15 && yy >= 0) {
 							if (obs_words_positions[yy][xx] == "empty") { 
 								// posar nova id (mantenir un contador al level controller i anar sumant)
-								string id = "o" + idcont;
+								string id = "o" + std::to_string(idcont);
 								idcont++;
 								obs_words_positions[yy][xx] = id;
 								float x = xx*32;
@@ -579,6 +580,7 @@ void LevelController::executeQuery(Words *w1, Words *w2, Words *w3){
 								newObj->init(glm::vec2(0,0), s, n3);
 								//afegirlo al map d'objectes
 								objects[id] = newObj;
+								audiomanager->play(MAKE, false);
 							}
 						}
 					}

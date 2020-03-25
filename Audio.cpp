@@ -29,6 +29,11 @@ void Audio::init()
 	bindAudio("../music/lvl5.wav", LEVEL5);
 	bindAudio("../music/instructions.wav", INSTRUCTIONS);
 	bindAudio("../music/credits.wav", CREDITS);
+	bindAudio("../music/rocketcollides.wav", ROCKET);
+	bindAudio("../music/push.wav", PUSH);
+	bindAudio("../music/make.wav", MAKE);
+	bindAudio("../music/door.wav", DOOR);
+	bindAudio("../music/menupress.wav", MENUPRESS);
 }
 
 void Audio::bindAudio(const char * file, int i) {

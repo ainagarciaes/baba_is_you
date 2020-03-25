@@ -387,7 +387,29 @@ CMakeFiles/tbe.dir/Player.cpp.o
  /home/auri/Documents/UNI/VJ/baba_is_you/TileMap.h
  /home/auri/Documents/UNI/VJ/baba_is_you/Words.h
 CMakeFiles/tbe.dir/Scene.cpp.o
+ ../include/irrKlang/include/ik_ESoundEngineOptions.h
+ ../include/irrKlang/include/ik_ESoundOutputDrivers.h
+ ../include/irrKlang/include/ik_EStreamModes.h
+ ../include/irrKlang/include/ik_IAudioRecorder.h
+ ../include/irrKlang/include/ik_IAudioStream.h
+ ../include/irrKlang/include/ik_IAudioStreamLoader.h
+ ../include/irrKlang/include/ik_IFileFactory.h
+ ../include/irrKlang/include/ik_IFileReader.h
+ ../include/irrKlang/include/ik_IRefCounted.h
+ ../include/irrKlang/include/ik_ISound.h
+ ../include/irrKlang/include/ik_ISoundDeviceList.h
+ ../include/irrKlang/include/ik_ISoundEffectControl.h
+ ../include/irrKlang/include/ik_ISoundEngine.h
+ ../include/irrKlang/include/ik_ISoundMixedOutputReceiver.h
+ ../include/irrKlang/include/ik_ISoundSource.h
+ ../include/irrKlang/include/ik_ISoundStopEventReceiver.h
+ ../include/irrKlang/include/ik_IVirtualRefCounted.h
+ ../include/irrKlang/include/ik_SAudioStreamFormat.h
+ ../include/irrKlang/include/ik_irrKlangTypes.h
+ ../include/irrKlang/include/ik_vec3d.h
+ ../include/irrKlang/include/irrKlang.h
  /home/auri/Documents/UNI/VJ/baba_is_you/AnimKeyframes.h
+ /home/auri/Documents/UNI/VJ/baba_is_you/Audio.h
  /home/auri/Documents/UNI/VJ/baba_is_you/LevelController.h
  /home/auri/Documents/UNI/VJ/baba_is_you/MapObject.h
  /home/auri/Documents/UNI/VJ/baba_is_you/Player.h

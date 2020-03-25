@@ -31,7 +31,7 @@ void LevelScene::init(int lvl, Audio *a)
 	initShaders();
 	map = TileMap::createTileMap("../levels/level0"+to_string(lvl-2)+".txt", glm::vec2(0, 0), texProgram);
 	levelController = new LevelController();
-	levelController->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram, lvl-2);
+	levelController->init(glm::ivec2(SCREEN_X, SCREEN_Y), texProgram, lvl-2, audiomanager);
 	projection = glm::ortho(0.f, float(CAMERA_WIDTH - 1), float(CAMERA_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;
 	nextScene = -1;

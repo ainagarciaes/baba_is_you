@@ -40,6 +40,7 @@ void MenuScene::init(Audio *a)
 void MenuScene::update(int deltaTime)
 {
 	currentTime += deltaTime;
+	bool play = true;
 	if(Game::instance().getKey(49))
 	{	
 		nextScene = 3;
@@ -47,6 +48,10 @@ void MenuScene::update(int deltaTime)
 		nextScene = 2;
 	} else if (Game::instance().getKey(51)){
 		nextScene = 1;
+	} else {
+		play = false;
+	} if (play) {
+		audiomanager->play(MENUPRESS, false);
 	}
 }
 
