@@ -82,7 +82,7 @@ void MapObject::initSprite(string name) {
 		sprite->changeAnimation(STAND_RIGHT);
 	} else {
 		// Normal object
-		cout << "CREATING " << name << endl;
+		//cout << "CREATING " << name << endl;
 		sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(1.f, 0.30), &spritesheet, &sp);
 		sprite->setNumberAnimations(1);
 		sprite->setAnimationSpeed(0, 8);

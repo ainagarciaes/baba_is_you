@@ -19,10 +19,10 @@ Texture::Texture()
 bool Texture::loadFromFile(const string &filename, PixelFormat format)
 {	
 
-	char cwd[1024];
+	/*char cwd[1024];
     chdir("/path/to/change/directory/to");
     getcwd(cwd, sizeof(cwd));
-    printf("Current working dir: %s\n", cwd);
+    printf("Current working dir: %s\n", cwd);*/
 	
 	unsigned char *image = NULL;
 	switch(format)
@@ -32,7 +32,7 @@ bool Texture::loadFromFile(const string &filename, PixelFormat format)
 		break;
 	case TEXTURE_PIXEL_FORMAT_RGBA:
 		image = SOIL_load_image(filename.c_str(), &widthTex, &heightTex, 0, SOIL_LOAD_RGBA);
-		std::cout<<SOIL_last_result()<<filename<<std::endl;
+		//std::cout<<SOIL_last_result()<<filename<<std::endl;
 		break;
 	}
 	if(image == NULL) {

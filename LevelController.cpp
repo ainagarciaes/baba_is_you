@@ -178,42 +178,44 @@ bool LevelController::checkCollisions() {
 		if (objects.find(id) != objects.end() && playable[objects[id]->getName()]) {
 			MapObject *collider = objects[id];
 			glm::vec2 position2 = collider->getPosition();
-			if (position.x <= position2.x-32 && position.x-32 <= position2.x) {
-				cout << "rocket at position " << position2.x << " collided with " << id << endl;
+			if ((position.x <= position2.x+32 && position.x+32 >= position2.x)||(position2.x <= position.x+32 && position2.x+32 >= position.x)) {
 				return true;
 			} 
 		}
-
-		if (posx+1 < 20) {
-			id2 = obs_words_positions[posy][posx+1];
+		if (posx-1 >= 0) {
+			id2 = obs_words_positions[posy][posx-1];
 			if (objects.find(id2) != objects.end() && playable[objects[id2]->getName()]) {
 				MapObject *collider = objects[id2];
 				glm::vec2 position2 = collider->getPosition();
-				if (position.x <= position2.x-32 && position.x-32 <= position2.x) return true;
+				if ((position.x <= position2.x+32 && position.x+32 >= position2.x)||(position2.x <= position.x+32 && position2.x+32 >= position.x))  return true;
 			}
 		}
 	}
 
 	// rockets that go right
-	for (int i = 0; i < rockets_left.size(); i++) {
-		MapObject *rocket = rockets_left[i];
+	for (int i = 0; i < rockets_right.size(); i++) {
+		MapObject *rocket = rockets_right[i];
 		glm::vec2 position = rocket->getPosition();
 		posx = position.x/32;
 		posy = position.y/32;
 		id = obs_words_positions[posy][posx];
-
-		if (objects.find(id) != objects.end()) {
+		if (objects.find(id) != objects.end() && playable[objects[id]->getName()]) {
 			MapObject *collider = objects[id];
 			glm::vec2 position2 = collider->getPosition();
-			if (position.x <= position2.x+32 && position.x+32 <= position2.x) return true;
+			if ((position.x <= position2.x+32 && position.x+32 >= position2.x)||(position2.x <= position.x+32 && position2.x+32 >= position.x)) {
+				cout << "collision" << endl;
+				return true;
+			}
 		}
-
-		if (posx-1 >= 0) {
-			id2 = obs_words_positions[posy][posx-1];
-			if (objects.find(id2) != objects.end()) {
+		if (posx+1 < 20) {
+			id2 = obs_words_positions[posy][posx+1];
+			if (objects.find(id2) != objects.end() && playable[objects[id2]->getName()]) {
 				MapObject *collider = objects[id2];
 				glm::vec2 position2 = collider->getPosition();
-				if (position.x <= position2.x+32 && position.x+32 <= position2.x) return true;
+				if ((position.x <= position2.x+32 && position.x+32 >= position2.x)||(position2.x <= position.x+32 && position2.x+32 >= position.x)) {
+					cout << "collision" << endl;
+					return true;
+				}
 			}
 		}
 	}
