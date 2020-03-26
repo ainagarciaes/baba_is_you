@@ -39,7 +39,7 @@ private:
 	bool checkOpen(int x, int y);
 	bool checkClose(int x, int y);
 	bool isWin(int x, int y);
-
+	bool checkCollisions();
 	void executeQuery(Words *w1, Words *w2, Words *w3);
 
 	int moving; // 0 not moving, 1 Left, 2 Right, 3 Up, 4 Down
@@ -58,6 +58,9 @@ private:
 
     std::map<string,MapObject*> objects;
     std::map<string,Words*> words;
+	std::vector<MapObject*> rockets_left;
+	std::vector<MapObject*> rockets_right;
+
 	bool isBaba;
 	int movCont;
 	ShaderProgram s;

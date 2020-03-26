@@ -23,7 +23,6 @@ MenuScene::~MenuScene()
 		delete map;
 }
 
-
 void MenuScene::init(Audio *a)
 {
 	initShaders();

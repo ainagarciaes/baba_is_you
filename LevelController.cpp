@@ -5,7 +5,9 @@
 #include "LevelController.h"
 #include "Game.h"
 #include <include/nlohmann/json.hpp>
-#include<fstream>
+#include <fstream>
+#include <chrono>
+#include <thread>
 
 // for convenience
 using json = nlohmann::json;
@@ -72,6 +74,30 @@ void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderPr
 		int posx = walls[i]["posx"];
 		obs_words_positions[posy][posx] = "wall";
 	}
+
+	// load rockets left
+	auto cl = j["rocketLeft"];
+	rockets_left = {};
+	for(auto i = 0; i < cl.size(); ++i) {
+		int posy = cl[i]["posy"];
+		int posx = cl[i]["posx"];
+		MapObject *mo = new MapObject(glm::vec2(posx,posy), "cohet_left");
+		mo->init(tileMapPos, shaderProgram, "cohet_left");
+		rockets_left.push_back(mo);
+	}
+
+
+	// load rockets right
+	auto cr = j["rocketRight"];
+	rockets_right = {};
+	for(auto i = 0; i < cr.size(); ++i) {
+		int posy = cr[i]["posy"];
+		int posx = cr[i]["posx"];
+		MapObject *mo = new MapObject(glm::vec2(posx,posy), "cohet_right");
+		mo->init(tileMapPos, shaderProgram, "cohet_right");
+		rockets_right.push_back(mo);
+	}
+
 	moving = 0;
 	isBaba = true;
 	audiomanager = a;
@@ -114,6 +140,82 @@ void LevelController::update(int deltaTime)
 			cout << endl;
 		}
 	}
+
+	for (int i = 0; i < rockets_left.size(); i++) {
+		glm::vec2 position = rockets_left[i]->getPosition();
+		if (position.x <= 0) position.x = 640;
+		position.x = float(int(position.x-2)%640);
+		rockets_left[i]->setPosition(position);
+	}
+
+	for (int i = 0; i < rockets_right.size(); i++) {
+		glm::vec2 position = rockets_right[i]->getPosition();
+		position.x = float(int(position.x+2)%640);
+		rockets_right[i]->setPosition(position);
+	}
+
+	if (checkCollisions()) {
+		audiomanager->play(ROCKET, false);
+		std::this_thread::sleep_for(1s);
+		this->init(glm::ivec2(0,0), s, level, audiomanager);
+	}
+}
+
+bool LevelController::checkCollisions() {
+	int posy, posx;
+	string id, id2;
+
+	// rockets that go left
+	for (int i = 0; i < rockets_left.size(); i++) {
+		MapObject *rocket = rockets_left[i];
+		glm::vec2 position = rocket->getPosition();
+		posx = position.x/32;
+		posy = position.y/32;
+		
+		id = obs_words_positions[posy][posx];
+		if (objects.find(id) != objects.end() && playable[objects[id]->getName()]) {
+			MapObject *collider = objects[id];
+			glm::vec2 position2 = collider->getPosition();
+			if (position.x <= position2.x-32 && position.x-32 <= position2.x) {
+				cout << "rocket at position " << position2.x << " collided with " << id << endl;
+				return true;
+			} 
+		}
+
+		if (posx+1 < 20) {
+			id2 = obs_words_positions[posy][posx+1];
+			if (objects.find(id2) != objects.end() && playable[objects[id2]->getName()]) {
+				MapObject *collider = objects[id2];
+				glm::vec2 position2 = collider->getPosition();
+				if (position.x <= position2.x-32 && position.x-32 <= position2.x) return true;
+			}
+		}
+	}
+
+	// rockets that go right
+	for (int i = 0; i < rockets_left.size(); i++) {
+		MapObject *rocket = rockets_left[i];
+		glm::vec2 position = rocket->getPosition();
+		posx = position.x/32;
+		posy = position.y/32;
+		id = obs_words_positions[posy][posx];
+
+		if (objects.find(id) != objects.end()) {
+			MapObject *collider = objects[id];
+			glm::vec2 position2 = collider->getPosition();
+			if (position.x <= position2.x+32 && position.x+32 <= position2.x) return true;
+		}
+
+		if (posx-1 >= 0) {
+			id2 = obs_words_positions[posy][posx-1];
+			if (objects.find(id2) != objects.end()) {
+				MapObject *collider = objects[id2];
+				glm::vec2 position2 = collider->getPosition();
+				if (position.x <= position2.x+32 && position.x+32 <= position2.x) return true;
+			}
+		}
+	}
+	return false;
 }
 
 void LevelController::updateWords(int deltaTime){	// render objects
@@ -144,6 +246,15 @@ void LevelController::render()
 		Words *o = it2->second;
 		o->render();
 		it2++;
+	} 
+
+	// render enemies
+	for (int i = 0; i < rockets_left.size(); i++) {
+		rockets_left[i]->render();
+	}
+
+	for (int i = 0; i < rockets_right.size(); i++) {
+		rockets_right[i]->render();
 	}
 }
 

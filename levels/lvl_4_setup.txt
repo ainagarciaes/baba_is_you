@@ -88,7 +88,7 @@
   "mapObjects": [
     {
       "posx": 64,
-      "posy": 64,
+      "posy": 96,
       "name": "baba",
       "ido": "10"
     },
@@ -625,6 +625,30 @@
     {
       "posx": 17,
       "posy": 12
+    }
+  ],
+  "rocketLeft":[
+    {
+      "posx":608,
+      "posy":288
+    },
+    {
+      "posx":608,
+      "posy":160
+    }
+  ],
+  "rocketRight":[
+    {
+      "posx":0,
+      "posy":64
+    },
+    {
+      "posx":0,
+      "posy":224
+    },
+    {
+      "posx":0,
+      "posy":352
     }
   ]
 }
