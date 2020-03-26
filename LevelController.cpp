@@ -146,12 +146,14 @@ void LevelController::update(int deltaTime)
 		if (position.x <= 0) position.x = 640;
 		position.x = float(int(position.x-2)%640);
 		rockets_left[i]->setPosition(position);
+		rockets_left[i]->update(deltaTime, position, "");
 	}
 
 	for (int i = 0; i < rockets_right.size(); i++) {
 		glm::vec2 position = rockets_right[i]->getPosition();
 		position.x = float(int(position.x+2)%640);
 		rockets_right[i]->setPosition(position);
+		rockets_right[i]->update(deltaTime, position, "");
 	}
 
 	if (checkCollisions()) {
