@@ -16,6 +16,8 @@ void LevelController::init(const glm::ivec2 &tileMapPos, ShaderProgram &shaderPr
 {
 	idcont = 0;
 	nextScene = -1;
+	objects.clear();
+	words.clear();
 	s = shaderProgram;
 	level = lvl;
 	for (int k = 0; k < 15; k++) {
