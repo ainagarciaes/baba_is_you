@@ -28,6 +28,7 @@ void CreditsScene::init(Audio *a)
 {
 	initShaders();
 	cont = 0;
+	objects = {};
 	map = TileMap::createTileMapMenu("../levels/credits.txt", glm::vec2(0, 0), texProgram, true);
 	projection = glm::ortho(0.f, float(CAMERA_WIDTH - 1), float(CAMERA_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;

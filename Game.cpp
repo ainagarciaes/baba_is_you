@@ -30,10 +30,7 @@ void Game::keyPressed(int key)
 {
 	if(key == 27) // Escape code
 		bPlay = false;
-	if(key==13) { // This is a test mode of changing between scenes
-		sceneID++;
-		initScene();
-	}
+
 	keys[key] = true;
 }
 
@@ -121,9 +118,13 @@ void Game::nextScene(){
 		nextS = instr.getNextScene();
 	} else if (sceneID > 2 && sceneID < 8) {
 		nextS = level.getNextScene();
-	}
+	} 
 	if (nextS != -1) {
 		sceneID = nextS;
+		if (nextS == 8) {
+			sceneID = 1;
+			cout << "hi " << endl;
+		}
 		initScene();
 	}
 }
