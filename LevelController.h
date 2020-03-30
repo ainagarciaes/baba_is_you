@@ -40,6 +40,7 @@ private:
 	bool checkClose(int x, int y);
 	bool isWin(int x, int y);
 	bool checkCollisions();
+	void winLvl();
 	void executeQuery(Words *w1, Words *w2, Words *w3);
 
 	int moving; // 0 not moving, 1 Left, 2 Right, 3 Up, 4 Down

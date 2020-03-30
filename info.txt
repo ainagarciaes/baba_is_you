@@ -1,0 +1,53 @@
+Aina Garcia Espriu
+
+------------------------------------
+Funcionalitats implementades:
+
+> Game logic
+  - Noms:
+    - Baba
+    - Rock
+    - Key
+    - Door
+    - Flag
+  - Operadors
+    - Is -> afegeix una nova propietat a un objecte o canvia el tipus d'objecte
+    - Make -> a cada torn crea un nou objecte darrere del objecte 'creador'
+  - Propietats
+    - You
+    - Open -> parella del shut, quan entren en contacte desapareixen
+    - Shut
+    - Push
+    - Win
+
+> Mecànica extra
+Com ha mecànica extra he implementat cohets que es mouen de forma automàtica. En col·lisionar amb l'objecte playable, el nivell es perd i cal tornar-lo a començar (automaticament).
+
+> Efectes especials
+Musica de fons diferent en cada nivell, credits, menu principal... So al pulsar un dels botons del menú, al guanyar un nivell, al fer push d'objectes, quan es crea un de nou amb el 'make', quan col·lisionen cohets amb un objecte playable i soroll quan un objecte 'open' interacciona amb un 'shut'.
+
+> Animacions
+ - Animacions del baba idle i animacions quan camina (a simple vista es poden semblar bastant pero quan camina les potes s'obren més). 
+ - Animacions de les paraules idle amb dues versions, blanca quan mai ha format una frase i de color quan la ha format.
+ - Animacions idle dels objectes.
+ - Creació i animació dels sprites del cohet (mecànica extra).
+
+------------------------------------
+Instruccions:
+
+> Gameflow
+En obrir el joc es mostra el menú principal amb 3 opcions: 
+  - start game: al pulsar 1, comença la partida des del primer nivell. Els nivells poden ser tornats a començar pulsant R (es important que estigui en majúscula).
+  - instruccions: al pulsar 2 des del menu principal s'obre la pantalla d'instruccions. Al pulsar Return, es torna al menú principal.
+  - crèdits: al pulsar 3 es mostren els crèdits. Quan arriben al final tornen al menú principal, però es poden tallar en qualsevol moment pulsant Return. Al guanyar el 5e nivell també es mostren els crèdits.
+
+>Game
+  - You es l'objecte jugable
+  - Per guanyar cal tocar un objecte amb la propietat win o ser aquell objecte
+  - Make crea un objecte darrere teu cada cop que et mous
+  - Is + Obj canvia el tipus d'objecte sobre el qual es crida
+  - Is + Prop afegeix una nova propietat al objecte sobre el qual es crida
+  - Push significa que es pot emputxar l'objecte
+  - Si un objecte YOU xoca amb un cohet, perds
+  - Apreta R per reiniciar el nivell
+

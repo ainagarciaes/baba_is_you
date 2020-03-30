@@ -142,6 +142,22 @@
       "posy": 6
     },
     {
+      "posx":1,
+      "posy":6
+    },
+    {
+      "posx":2,
+      "posy":6
+    },
+    {
+      "posx":3,
+      "posy":6
+    },
+    {
+      "posx":4,
+      "posy":6
+    },
+    {
       "posx": 16,
       "posy": 0
     },

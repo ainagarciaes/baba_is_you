@@ -34,6 +34,8 @@ void Audio::init()
 	bindAudio("../music/make.wav", MAKE);
 	bindAudio("../music/door.wav", DOOR);
 	bindAudio("../music/menupress.wav", MENUPRESS);
+	bindAudio("../music/winning.wav", WINNING);
+
 }
 
 void Audio::bindAudio(const char * file, int i) {

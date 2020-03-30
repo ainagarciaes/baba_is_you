@@ -134,14 +134,14 @@ void LevelController::update(int deltaTime)
 	}
 
 	/* PRINT MAP DEBUG -> DELETE IT ON FINAL VERSION */
-	if (Game::instance().getKey(49)) {
+	/*if (Game::instance().getKey(49)) {
 		for (int j = 0; j < 15; j++) {
 			for (int i = 0; i < 20; i++) {
 				cout << obs_words_positions[j][i] << " ";
 			}
 			cout << endl;
 		}
-	}
+	}*/
 
 	for (int i = 0; i < rockets_left.size(); i++) {
 		glm::vec2 position = rockets_left[i]->getPosition();
@@ -526,12 +526,12 @@ void LevelController::processQueries() {
 }
 
 int LevelController::getNextScene() {
+
 	return nextScene;
 }
 
 void LevelController::updateNextScene() {
 
-	//check if there is a win condition, if so, set the next scene to whatever it has to
 }
 
 bool LevelController::isPlayable(string name) {
@@ -613,8 +613,9 @@ void LevelController::setProperty(string property, string object, bool value) {
 	} else if (property == "win") {
 		win[object]=value;
 		if (playable[object]) {
-			nextScene = level + 3;
-		}	
+			//winLvl();
+			nextScene = level+3;
+		}
 	}
 }
 //this function simply calls changeConn in words saying in which state the frase is
@@ -658,6 +659,9 @@ void LevelController::executeQuery(Words *w1, Words *w2, Words *w3){
 	}
 
 	if (n2 == "make") {
+		setConnected(w1,true);
+		setConnected(w2,true);
+		setConnected(w3,true);
 		for (int i = 0; i < 20; i++) {
 			for (int j = 0; j <15; j++) {
 				string idobj = obs_words_positions[j][i];
@@ -778,7 +782,14 @@ bool LevelController::isWin(int x, int y){
 	string name = m->getName();
 	bool b = win[name];
 	if (b) {
-		nextScene = level + 3; 
+		winLvl();
 	}
 	return b;
+}
+
+void LevelController::winLvl(){
+	cout << "win" << endl;
+	audiomanager->play(WINNING, false);
+	std::this_thread::sleep_for(1s);
+	nextScene = level + 3; 
 }
