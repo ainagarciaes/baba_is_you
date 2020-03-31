@@ -613,8 +613,8 @@ void LevelController::setProperty(string property, string object, bool value) {
 	} else if (property == "win") {
 		win[object]=value;
 		if (playable[object]) {
-			//winLvl();
-			nextScene = level+3;
+			winLvl();
+			//nextScene = level+3;
 		}
 	}
 }
@@ -789,7 +789,7 @@ bool LevelController::isWin(int x, int y){
 
 void LevelController::winLvl(){
 	cout << "win" << endl;
-	audiomanager->play(WINNING, false);
+	if (audiomanager) audiomanager->play(WINNING, false);
 	std::this_thread::sleep_for(1s);
 	nextScene = level + 3; 
 }

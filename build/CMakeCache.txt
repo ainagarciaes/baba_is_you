@@ -139,7 +139,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=tbe
+CMAKE_PROJECT_NAME:STATIC=tbeWindows
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -256,6 +256,12 @@ irrKlang:FILEPATH=irrKlang-NOTFOUND
 
 //Path to a library.
 nlohmann_json:FILEPATH=nlohmann_json-NOTFOUND
+
+//Value Computed by CMake
+tbeWindows_BINARY_DIR:STATIC=/home/auri/Documents/UNI/VJ/baba_is_you/build
+
+//Value Computed by CMake
+tbeWindows_SOURCE_DIR:STATIC=/home/auri/Documents/UNI/VJ/baba_is_you
 
 //Value Computed by CMake
 tbe_BINARY_DIR:STATIC=/home/auri/Documents/UNI/VJ/baba_is_you/build
